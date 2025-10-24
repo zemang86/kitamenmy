@@ -1,0 +1,1624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazman Hassan — AI Builder & Operator</title>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+    <meta name="description" content="Hazman Hassan: AI-first builder and operator. Co-founder Special Ops Sdn Bhd. Leading KITAMEN (esports), 1MiLabs (AI learning), Edventure.plus (edtech).">
+    <link rel="canonical" href="https://zemang.my/">
+    <meta property="og:title" content="Hazman Hassan — AI Builder & Operator">
+    <meta property="og:description" content="Building AI-powered products and cultural infrastructure at the intersection of technology and human experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zemang.my/">
+    <meta property="og:image" content="https://zemang.my/og-cover.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+	<!-- Add these missing social media tags -->
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="twitter:url" content="https://zemang.my/">
+<meta property="twitter:title" content="Hazman Hassan — AI Builder & Operator">
+<meta property="twitter:description" content="Building AI-powered products and cultural infrastructure at the intersection of technology and human experience.">
+<meta property="twitter:image" content="https://zemang.my/og-cover.jpg">
+<meta name="author" content="Hazman Hassan">
+<meta property="og:site_name" content="Hazman Hassan">
+<meta property="og:locale" content="en_US">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-green: #00ff41;
+            --accent-green-dim: #00cc33;
+            --border-color: #2a2a2a;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Canvas Background */
+        #hero-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+        }
+        
+        nav {
+            display: none;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+            }
+        }
+        
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--text-primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-green);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-header {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .cta-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 65, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+        
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        
+        .hero-text {
+            z-index: 2;
+        }
+        
+        .greeting {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-green);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .greeting-icon {
+            font-size: 1.5rem;
+            animation: wave 2s infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(20deg); }
+            75% { transform: rotate(-20deg); }
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .name-highlight {
+            color: var(--accent-green);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+        
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .image-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            max-width: 90vw;
+        }
+        
+        .hero-circle {
+            position: absolute;
+            inset: -20px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            opacity: 0.2;
+            filter: blur(40px);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+            border: 3px solid var(--bg-primary);
+        }
+        
+        .status-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 2px solid var(--accent-green);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 3;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        /* Specialization Strip */
+        .specialization-strip {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            padding: 1rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .strip-content {
+            display: flex;
+            animation: scroll 20s linear infinite;
+            gap: 4rem;
+            padding: 0 2rem;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .strip-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: var(--bg-secondary);
+        }
+        
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+        }
+        
+        .section-label {
+            color: var(--accent-green);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+        
+        .section-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-green);
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+        }
+        
+        .service-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .service-link {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+        
+        .service-link:hover {
+            gap: 1rem;
+        }
+        
+        /* Tools Section */
+        .tools {
+            padding: 5rem 2rem;
+            background: var(--bg-primary);
+        }
+        
+        /* Ventures Section */
+        .ventures {
+            padding: 5rem 2rem;
+            background: var(--bg-secondary);
+        }
+        
+        .ventures-grid {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .venture-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .venture-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+        }
+        
+        .venture-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .venture-url {
+            color: var(--accent-green);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Updated Tools Section Styles */
+    .tools {
+        padding: 5rem 2rem;
+        background: var(--bg-primary);
+    }
+    
+    .skill-legend {
+        display: flex;
+        gap: 1.5rem;
+        justify-content: center;
+        margin-top: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .legend-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.875rem;
+    }
+    
+    .legend-box {
+        width: 24px;
+        height: 24px;
+        border-radius: 12px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.75rem;
+        color: var(--bg-primary);
+    }
+    
+    .legend-box-s { background: #ff41ff; }
+    .legend-box-a { background: var(--accent-green); }
+    .legend-box-i { background: #41a0ff; }
+    .legend-box-b { background: #808080; }
+    
+    .tools-grid {
+        max-width: 1400px;
+        margin: 3rem auto 0;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        gap: 1rem;
+    }
+    
+    @media (max-width: 768px) {
+        .tools-grid {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .tools-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    .tool-card {
+        background: var(--bg-card);
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.25rem 1rem;
+        text-align: center;
+        transition: all 0.3s;
+        position: relative;
+        min-height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .tool-card:hover {
+        transform: translateY(-3px);
+        border-color: var(--accent-green);
+    }
+    
+    .tool-icon {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+        filter: grayscale(100%);
+        transition: filter 0.3s;
+    }
+    
+    .tool-card:hover .tool-icon {
+        filter: grayscale(0%);
+    }
+    
+    .tool-name {
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        font-size: 0.8rem;
+        line-height: 1.2;
+        text-align: center;
+    }
+    
+    .skill-level {
+        display: inline-block;
+        background: var(--accent-green);
+        color: var(--bg-primary);
+        font-size: 0.7rem;
+        padding: 0.15rem 0.5rem;
+        border-radius: 12px;
+        font-weight: 700;
+        min-width: 24px;
+        text-align: center;
+    }
+    
+    .skill-level-s { background: #ff41ff; }
+    .skill-level-a { background: var(--accent-green); }
+    .skill-level-i { background: #41a0ff; }
+    .skill-level-b { background: #808080; }
+        
+        /* Portfolio Section */
+        .portfolio {
+            padding: 5rem 2rem;
+            background: var(--bg-secondary);
+        }
+        
+        .portfolio-grid {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .portfolio-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-card:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            font-size: 0.75rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .portfolio-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .portfolio-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: var(--bg-primary);
+        }
+        
+        .about-content {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-photo {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+        
+        .about-photo:hover {
+            filter: grayscale(0%);
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: var(--bg-secondary);
+        }
+        
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-content h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-description {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-primary);
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-green);
+        }
+        
+        .copyright {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+           <a href="#hero" class="logo">
+    <span class="logo-dot"></span>
+    Hazman.
+</a>
+            <nav>
+    <a href="#services">Services</a>
+    <a href="#ventures">Ventures</a>
+    <a href="#portfolio">Projects</a>
+    <a href="#about">About Me</a>
+</nav>
+            <a href="mailto:hazman@kitamen.my" class="cta-header">Let's Talk</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <canvas id="hero-canvas"></canvas>
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="greeting">
+                    <span class="greeting-icon">👋</span>
+                    <span>Hello There!</span>
+                </div>
+                <h1>
+                    I'm <span class="name-highlight">Hazman Hassan</span>,<br>
+                    Architect turned AI Builder & Operator<br>
+                    based in Malaysia.
+                </h1>
+                <p class="hero-subtitle">Shaping the future of AI, Esports & Education</p>
+                <p class="hero-description">
+                    With a decade of experience, I’ve applied architectural rigor to building AI-first, esports, and education ventures — from the ground up and at scale.
+                </p>
+                <div class="button-group">
+                    <a href="#portfolio" class="btn-primary">View My Work</a>
+                    <a href="#contact" class="btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <div class="hero-circle"></div>
+                    <img src="https://framerusercontent.com/images/HtJJ5OHCEucfc6kNrJBGr7vK08.png?scale-down-to=1024" alt="Hazman Hassan" class="profile-image">
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Available for Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialization Strip -->
+    <div class="specialization-strip">
+        <div class="strip-content">
+            <div class="strip-item">⚡ AI Architecture</div>
+            <div class="strip-item">🎮 Esports Infrastructure</div>
+            <div class="strip-item">📚 Learning Systems</div>
+            <div class="strip-item">🚀 Product Strategy</div>
+            <div class="strip-item">⚡ AI Architecture</div>
+            <div class="strip-item">🎮 Esports Infrastructure</div>
+            <div class="strip-item">📚 Learning Systems</div>
+            <div class="strip-item">🚀 Product Strategy</div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <div class="section-label">
+                <span>My Specialization</span>
+            </div>
+            <h2>Services I Provide</h2>
+            <p class="section-description">Outcome-focused solutions that drive real business value</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3 class="service-title">AI/Automation Solutions</h3>
+                <p class="service-description">
+                    End-to-end AI adoption: from strategy to working automations. Expertise in OpenAI, RAG systems, and n8n workflows to unlock 10× efficiency.
+                </p>
+                <a href="#contact" class="service-link">Learn more →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎮</div>
+                <h3 class="service-title">Esports & Gaming</h3>
+                <p class="service-description">
+                    esigning cultural infrastructure for gaming: from esports venues and PlayPod deployments to tournament systems and community platforms that scale.
+                </p>
+                <a href="#contact" class="service-link">Learn more →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3 class="service-title">Product Strategy</h3>
+                <p class="service-description">
+                    From 0→1 ventures to enterprise pivots: product roadmaps, go-to-market plays, and growth engines built for measurable traction.
+                </p>
+                <a href="#contact" class="service-link">Learn more →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools" id="skills">
+    <div class="section-header">
+        <div class="section-label">
+            <span>Skills & Tools</span>
+        </div>
+        <h2>Technical Expertise</h2>
+        <div class="skill-legend">
+            <div class="legend-item">
+                <div class="legend-box legend-box-b">B</div>
+                <span>Basic</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box legend-box-i">I</div>
+                <span>Intermediate</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box legend-box-a">A</div>
+                <span>Advanced</span>
+            </div>
+            <div class="legend-item">
+                <div class="legend-box legend-box-s">S</div>
+                <span>Super</span>
+            </div>
+        </div>
+    </div>
+    <div class="tools-grid">
+        <!-- AI & Automation -->
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">🧠</div>
+                <div class="tool-name">OpenAI Platform</div>
+            </div>
+            <span class="skill-level skill-level-i">I</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">🤖</div>
+                <div class="tool-name">LLMs (ChatGPT, Gemini, Claude)</div>
+            </div>
+            <span class="skill-level skill-level-i">I</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">💻</div>
+                <div class="tool-name">Claude Code</div>
+            </div>
+            <span class="skill-level skill-level-i">I</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">⚡</div>
+                <div class="tool-name">Cursor</div>
+            </div>
+            <span class="skill-level skill-level-i">I</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">🔄</div>
+                <div class="tool-name">n8n Workflows</div>
+            </div>
+            <span class="skill-level skill-level-i">I</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">✨</div>
+                <div class="tool-name">AI Prompt Engineering</div>
+            </div>
+            <span class="skill-level skill-level-a">A</span>
+        </div>
+        <!-- Web & Product -->
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">🗄️</div>
+                <div class="tool-name">Supabase</div>
+            </div>
+            <span class="skill-level skill-level-b">B</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">🎨</div>
+                <div class="tool-name">Framer</div>
+            </div>
+            <span class="skill-level skill-level-i">I</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">📝</div>
+                <div class="tool-name">WordPress</div>
+            </div>
+            <span class="skill-level skill-level-i">I</span>
+        </div>
+        <!-- Design & Creative -->
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">🖼️</div>
+                <div class="tool-name">Adobe Photoshop</div>
+            </div>
+            <span class="skill-level skill-level-i">I</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">✏️</div>
+                <div class="tool-name">Adobe Illustrator</div>
+            </div>
+            <span class="skill-level skill-level-i">I</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">🎬</div>
+                <div class="tool-name">Adobe Premiere Pro</div>
+            </div>
+            <span class="skill-level skill-level-b">B</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">🎥</div>
+                <div class="tool-name">DaVinci Resolve</div>
+            </div>
+            <span class="skill-level skill-level-b">B</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">📐</div>
+                <div class="tool-name">AutoCAD</div>
+            </div>
+            <span class="skill-level skill-level-a">A</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">🏗️</div>
+                <div class="tool-name">SketchUp</div>
+            </div>
+            <span class="skill-level skill-level-a">A</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">📺</div>
+                <div class="tool-name">vMix (Broadcast/Overlay)</div>
+            </div>
+            <span class="skill-level skill-level-s">S</span>
+        </div>
+        <!-- Ops & Growth -->
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">📈</div>
+                <div class="tool-name">SEO / Growth Strategy</div>
+            </div>
+            <span class="skill-level skill-level-i">I</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">📄</div>
+                <div class="tool-name">Google Docs / Workspace</div>
+            </div>
+            <span class="skill-level skill-level-a">A</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">☁️</div>
+                <div class="tool-name">Google Cloud API</div>
+            </div>
+            <span class="skill-level skill-level-i">I</span>
+        </div>
+        <div class="tool-card">
+            <div>
+                <div class="tool-icon">📌</div>
+                <div class="tool-name">Notion</div>
+            </div>
+            <span class="skill-level skill-level-a">A</span>
+        </div>
+    </div>
+</section>
+
+    <!-- Ventures Section -->
+    <section class="ventures" id="ventures">
+        <div class="section-header">
+            <div class="section-label">
+                <span>My Ventures</span>
+            </div>
+            <h2>Companies & Projects</h2>
+            <p class="section-description">Building multiple ventures at the intersection of technology and culture</p>
+        </div>
+        <div class="ventures-grid">
+            <a href="https://www.kitamen.my" target="_blank" class="venture-card">
+                <div class="venture-name">KITAMEN</div>
+                <div class="venture-url">www.kitamen.my →</div>
+            </a>
+            <a href="https://www.1milabs.com" target="_blank" class="venture-card">
+                <div class="venture-name">1MiLabs</div>
+                <div class="venture-url">www.1milabs.com →</div>
+            </a>
+            <a href="https://www.specialops.co" target="_blank" class="venture-card">
+                <div class="venture-name">Special Ops</div>
+                <div class="venture-url">www.specialops.co →</div>
+            </a>
+            <a href="https://www.edventure.plus" target="_blank" class="venture-card">
+                <div class="venture-name">Edventure+</div>
+                <div class="venture-url">www.edventure.plus →</div>
+            </a>
+            <a href="https://www.halalgo.fun" target="_blank" class="venture-card">
+                <div class="venture-name">HalalGo Places</div>
+                <div class="venture-url">www.halalgo.fun →</div>
+            </a>
+            <a href="https://www.matchops.my" target="_blank" class="venture-card">
+                <div class="venture-name">MatchOps</div>
+                <div class="venture-url">www.matchops.my →</div>
+            </a>
+            <a href="https://www.eracing.my/display" target="_blank" class="venture-card">
+                <div class="venture-name">ERacing My</div>
+                <div class="venture-url">www.eracing.my →</div>
+            </a>
+        </div>
+    </section>
+	
+	<!-- Stats Section - Add this after the Ventures section -->
+<section class="stats-section" style="background: var(--bg-primary); padding: 3rem 2rem; border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
+    <div style="max-width: 1400px; margin: 0 auto;">
+        <div class="stats-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; text-align: center;">
+            <div class="stat-box">
+                <div class="stat-number" style="font-size: 2.5rem; font-weight: 700; color: var(--accent-green); margin-bottom: 0.5rem;">220+</div>
+                <div class="stat-label" style="color: var(--text-secondary); font-size: 0.95rem;">Esports Events Delivered</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" style="font-size: 2.5rem; font-weight: 700; color: var(--accent-green); margin-bottom: 0.5rem;">500+</div>
+                <div class="stat-label" style="color: var(--text-secondary); font-size: 0.95rem;">Professionals Trained in AI</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" style="font-size: 2.5rem; font-weight: 700; color: var(--accent-green); margin-bottom: 0.5rem;">RM 2M+</div>
+                <div class="stat-label" style="color: var(--text-secondary); font-size: 0.95rem;">Prize Pools Managed</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number" style="font-size: 2.5rem; font-weight: 700; color: var(--accent-green); margin-bottom: 0.5rem;">7</div>
+                <div class="stat-label" style="color: var(--text-secondary); font-size: 0.95rem;">Ventures Launched</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="section-header">
+            <div class="section-label">
+                <span>Portfolio</span>
+            </div>
+            <h2>Recent Projects</h2>
+            <p class="section-description">A selection of my recent work and ventures</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=200&fit=crop" alt="KITAMEN" class="portfolio-image">
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">Esports</span>
+                        <span class="tag">Infrastructure</span>
+                    </div>
+                    <h3 class="portfolio-title">KITAMEN - Esports Hub</h3>
+                    <p class="portfolio-description">
+                        Building Malaysia's premier esports infrastructure with gaming lounges, 
+                        tournament systems, and community platforms.
+                    </p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=200&fit=crop" alt="1MiLabs" class="portfolio-image">
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">Training</span>
+                    </div>
+                    <h3 class="portfolio-title">1MiLabs - AI Training</h3>
+                    <p class="portfolio-description">
+                        Phenomenon-based AI bootcamps helping teams implement practical 
+                        AI solutions in their workflows.
+                    </p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop" alt="Sora LMS" class="portfolio-image">
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">EdTech</span>
+                        <span class="tag">AI</span>
+                    </div>
+                    <h3 class="portfolio-title">Sora - Adaptive LMS</h3>
+                    <p class="portfolio-description">
+                        Next-generation learning management system with AI avatars 
+                        and personalized learning paths.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-header">
+            <div class="section-label">
+                <span>About Me</span>
+            </div>
+            <h2>Who is Hazman Hassan?</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://framerusercontent.com/images/HtJJ5OHCEucfc6kNrJBGr7vK08.png?scale-down-to=1024" alt="Hazman Hassan" class="about-photo">
+            </div>
+            <div class="about-text">
+                <h3>Building at the intersection of AI & Culture</h3>
+                <p>
+                    Trained as an architect, I’ve spent the last decade building at the intersection of AI, esports, and learning—designing systems that change how people work, learn, and play
+                </p>
+                <p>
+                    As co-founder of Special Ops Sdn Bhd and operator of ventures like KITAMEN, 1MiLabs, and Edventure+, I focus on turning ideas into scalable solutions that deliver measurable outcomes.
+                </p>
+                <p>
+                    My approach blends design thinking from architecture with hands-on technical execution, helping organizations adopt AI and esports strategies that create lasting impact.
+                </p>
+<p>
+Beyond work, I explore how culture, gaming, and technology can create new forms of community.
+				</p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <div class="section-label" style="justify-content: center;">
+                <span>Get In Touch</span>
+            </div>
+            <h2>Let's Build Something Amazing</h2>
+            <p class="contact-description">
+                Ready to transform your ideas into reality? I'm always excited to work on 
+                innovative projects that push boundaries and create real impact.
+            </p>
+            <div class="contact-buttons">
+                <a href="mailto:hazman@kitamen.my" class="btn-primary">Send Me an Email</a>
+                <a href="https://www.linkedin.com/in/hazmanhassan" class="btn-secondary">LinkedIn Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                © 2025 Hazman Hassan. All rights reserved.
+            </div>
+            <div class="footer-links">
+                <a href="https://linkedin.com/in/hazmanhassan">LinkedIn</a>
+                <a href="https://www.instagram.com/zemang86">Instagram</a>
+                <a href="https://kitamen.my">KITAMEN</a>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Shader Background Script -->
+    <script>
+        // Initialize WebGL for hero background
+        const canvas = document.getElementById('hero-canvas');
+        const gl = canvas.getContext('webgl');
+        
+        if (!gl) {
+            console.log('WebGL not supported, falling back to standard background');
+        } else {
+            // Vertex shader program
+            const vsSource = `
+                attribute vec4 aVertexPosition;
+                void main() {
+                    gl_Position = aVertexPosition;
+                }
+            `;
+            
+            // Fragment shader program
+            const fsSource = `
+                precision highp float;
+                uniform vec2 iResolution;
+                uniform float iTime;
+                
+                const float overallSpeed = 0.2;
+                const float gridSmoothWidth = 0.015;
+                const float axisWidth = 0.05;
+                const float majorLineWidth = 0.025;
+                const float minorLineWidth = 0.0125;
+                const float majorLineFrequency = 5.0;
+                const float minorLineFrequency = 1.0;
+                const vec4 gridColor = vec4(0.5);
+                const float scale = 5.0;
+                const vec4 lineColor = vec4(0.4, 0.2, 0.8, 1.0);
+                const float minLineWidth = 0.01;
+                const float maxLineWidth = 0.2;
+                const float lineSpeed = 1.0 * overallSpeed;
+                const float lineAmplitude = 1.0;
+                const float lineFrequency = 0.2;
+                const float warpSpeed = 0.2 * overallSpeed;
+                const float warpFrequency = 0.5;
+                const float warpAmplitude = 1.0;
+                const float offsetFrequency = 0.5;
+                const float offsetSpeed = 1.33 * overallSpeed;
+                const float minOffsetSpread = 0.6;
+                const float maxOffsetSpread = 2.0;
+                const int linesPerGroup = 16;
+                
+                #define drawCircle(pos, radius, coord) smoothstep(radius + gridSmoothWidth, radius, length(coord - (pos)))
+                #define drawSmoothLine(pos, halfWidth, t) smoothstep(halfWidth, 0.0, abs(pos - (t)))
+                #define drawCrispLine(pos, halfWidth, t) smoothstep(halfWidth + gridSmoothWidth, halfWidth, abs(pos - (t)))
+                #define drawPeriodicLine(freq, width, t) drawCrispLine(freq / 2.0, width, abs(mod(t, freq) - (freq) / 2.0))
+                
+                float drawGridLines(float axis) {
+                    return drawCrispLine(0.0, axisWidth, axis)
+                          + drawPeriodicLine(majorLineFrequency, majorLineWidth, axis)
+                          + drawPeriodicLine(minorLineFrequency, minorLineWidth, axis);
+                }
+                
+                float drawGrid(vec2 space) {
+                    return min(1.0, drawGridLines(space.x) + drawGridLines(space.y));
+                }
+                
+                float random(float t) {
+                    return (cos(t) + cos(t * 1.3 + 1.3) + cos(t * 1.4 + 1.4)) / 3.0;   
+                }
+                
+                float getPlasmaY(float x, float horizontalFade, float offset) {
+                    return random(x * lineFrequency + iTime * lineSpeed) * horizontalFade * lineAmplitude + offset;
+                }
+                
+                void main() {
+                    vec2 fragCoord = gl_FragCoord.xy;
+                    vec4 fragColor;
+                    
+                    vec2 uv = fragCoord.xy / iResolution.xy;
+                    vec2 space = (fragCoord - iResolution.xy / 2.0) / iResolution.x * 2.0 * scale;
+                    
+                    float horizontalFade = 1.0 - (cos(uv.x * 6.28) * 0.5 + 0.5);
+                    float verticalFade = 1.0 - (cos(uv.y * 6.28) * 0.5 + 0.5);
+                
+                    space.y += random(space.x * warpFrequency + iTime * warpSpeed) * warpAmplitude * (0.5 + horizontalFade);
+                    space.x += random(space.y * warpFrequency + iTime * warpSpeed + 2.0) * warpAmplitude * horizontalFade;
+                    
+                    vec4 lines = vec4(0.0);
+                    vec4 bgColor1 = vec4(0.1, 0.1, 0.3, 1.0);
+                    vec4 bgColor2 = vec4(0.3, 0.1, 0.5, 1.0);
+                    
+                    for(int l = 0; l < linesPerGroup; l++) {
+                        float normalizedLineIndex = float(l) / float(linesPerGroup);
+                        float offsetTime = iTime * offsetSpeed;
+                        float offsetPosition = float(l) + space.x * offsetFrequency;
+                        float rand = random(offsetPosition + offsetTime) * 0.5 + 0.5;
+                        float halfWidth = mix(minLineWidth, maxLineWidth, rand * horizontalFade) / 2.0;
+                        float offset = random(offsetPosition + offsetTime * (1.0 + normalizedLineIndex)) * mix(minOffsetSpread, maxOffsetSpread, horizontalFade);
+                        float linePosition = getPlasmaY(space.x, horizontalFade, offset);
+                        float line = drawSmoothLine(linePosition, halfWidth, space.y) / 2.0 + drawCrispLine(linePosition, halfWidth * 0.15, space.y);
+                        
+                        float circleX = mod(float(l) + iTime * lineSpeed, 25.0) - 12.0;
+                        vec2 circlePosition = vec2(circleX, getPlasmaY(circleX, horizontalFade, offset));
+                        float circle = drawCircle(circlePosition, 0.01, space) * 4.0;
+                        
+                        line = line + circle;
+                        lines += line * lineColor * rand;
+                    }
+                    
+                    fragColor = mix(bgColor1, bgColor2, uv.x);
+                    fragColor *= verticalFade;
+                    fragColor.a = 1.0;
+                    fragColor += lines;
+                    
+                    gl_FragColor = fragColor;
+                }
+            `;
+            
+            // Initialize shaders
+            function initShaderProgram(gl, vsSource, fsSource) {
+                const vertexShader = loadShader(gl, gl.VERTEX_SHADER, vsSource);
+                const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, fsSource);
+                
+                const shaderProgram = gl.createProgram();
+                gl.attachShader(shaderProgram, vertexShader);
+                gl.attachShader(shaderProgram, fragmentShader);
+                gl.linkProgram(shaderProgram);
+                
+                if (!gl.getProgramParameter(shaderProgram, gl.LINK_STATUS)) {
+                    console.error('Unable to initialize the shader program: ' + gl.getProgramInfoLog(shaderProgram));
+                    return null;
+                }
+                
+                return shaderProgram;
+            }
+            
+            function loadShader(gl, type, source) {
+                const shader = gl.createShader(type);
+                gl.shaderSource(shader, source);
+                gl.compileShader(shader);
+                
+                if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                    console.error('An error occurred compiling the shaders: ' + gl.getShaderInfoLog(shader));
+                    gl.deleteShader(shader);
+                    return null;
+                }
+                
+                return shader;
+            }
+            
+            // Create shader program
+            const shaderProgram = initShaderProgram(gl, vsSource, fsSource);
+            
+            // Setup geometry
+            const positionBuffer = gl.createBuffer();
+            gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+            const positions = [
+                -1.0, -1.0,
+                 1.0, -1.0,
+                -1.0,  1.0,
+                 1.0,  1.0,
+            ];
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+            
+            // Setup attributes and uniforms
+            const programInfo = {
+                program: shaderProgram,
+                attribLocations: {
+                    vertexPosition: gl.getAttribLocation(shaderProgram, 'aVertexPosition'),
+                },
+                uniformLocations: {
+                    resolution: gl.getUniformLocation(shaderProgram, 'iResolution'),
+                    time: gl.getUniformLocation(shaderProgram, 'iTime'),
+                },
+            };
+            
+            // Resize canvas
+            function resizeCanvas() {
+                const heroSection = document.querySelector('.hero');
+                canvas.width = heroSection.offsetWidth;
+                canvas.height = heroSection.offsetHeight;
+                gl.viewport(0, 0, canvas.width, canvas.height);
+            }
+            
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+            
+            // Animation loop
+            let startTime = Date.now();
+            function render() {
+                const currentTime = (Date.now() - startTime) / 1000;
+                
+                gl.clearColor(0.0, 0.0, 0.0, 1.0);
+                gl.clear(gl.COLOR_BUFFER_BIT);
+                
+                gl.useProgram(programInfo.program);
+                
+                gl.uniform2f(programInfo.uniformLocations.resolution, canvas.width, canvas.height);
+                gl.uniform1f(programInfo.uniformLocations.time, currentTime);
+                
+                gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+                gl.vertexAttribPointer(
+                    programInfo.attribLocations.vertexPosition,
+                    2,
+                    gl.FLOAT,
+                    false,
+                    0,
+                    0
+                );
+                gl.enableVertexAttribArray(programInfo.attribLocations.vertexPosition);
+                
+                gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+                
+                requestAnimationFrame(render);
+            }
+            
+            requestAnimationFrame(render);
+        }
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+	<!-- Optional: Animated counter effect -->
+<script>
+    // Animate numbers when they come into view
+    const observerOptions = {
+        threshold: 0.5
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const statNumbers = entry.target.querySelectorAll('.stat-number');
+                statNumbers.forEach(stat => {
+                    const originalText = stat.innerText;
+                    let target, prefix = '', suffix = '';
+                    
+                    // Handle different formats
+                    if (originalText.includes('RM')) {
+                        prefix = 'RM ';
+                        target = parseInt(originalText.replace(/[^0-9]/g, '')) * 1000000; // Convert M to actual number
+                        suffix = '+';
+                    } else {
+                        target = parseInt(originalText.replace(/[^0-9]/g, ''));
+                        suffix = originalText.includes('+') ? '+' : '';
+                    }
+                    
+                    let current = 0;
+                    const increment = target / 50;
+                    const timer = setInterval(() => {
+                        current += increment;
+                        if (current >= target) {
+                            if (prefix === 'RM ') {
+                                stat.innerText = 'RM 2M+'; // Keep it simple
+                            } else {
+                                stat.innerText = target + suffix;
+                            }
+                            clearInterval(timer);
+                        } else {
+                            if (prefix === 'RM ') {
+                                const millions = (current / 1000000).toFixed(1);
+                                stat.innerText = prefix + millions + 'M';
+                            } else {
+                                stat.innerText = Math.floor(current);
+                            }
+                        }
+                    }, 30);
+                });
+                observer.unobserve(entry.target);
+            }
+        });
+    });
+    
+    // Start observing when page loads
+    document.addEventListener('DOMContentLoaded', () => {
+        const statsSection = document.querySelector('.stats-section');
+        if (statsSection) {
+            observer.observe(statsSection);
+        }
+    });
+</script>
+</body>
+</html>

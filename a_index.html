@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hazman Hassan — AI Builder & Operator</title>
+    <meta name="description" content="Hazman Hassan: AI-first builder and operator. Co-founder Special Ops Sdn Bhd. Leading KITAMEN (esports), 1MiLabs (AI learning), Edventure.plus (edtech).">
+    <link rel="canonical" href="https://zemang.my/">
+    <meta property="og:title" content="Hazman Hassan — AI Builder & Operator">
+    <meta property="og:description" content="Building AI-powered products and cultural infrastructure at the intersection of technology and human experience.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://zemang.my/">
+    <meta property="og:image" content="https://zemang.my/og-cover.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #111111;
+            --bg-card: #1a1a1a;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent-green: #00ff41;
+            --accent-green-dim: #00cc33;
+            --border-color: #2a2a2a;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .logo-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.2); }
+        }
+        
+        nav {
+            display: none;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            nav {
+                display: flex;
+            }
+        }
+        
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        nav a:hover {
+            color: var(--text-primary);
+        }
+        
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--accent-green);
+            transition: width 0.3s;
+        }
+        
+        nav a:hover::after {
+            width: 100%;
+        }
+        
+        .cta-header {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .cta-header:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0, 255, 65, 0.3);
+        }
+        
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+        
+        .hero-text {
+            z-index: 2;
+        }
+        
+        .greeting {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-green);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .greeting-icon {
+            font-size: 1.5rem;
+            animation: wave 2s infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(20deg); }
+            75% { transform: rotate(-20deg); }
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+        
+        .name-highlight {
+            color: var(--accent-green);
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+        
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 255, 65, 0.4);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            padding: 0.8rem 2rem;
+            border: 2px solid var(--border-color);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--accent-green);
+            color: var(--accent-green);
+        }
+        
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .image-container {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            max-width: 90vw;
+        }
+        
+        .hero-circle {
+            position: absolute;
+            inset: -20px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            opacity: 0.2;
+            filter: blur(40px);
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            position: relative;
+            z-index: 2;
+            border: 3px solid var(--bg-primary);
+        }
+        
+        .status-badge {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: var(--bg-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: 2px solid var(--accent-green);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            z-index: 3;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--accent-green);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+        
+        .status-text {
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+        
+        /* Specialization Strip */
+        .specialization-strip {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            padding: 1rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .strip-content {
+            display: flex;
+            animation: scroll 20s linear infinite;
+            gap: 4rem;
+            padding: 0 2rem;
+        }
+        
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        
+        .strip-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+        
+        /* Services Section */
+        .services {
+            padding: 5rem 2rem;
+            background: var(--bg-secondary);
+        }
+        
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 3rem;
+        }
+        
+        .section-label {
+            color: var(--accent-green);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+        }
+        
+        .section-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+        }
+        
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .service-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            padding: 2.5rem;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--accent-green);
+            transform: translateX(-100%);
+            transition: transform 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+        }
+        
+        .service-card:hover::before {
+            transform: translateX(0);
+        }
+        
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-description {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .service-link {
+            color: var(--accent-green);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+        
+        .service-link:hover {
+            gap: 1rem;
+        }
+        
+        /* Tools Section */
+        .tools {
+            padding: 5rem 2rem;
+            background: var(--bg-primary);
+        }
+        
+        /* Ventures Section */
+        .ventures {
+            padding: 5rem 2rem;
+            background: var(--bg-secondary);
+        }
+        
+        .ventures-grid {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .venture-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 1.5rem;
+            transition: all 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .venture-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+        }
+        
+        .venture-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+        
+        .venture-url {
+            color: var(--accent-green);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        /* Tools Section moved */
+        .tools {
+            padding: 5rem 2rem;
+            background: var(--bg-primary);
+        }
+        
+        .tools-grid {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .tool-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+        }
+        
+        .tool-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+        }
+        
+        .tool-icon {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+        
+        .tool-card:hover .tool-icon {
+            filter: grayscale(0%);
+        }
+        
+        .tool-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .skill-level {
+            display: inline-block;
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            font-size: 0.75rem;
+            padding: 0.2rem 0.6rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        /* Portfolio Section */
+        .portfolio {
+            padding: 5rem 2rem;
+            background: var(--bg-secondary);
+        }
+        
+        .portfolio-grid {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .portfolio-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.3s;
+            position: relative;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent-green);
+        }
+        
+        .portfolio-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+        
+        .portfolio-card:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-content {
+            padding: 2rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .portfolio-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .tag {
+            background: var(--accent-green);
+            color: var(--bg-primary);
+            font-size: 0.75rem;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+        
+        .portfolio-title {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .portfolio-description {
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* About Section */
+        .about {
+            padding: 5rem 2rem;
+            background: var(--bg-primary);
+        }
+        
+        .about-content {
+            max-width: 1400px;
+            margin: 3rem auto 0;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+        
+        @media (max-width: 768px) {
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .about-image {
+            position: relative;
+        }
+        
+        .about-photo {
+            width: 100%;
+            max-width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            filter: grayscale(100%);
+            transition: filter 0.3s;
+        }
+        
+        .about-photo:hover {
+            filter: grayscale(0%);
+        }
+        
+        .about-text h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-text p {
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-green);
+        }
+        
+        .stat-label {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 5rem 2rem;
+            background: var(--bg-secondary);
+        }
+        
+        .contact-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-content h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-description {
+            color: var(--text-secondary);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .contact-buttons {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--bg-primary);
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: var(--accent-green);
+        }
+        
+        .copyright {
+            color: var(--text-secondary);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">
+                <span class="logo-dot"></span>
+                Hazman.
+            </a>
+            <nav>
+                <a href="#services">Services</a>
+                <a href="#portfolio">Projects</a>
+                <a href="#about">About Me</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <a href="mailto:hazman@kitamen.my" class="cta-header">Let's Talk</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="greeting">
+                    <span class="greeting-icon">👋</span>
+                    <span>Hello There!</span>
+                </div>
+                <h1>
+                    I'm <span class="name-highlight">Hazman Hassan</span>,<br>
+                    AI Builder & Operator<br>
+                    based in Malaysia.
+                </h1>
+                <p class="hero-subtitle">Building the future of AI, Esports & Education</p>
+                <p class="hero-description">
+                    I'm an experienced AI architect and operator with 10+ years in the field, 
+                    collaborating with various companies and startups to build transformative products.
+                </p>
+                <div class="button-group">
+                    <a href="#portfolio" class="btn-primary">View My Work</a>
+                    <a href="#contact" class="btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-container">
+                    <div class="hero-circle"></div>
+                    <img src="https://framerusercontent.com/images/HtJJ5OHCEucfc6kNrJBGr7vK08.png?scale-down-to=1024" alt="Hazman Hassan" class="profile-image">
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span class="status-text">Available for Projects</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Specialization Strip -->
+    <div class="specialization-strip">
+        <div class="strip-content">
+            <div class="strip-item">⚡ AI Architecture</div>
+            <div class="strip-item">🎮 Esports Infrastructure</div>
+            <div class="strip-item">📚 Learning Systems</div>
+            <div class="strip-item">🚀 Product Strategy</div>
+            <div class="strip-item">⚡ AI Architecture</div>
+            <div class="strip-item">🎮 Esports Infrastructure</div>
+            <div class="strip-item">📚 Learning Systems</div>
+            <div class="strip-item">🚀 Product Strategy</div>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header">
+            <div class="section-label">
+                <span>✨</span>
+                <span>My Specialization</span>
+            </div>
+            <h2>Services I Provide</h2>
+            <p class="section-description">Outcome-focused solutions that drive real business value</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">🤖</div>
+                <h3 class="service-title">AI/Automation Solutions</h3>
+                <p class="service-description">
+                    End-to-end AI implementation from strategy to deployment. 
+                    Specializing in OpenAI, RAG systems, and workflow automation.
+                </p>
+                <a href="#contact" class="service-link">Learn more →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">🎮</div>
+                <h3 class="service-title">Esports & Gaming</h3>
+                <p class="service-description">
+                    Building cultural infrastructure through esports venues, 
+                    tournament systems, and community platforms.
+                </p>
+                <a href="#contact" class="service-link">Learn more →</a>
+            </div>
+            <div class="service-card">
+                <div class="service-icon">📊</div>
+                <h3 class="service-title">Product Strategy</h3>
+                <p class="service-description">
+                    From 0→1 product development, go-to-market strategies, 
+                    and growth systems for startups and enterprises.
+                </p>
+                <a href="#contact" class="service-link">Learn more →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools">
+        <div class="section-header">
+            <div class="section-label">
+                <span>🛠️</span>
+                <span>My Favorite Tools</span>
+            </div>
+            <h2>Tech Stack & Expertise</h2>
+        </div>
+        <div class="tools-grid">
+            <div class="tool-card">
+                <div class="tool-icon">🧠</div>
+                <div class="tool-name">OpenAI</div>
+                <span class="skill-level">95%</span>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">⚛️</div>
+                <div class="tool-name">React/Next.js</div>
+                <span class="skill-level">90%</span>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">🔄</div>
+                <div class="tool-name">n8n</div>
+                <span class="skill-level">95%</span>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">🎨</div>
+                <div class="tool-name">Figma</div>
+                <span class="skill-level">85%</span>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">🗄️</div>
+                <div class="tool-name">Supabase</div>
+                <span class="skill-level">90%</span>
+            </div>
+            <div class="tool-card">
+                <div class="tool-icon">📈</div>
+                <div class="tool-name">SEO/Growth</div>
+                <span class="skill-level">95%</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ventures Section -->
+    <section class="ventures">
+        <div class="section-header">
+            <div class="section-label">
+                <span>🚀</span>
+                <span>My Ventures</span>
+            </div>
+            <h2>Companies & Projects</h2>
+            <p class="section-description">Building multiple ventures at the intersection of technology and culture</p>
+        </div>
+        <div class="ventures-grid">
+            <a href="https://www.kitamen.my" target="_blank" class="venture-card">
+                <div class="venture-name">KITAMEN</div>
+                <div class="venture-url">www.kitamen.my →</div>
+            </a>
+            <a href="https://www.1milabs.com" target="_blank" class="venture-card">
+                <div class="venture-name">1MiLabs</div>
+                <div class="venture-url">www.1milabs.com →</div>
+            </a>
+            <a href="https://www.specialops.co" target="_blank" class="venture-card">
+                <div class="venture-name">Special Ops</div>
+                <div class="venture-url">www.specialops.co →</div>
+            </a>
+            <a href="https://www.edventure.plus" target="_blank" class="venture-card">
+                <div class="venture-name">Edventure+</div>
+                <div class="venture-url">www.edventure.plus →</div>
+            </a>
+            <a href="https://www.halalgo.fun" target="_blank" class="venture-card">
+                <div class="venture-name">HalalGo Places</div>
+                <div class="venture-url">www.halalgo.fun →</div>
+            </a>
+            <a href="https://www.matchops.my" target="_blank" class="venture-card">
+                <div class="venture-name">MatchOps</div>
+                <div class="venture-url">www.matchops.my →</div>
+            </a>
+            <a href="https://www.eracing.my" target="_blank" class="venture-card">
+                <div class="venture-name">ERacing My</div>
+                <div class="venture-url">www.eracing.my →</div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section class="portfolio" id="portfolio">
+        <div class="section-header">
+            <div class="section-label">
+                <span>💼</span>
+                <span>Portfolio</span>
+            </div>
+            <h2>Recent Projects</h2>
+            <p class="section-description">A selection of my recent work and ventures</p>
+        </div>
+        <div class="portfolio-grid">
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=400&h=200&fit=crop" alt="KITAMEN" class="portfolio-image">
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">Esports</span>
+                        <span class="tag">Infrastructure</span>
+                    </div>
+                    <h3 class="portfolio-title">KITAMEN - Esports Hub</h3>
+                    <p class="portfolio-description">
+                        Building Malaysia's premier esports infrastructure with gaming lounges, 
+                        tournament systems, and community platforms.
+                    </p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=200&fit=crop" alt="1MiLabs" class="portfolio-image">
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">Training</span>
+                    </div>
+                    <h3 class="portfolio-title">1MiLabs - AI Training</h3>
+                    <p class="portfolio-description">
+                        Phenomenon-based AI bootcamps helping teams implement practical 
+                        AI solutions in their workflows.
+                    </p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=400&h=200&fit=crop" alt="Sora LMS" class="portfolio-image">
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">EdTech</span>
+                        <span class="tag">AI</span>
+                    </div>
+                    <h3 class="portfolio-title">Sora - Adaptive LMS</h3>
+                    <p class="portfolio-description">
+                        Next-generation learning management system with AI avatars 
+                        and personalized learning paths.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-header">
+            <div class="section-label">
+                <span>👨‍💻</span>
+                <span>About Me</span>
+            </div>
+            <h2>Who is Hazman Hassan?</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="https://framerusercontent.com/images/HtJJ5OHCEucfc6kNrJBGr7vK08.png?scale-down-to=1024" alt="Hazman Hassan" class="about-photo">
+            </div>
+            <div class="about-text">
+                <h3>Building at the intersection of AI & Culture</h3>
+                <p>
+                    With over a decade of experience in technology and entrepreneurship, 
+                    I specialize in building AI-powered products that transform how people 
+                    work, learn, and play.
+                </p>
+                <p>
+                    As co-founder of Special Ops Sdn Bhd and leader of multiple ventures 
+                    including KITAMEN, 1MiLabs, and Edventure.plus, I focus on creating 
+                    practical solutions that deliver real business outcomes.
+                </p>
+                <p>
+                    My approach combines deep technical expertise with strategic thinking, 
+                    helping organizations navigate the AI revolution while building sustainable 
+                    competitive advantages.
+                </p>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">Projects Completed</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years Experience</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">100+</div>
+                        <div class="stat-label">Happy Clients</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-content">
+            <div class="section-label" style="justify-content: center;">
+                <span>📬</span>
+                <span>Get In Touch</span>
+            </div>
+            <h2>Let's Build Something Amazing</h2>
+            <p class="contact-description">
+                Ready to transform your ideas into reality? I'm always excited to work on 
+                innovative projects that push boundaries and create real impact.
+            </p>
+            <div class="contact-buttons">
+                <a href="mailto:hazman@kitamen.my" class="btn-primary">Send Me an Email</a>
+                <a href="https://www.linkedin.com/in/hazmanhassan" class="btn-secondary">LinkedIn Profile</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="copyright">
+                © 2025 Hazman Hassan. All rights reserved.
+            </div>
+            <div class="footer-links">
+                <a href="https://linkedin.com/in/hazmanhassan">LinkedIn</a>
+                <a href="https://www.instagram.com/zemang86">Instagram</a>
+                <a href="https://kitamen.my">KITAMEN</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

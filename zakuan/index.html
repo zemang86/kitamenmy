@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zakuan Architect | Innovative Architecture & Design Studio</title>
+    
+    <!-- Modern Architectural Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@200;300;400;500;600;700;900&family=Space+Grotesk:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #0a0a0a;
+            --accent: #ff3b00;
+            --light: #ffffff;
+            --gray: #888888;
+            --dark-gray: #1a1a1a;
+            --bg-dark: #050505;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--light);
+            overflow-x: hidden;
+            cursor: default;
+        }
+
+        /* Custom Cursor - Desktop Only */
+        @media (min-width: 1024px) {
+            .cursor {
+                width: 40px;
+                height: 40px;
+                border: 2px solid var(--accent);
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                transition: all 0.1s ease;
+                z-index: 9999;
+                mix-blend-mode: difference;
+            }
+
+            .cursor-follower {
+                width: 8px;
+                height: 8px;
+                background: var(--accent);
+                border-radius: 50%;
+                position: fixed;
+                pointer-events: none;
+                z-index: 9999;
+            }
+        }
+
+        /* Loading Screen */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: var(--primary);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 1s ease, visibility 1s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader-content {
+            text-align: center;
+        }
+
+        .loader-line {
+            width: 200px;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.1);
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loader-line::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            animation: loadLine 2s ease-in-out infinite;
+        }
+
+        @keyframes loadLine {
+            0% { left: -100%; }
+            50% { left: 100%; }
+            100% { left: 100%; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px);
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        nav.scrolled {
+            padding: 1rem 2rem;
+            background: rgba(10, 10, 10, 0.95);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2rem;
+            letter-spacing: 2px;
+            color: var(--light);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .logo::after {
+            content: '®';
+            position: absolute;
+            top: 0;
+            right: -15px;
+            font-size: 0.6rem;
+            font-family: 'Inter', sans-serif;
+            font-weight: 300;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-menu a {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--light);
+            text-decoration: none;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        .nav-menu a:hover::after {
+            width: 100%;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 4px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 2px;
+            background: var(--light);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .mobile-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -6px);
+        }
+
+        /* Hero Section with Architectural Grid */
+        .hero {
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, var(--primary) 0%, var(--dark-gray) 100%);
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        /* 3D Grid Animation - Subtle */
+        .grid-3d {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            perspective: 1000px;
+            opacity: 0.15;
+        }
+
+        .grid-plane {
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
+            transform: rotateX(60deg) rotateZ(45deg);
+            background-image: 
+                linear-gradient(var(--accent) 1px, transparent 1px),
+                linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+            background-size: 50px 50px;
+            animation: gridMove 30s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: rotateX(60deg) rotateZ(45deg) translate(0, 0); }
+            100% { transform: rotateX(60deg) rotateZ(45deg) translate(50px, 50px); }
+        }
+
+        /* Floating Blueprint Elements - Minimized */
+        .blueprint-element {
+            position: absolute;
+            border: 1px solid rgba(255, 59, 0, 0.2);
+            background: rgba(255, 59, 0, 0.01);
+        }
+
+        .blueprint-1 {
+            width: 150px;
+            height: 150px;
+            top: 15%;
+            left: 10%;
+            transform: rotate(45deg);
+            animation: float1 20s ease-in-out infinite;
+        }
+
+        .blueprint-2 {
+            width: 100px;
+            height: 200px;
+            bottom: 25%;
+            right: 15%;
+            animation: float2 25s ease-in-out infinite;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: rotate(45deg) translateY(0); }
+            50% { transform: rotate(45deg) translateY(-20px); }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translateX(0) rotate(0deg); }
+            50% { transform: translateX(20px) rotate(5deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 1200px;
+            padding: 0 2rem;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border: 1px solid var(--accent);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-badge::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--accent);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .hero-badge:hover {
+            color: var(--primary);
+        }
+
+        .hero-badge:hover::before {
+            left: 0;
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3.5rem, 9vw, 7rem);
+            line-height: 0.9;
+            letter-spacing: -2px;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .hero-title span {
+            display: block;
+            overflow: hidden;
+        }
+
+        .hero-title .line {
+            display: inline-block;
+            animation: slideUp 1s ease-out;
+        }
+
+        @keyframes slideUp {
+            0% {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .hero-subtitle {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 300;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            letter-spacing: 1px;
+        }
+
+        .hero-cta {
+            display: inline-flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 1rem 2.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: var(--light);
+            border: none;
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--light);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        /* Featured Projects Section */
+        .projects {
+            padding: 6rem 0;
+            background: var(--bg-dark);
+            position: relative;
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .section-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1rem;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        /* Project Cards - Refined */
+        .project-showcase {
+            position: relative;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+
+        /* Parallax Background for Projects */
+        .project-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.05;
+            background-image: url('https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1920&q=80');
+            background-attachment: fixed;
+            background-position: center;
+            background-size: cover;
+            z-index: 0;
+        }
+
+        .project-card {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .project-card.reverse {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .project-card.reverse .project-image-container {
+            order: 2;
+        }
+
+        .project-card.reverse .project-info {
+            order: 1;
+        }
+
+        .project-image-container {
+            position: relative;
+            overflow: hidden;
+            height: 500px;
+            border-radius: 4px;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-image-container:hover .project-image {
+            transform: scale(1.05);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 50%, rgba(10, 10, 10, 0.7) 100%);
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .project-image-container:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-info {
+            padding: 2rem 0;
+        }
+
+        .project-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(5rem, 8vw, 7rem);
+            line-height: 1;
+            color: rgba(255, 59, 0, 0.15);
+            margin-bottom: -2rem;
+        }
+
+        .project-name {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2rem, 4vw, 3rem);
+            letter-spacing: -1px;
+            margin-bottom: 1rem;
+        }
+
+        .project-details {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .detail-item {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .detail-label {
+            font-size: 0.75rem;
+            color: var(--gray);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .detail-value {
+            font-size: 1rem;
+            color: var(--light);
+        }
+
+        .project-description {
+            font-size: clamp(0.9rem, 1.5vw, 1rem);
+            line-height: 1.8;
+            color: var(--gray);
+            margin-bottom: 2rem;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 1rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--accent);
+            text-decoration: none;
+            transition: gap 0.3s ease;
+        }
+
+        .project-link:hover {
+            gap: 1.5rem;
+        }
+
+        .project-link::after {
+            content: '→';
+            font-size: 1.2rem;
+        }
+
+        /* Services Grid */
+        .services {
+            padding: 6rem 0;
+            background: var(--primary);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .services-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .service-card {
+            padding: 2.5rem 2rem;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover::before {
+            transform: translateX(0);
+        }
+
+        .service-card:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            margin-bottom: 1rem;
+        }
+
+        .service-description {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--gray);
+        }
+
+        /* About Section with Timeline */
+        .about {
+            padding: 6rem 0;
+            background: var(--bg-dark);
+            position: relative;
+        }
+
+        /* Subtle background pattern */
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 59, 0, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 59, 0, 0.02) 1px, transparent 1px);
+            background-size: 100px 100px;
+            z-index: 0;
+        }
+
+        .about-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-stats {
+            position: sticky;
+            top: 100px;
+        }
+
+        .stat-item {
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideIn 0.8s ease forwards;
+        }
+
+        .stat-item:nth-child(2) { animation-delay: 0.2s; }
+        .stat-item:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .stat-number {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(3rem, 5vw, 4rem);
+            color: var(--accent);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gray);
+        }
+
+        .about-timeline {
+            position: relative;
+            padding-left: 3rem;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1px;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-progress {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 1px;
+            height: 0;
+            background: var(--accent);
+            transition: height 1s ease;
+        }
+
+        .timeline-item {
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -3rem;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+            transform: translate(-50%, 50%);
+        }
+
+        .timeline-year {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-description {
+            font-size: 0.95rem;
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 6rem 0;
+            background: var(--primary);
+            position: relative;
+        }
+
+        .contact-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 2rem;
+            line-height: 1;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            color: var(--gray);
+            margin-bottom: 3rem;
+            line-height: 1.8;
+        }
+
+        .contact-details {
+            margin-bottom: 3rem;
+        }
+
+        .contact-item {
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: start;
+            gap: 1rem;
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .contact-text h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+            color: var(--gray);
+        }
+
+        .contact-text p {
+            font-size: 1rem;
+            color: var(--light);
+        }
+
+        .contact-form {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 2.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 0.5rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--accent);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-submit {
+            width: 100%;
+            padding: 1.2rem;
+            background: var(--accent);
+            border: none;
+            color: var(--light);
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .form-submit:hover {
+            background: var(--light);
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0;
+            background: var(--bg-dark);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+
+        .footer-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent);
+        }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 968px) {
+            nav {
+                padding: 1rem;
+            }
+
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 100%;
+                height: 100vh;
+                background: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                gap: 2rem;
+                transition: right 0.3s ease;
+            }
+
+            .nav-menu.active {
+                right: 0;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .hero {
+                min-height: 100vh;
+                padding: 2rem 0;
+            }
+
+            .hero-title {
+                font-size: clamp(3rem, 10vw, 5rem);
+            }
+
+            .hero-cta {
+                flex-direction: column;
+                align-items: stretch;
+                width: 100%;
+                max-width: 300px;
+                margin: 0 auto;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            .project-card,
+            .project-card.reverse {
+                grid-template-columns: 1fr;
+                padding: 2rem 1rem;
+            }
+
+            .project-card.reverse .project-image-container,
+            .project-card.reverse .project-info {
+                order: unset;
+            }
+
+            .project-image-container {
+                height: 300px;
+            }
+
+            .project-number {
+                font-size: clamp(3rem, 10vw, 5rem);
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-stats {
+                position: static;
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 1rem;
+                margin-bottom: 3rem;
+            }
+
+            .stat-item {
+                text-align: center;
+                margin-bottom: 0;
+            }
+
+            .stat-number {
+                font-size: 2.5rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+            }
+
+            .about-timeline {
+                padding-left: 2rem;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                justify-content: center;
+            }
+
+            /* Hide custom cursor on mobile */
+            .cursor,
+            .cursor-follower {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 640px) {
+            .section-header {
+                padding: 0 1rem;
+            }
+
+            .section-title {
+                font-size: clamp(2rem, 8vw, 3rem);
+            }
+
+            .project-details {
+                gap: 1rem;
+            }
+
+            .hero-badge {
+                font-size: 0.65rem;
+                padding: 0.4rem 1rem;
+            }
+
+            .logo::after {
+                display: none;
+            }
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Subtle Parallax - Only for desktop */
+        @media (min-width: 1024px) {
+            .parallax-bg {
+                transition: transform 0.3s ease-out;
+                will-change: transform;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loader" id="loader">
+        <div class="loader-content">
+            <div class="loader-line"></div>
+        </div>
+    </div>
+
+    <!-- Custom Cursor - Desktop Only -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">ZAKUAN</a>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="mobile-toggle" id="mobile-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <div class="grid-3d">
+                <div class="grid-plane"></div>
+            </div>
+            <div class="blueprint-element blueprint-1"></div>
+            <div class="blueprint-element blueprint-2"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">Malaysian Registered Architect • A/M 305</div>
+            <h1 class="hero-title">
+                <span><span class="line">CREATING</span></span>
+                <span><span class="line">TOMORROW'S</span></span>
+                <span><span class="line">ARCHITECTURE</span></span>
+            </h1>
+            <p class="hero-subtitle">Innovative Design Solutions for Modern Living</p>
+            <div class="hero-cta">
+                <a href="#projects" class="btn btn-primary">View Projects</a>
+                <a href="#contact" class="btn btn-outline">Start a Project</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="projects" id="projects">
+        <div class="project-bg parallax-bg"></div>
+        <div class="section-header reveal">
+            <div class="section-label">Featured Work</div>
+            <h2 class="section-title">SIGNATURE PROJECTS</h2>
+        </div>
+
+        <!-- Project 1 -->
+        <div class="project-showcase">
+            <div class="project-card reveal">
+                <div class="project-image-container">
+                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&h=600&q=85" alt="Modern Villa" class="project-image">
+                    <div class="project-overlay"></div>
+                </div>
+                <div class="project-info">
+                    <div class="project-number">01</div>
+                    <h3 class="project-name">SKYLINE RESIDENCE</h3>
+                    <div class="project-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Location</div>
+                            <div class="detail-value">Kuala Lumpur, MY</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Area</div>
+                            <div class="detail-value">8,500 sq ft</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Year</div>
+                            <div class="detail-value">2024</div>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        A contemporary masterpiece featuring cantilevered structures, floor-to-ceiling glass walls, and seamless integration with the tropical landscape.
+                    </p>
+                    <a href="#" class="project-link">Explore Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-showcase">
+            <div class="project-card reverse reveal">
+                <div class="project-image-container">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=800&h=600&q=85" alt="Urban Complex" class="project-image">
+                    <div class="project-overlay"></div>
+                </div>
+                <div class="project-info">
+                    <div class="project-number">02</div>
+                    <h3 class="project-name">URBAN NEXUS</h3>
+                    <div class="project-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Location</div>
+                            <div class="detail-value">Petaling Jaya, MY</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Area</div>
+                            <div class="detail-value">125,000 sq ft</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Year</div>
+                            <div class="detail-value">2023</div>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        A revolutionary mixed-use development combining retail, office, and residential spaces with innovative vertical gardens.
+                    </p>
+                    <a href="#" class="project-link">Explore Project</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="project-showcase">
+            <div class="project-card reveal">
+                <div class="project-image-container">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&h=600&q=85" alt="Luxury Villa" class="project-image">
+                    <div class="project-overlay"></div>
+                </div>
+                <div class="project-info">
+                    <div class="project-number">03</div>
+                    <h3 class="project-name">HORIZON VILLA</h3>
+                    <div class="project-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Location</div>
+                            <div class="detail-value">Damansara, MY</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Area</div>
+                            <div class="detail-value">12,000 sq ft</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Year</div>
+                            <div class="detail-value">2024</div>
+                        </div>
+                    </div>
+                    <p class="project-description">
+                        An architectural marvel featuring infinity pools, automated glass walls, and cutting-edge smart home technology.
+                    </p>
+                    <a href="#" class="project-link">Explore Project</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="section-header reveal">
+            <div class="section-label">What We Do</div>
+            <h2 class="section-title">ARCHITECTURAL EXCELLENCE</h2>
+        </div>
+        <div class="services-grid">
+            <div class="service-card reveal">
+                <div class="service-icon">📐</div>
+                <h3 class="service-title">ARCHITECTURE</h3>
+                <p class="service-description">
+                    Innovative architectural design combining aesthetics with functionality for spaces that inspire.
+                </p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🏢</div>
+                <h3 class="service-title">INTERIOR DESIGN</h3>
+                <p class="service-description">
+                    Sophisticated interior solutions that transform spaces into experiences through thoughtful design.
+                </p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🌆</div>
+                <h3 class="service-title">URBAN PLANNING</h3>
+                <p class="service-description">
+                    Strategic urban development creating sustainable communities for future generations.
+                </p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🎨</div>
+                <h3 class="service-title">3D VISUALIZATION</h3>
+                <p class="service-description">
+                    Photorealistic renderings and virtual walkthroughs bringing your vision to life.
+                </p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">🔧</div>
+                <h3 class="service-title">RENOVATION</h3>
+                <p class="service-description">
+                    Transformative renovation projects breathing new life into existing structures.
+                </p>
+            </div>
+            <div class="service-card reveal">
+                <div class="service-icon">📋</div>
+                <h3 class="service-title">CONSULTING</h3>
+                <p class="service-description">
+                    Expert architectural consultation guiding your vision from concept to completion.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="section-header reveal">
+            <div class="section-label">Our Story</div>
+            <h2 class="section-title">DEFINING ARCHITECTURE</h2>
+        </div>
+        <div class="about-content">
+            <div class="about-stats">
+                <div class="stat-item">
+                    <div class="stat-number">77+</div>
+                    <div class="stat-label">Completed Projects</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">15+</div>
+                    <div class="stat-label">Awards Won</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years Excellence</div>
+                </div>
+            </div>
+            <div class="about-timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-progress" id="timeline-progress"></div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2019</div>
+                    <div class="timeline-title">Foundation</div>
+                    <div class="timeline-description">
+                        Established as a boutique architectural firm with a vision to transform Malaysian architecture.
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2021</div>
+                    <div class="timeline-title">Recognition</div>
+                    <div class="timeline-description">
+                        Received multiple awards for architectural excellence and sustainable design practices.
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2023</div>
+                    <div class="timeline-title">Innovation</div>
+                    <div class="timeline-description">
+                        Pioneered integration of AI and parametric design in Malaysian architecture.
+                    </div>
+                </div>
+                <div class="timeline-item reveal">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-year">2025</div>
+                    <div class="timeline-title">Future Forward</div>
+                    <div class="timeline-description">
+                        Leading sustainable architecture with net-zero buildings across Southeast Asia.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="contact-container">
+            <div class="contact-info reveal">
+                <h2>LET'S BUILD YOUR VISION</h2>
+                <p>
+                    Ready to transform your architectural dreams into reality? Our team is here to guide you through every step.
+                </p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-text">
+                            <h4>Office</h4>
+                            <p>A-23A-10 Bennington Residence<br>Jalan Arena 1, 53200 Setapak<br>Kuala Lumpur, Malaysia</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-text">
+                            <h4>Email</h4>
+                            <p>info@zakuanarchitect.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">📱</div>
+                        <div class="contact-text">
+                            <h4>Phone</h4>
+                            <p>+60 13-604 5847</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form reveal">
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="project">Project Type</label>
+                        <input type="text" id="project">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-text">
+                © 2025 Zakuan Architect. Registration: A/M 305 Lembaga Arkitek Malaysia
+            </div>
+            <div class="footer-links">
+                <a href="#">Privacy</a>
+                <a href="#">Terms</a>
+                <a href="#">Instagram</a>
+                <a href="#">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 800);
+        });
+
+        // Custom Cursor - Desktop only
+        if (window.innerWidth > 1024) {
+            const cursor = document.getElementById('cursor');
+            const follower = document.getElementById('cursor-follower');
+            
+            if (cursor && follower) {
+                document.addEventListener('mousemove', (e) => {
+                    cursor.style.left = e.clientX - 20 + 'px';
+                    cursor.style.top = e.clientY - 20 + 'px';
+                    
+                    setTimeout(() => {
+                        follower.style.left = e.clientX - 4 + 'px';
+                        follower.style.top = e.clientY - 4 + 'px';
+                    }, 100);
+                });
+
+                // Cursor hover effect
+                document.querySelectorAll('a, button').forEach(link => {
+                    link.addEventListener('mouseenter', () => {
+                        cursor.style.transform = 'scale(1.5)';
+                    });
+                    link.addEventListener('mouseleave', () => {
+                        cursor.style.transform = 'scale(1)';
+                    });
+                });
+            }
+        }
+
+        // Mobile Menu Toggle
+        const mobileToggle = document.getElementById('mobile-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        
+        if (mobileToggle && navMenu) {
+            mobileToggle.addEventListener('click', () => {
+                mobileToggle.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+
+            // Close menu when clicking a link
+            navMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+
+            // Timeline progress animation
+            const timeline = document.querySelector('.about-timeline');
+            if (timeline) {
+                const timelineTop = timeline.offsetTop;
+                const timelineHeight = timeline.offsetHeight;
+                const windowHeight = window.innerHeight;
+                const scrolled = window.scrollY;
+                
+                if (scrolled > timelineTop - windowHeight + 100) {
+                    const progress = Math.min(100, ((scrolled - timelineTop + windowHeight - 100) / timelineHeight) * 100);
+                    const progressBar = document.getElementById('timeline-progress');
+                    if (progressBar) {
+                        progressBar.style.height = progress + '%';
+                    }
+                }
+            }
+        });
+
+        // Subtle Parallax for background - Desktop only
+        if (window.innerWidth > 1024) {
+            window.addEventListener('scroll', () => {
+                const scrolled = window.pageYOffset;
+                const parallaxBg = document.querySelector('.parallax-bg');
+                
+                if (parallaxBg) {
+                    const speed = 0.3;
+                    const yPos = -(scrolled * speed);
+                    parallaxBg.style.transform = `translateY(${yPos}px)`;
+                }
+            });
+        }
+
+        // Scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+        
+        function reveal() {
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 100;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', reveal);
+        reveal(); // Initial check
+
+        // Form submission
+        const contactForm = document.getElementById('contact-form');
+        if (contactForm) {
+            contactForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Thank you for your message! We will get back to you soon.');
+                contactForm.reset();
+            });
+        }
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offsetTop = target.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
