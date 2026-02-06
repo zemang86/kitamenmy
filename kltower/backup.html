@@ -1,0 +1,2448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaming in the Sky — KL Tower International Esports Festival</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <meta name="description" content="Gaming in the Sky — An international esports & tech festival proposal for KL Tower by Zemang / KITAMEN.">
+    <meta property="og:title" content="Gaming in the Sky — KL Tower Esports Festival">
+    <meta property="og:description" content="International esports, hackathon, tech expo and LAN party at Malaysia's most iconic landmark.">
+    <meta property="og:type" content="website">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --bg-primary: #050508;
+            --bg-secondary: #0a0a0f;
+            --bg-card: rgba(255, 255, 255, 0.03);
+            --text-primary: #ffffff;
+            --text-secondary: rgba(255, 255, 255, 0.6);
+            --text-tertiary: rgba(255, 255, 255, 0.4);
+            --accent-primary: #00ff88;
+            --accent-secondary: #00d4ff;
+            --accent-tertiary: #a855f7;
+            --accent-warm: #ff6b6b;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-bg-hover: rgba(255, 255, 255, 0.08);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-border-hover: rgba(255, 255, 255, 0.2);
+            --glow-primary: rgba(0, 255, 136, 0.4);
+            --glow-secondary: rgba(0, 212, 255, 0.4);
+            --gradient-1: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            --gradient-2: linear-gradient(135deg, var(--accent-secondary), var(--accent-tertiary));
+            --gradient-3: linear-gradient(135deg, var(--accent-tertiary), var(--accent-warm));
+            --gold: #ffd700;
+            --silver: #c0c0c0;
+            --bronze: #cd7f32;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-rendering: optimizeLegibility;
+        }
+
+        /* GPU Acceleration */
+        .orb, .mesh-gradient::before, header, .btn-primary, .btn-secondary, .feature-card, .sponsor-card, .impact-card, .timeline-item {
+            will-change: transform;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+        }
+
+        /* Reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
+                scroll-behavior: auto !important;
+            }
+            .orb, .mesh-gradient::before { animation: none !important; }
+        }
+
+        /* Animated Mesh Gradient Background */
+        .mesh-gradient {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .mesh-gradient::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(0, 255, 136, 0.12) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 80%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(255, 107, 107, 0.06) 0%, transparent 50%);
+            animation: meshMove 20s ease-in-out infinite;
+        }
+
+        @keyframes meshMove {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            25% { transform: translate(2%, 2%) rotate(1deg); }
+            50% { transform: translate(-1%, 3%) rotate(-1deg); }
+            75% { transform: translate(3%, -2%) rotate(2deg); }
+        }
+
+        /* Noise Texture Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: 0;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* Floating Orbs */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: -1;
+            contain: layout style paint;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--accent-primary);
+            top: -200px;
+            right: -200px;
+            animation: orbFloat1 15s ease-in-out infinite;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--accent-secondary);
+            bottom: -150px;
+            left: -150px;
+            animation: orbFloat2 18s ease-in-out infinite;
+        }
+
+        .orb-3 {
+            width: 400px;
+            height: 400px;
+            background: var(--accent-tertiary);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: orbFloat3 20s ease-in-out infinite;
+        }
+
+        @keyframes orbFloat1 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(-100px, 100px) scale(1.1); }
+        }
+        @keyframes orbFloat2 {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            50% { transform: translate(80px, -80px) scale(0.9); }
+        }
+        @keyframes orbFloat3 {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.3; }
+            50% { transform: translate(-40%, -60%) scale(1.2); opacity: 0.5; }
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 20px var(--accent-primary); }
+            50% { opacity: 0.8; transform: scale(1.2); box-shadow: 0 0 30px var(--accent-primary); }
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+
+        /* Glass Card Base */
+        .glass {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass:hover {
+            background: var(--glass-bg-hover);
+            border-color: var(--glass-border-hover);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 60px rgba(0, 255, 136, 0.1);
+        }
+
+        /* ==================== HEADER ==================== */
+        header {
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 2rem);
+            max-width: 1200px;
+            z-index: 1000;
+            background: rgba(10, 10, 15, 0.7);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border);
+            border-radius: 100px;
+            padding: 0.5rem;
+        }
+
+        .header-content {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0.5rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+            box-shadow: 0 0 20px var(--accent-primary);
+        }
+
+        nav {
+            display: none;
+            gap: 0.5rem;
+        }
+
+        @media (min-width: 768px) {
+            nav { display: flex; }
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            padding: 0.5rem 0.75rem;
+            border-radius: 50px;
+        }
+
+        nav a:hover {
+            color: var(--text-primary);
+            background: var(--glass-bg);
+        }
+
+        .mobile-menu-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: 1px solid var(--glass-border);
+            border-radius: 50%;
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        @media (min-width: 768px) {
+            .mobile-menu-btn { display: none; }
+        }
+
+        /* ==================== BUTTONS ==================== */
+        .btn-primary {
+            background: var(--gradient-1);
+            color: var(--bg-primary);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s;
+        }
+
+        .btn-primary:hover::before { left: 100%; }
+
+        .btn-primary:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 40px rgba(0, 255, 136, 0.5);
+        }
+
+        .btn-secondary {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            color: var(--text-primary);
+            padding: 1rem 2rem;
+            border: 1px solid var(--glass-border);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-primary);
+            background: var(--glass-bg-hover);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+        }
+
+        /* ==================== SECTION HELPERS ==================== */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+        }
+
+        .section-header {
+            max-width: 1400px;
+            margin: 0 auto 4rem;
+            text-align: center;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-primary);
+            font-weight: 500;
+        }
+
+        .section-label i { width: 16px; height: 16px; }
+
+        h2 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .section-description {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        /* ==================== HERO ==================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            width: 100%;
+        }
+
+        .hero-text { z-index: 2; }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            color: var(--accent-primary);
+            font-weight: 500;
+        }
+
+        .hero-badge i { width: 18px; height: 18px; }
+
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 4.2rem);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .text-gradient {
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 500;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat-value {
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image-container {
+            position: relative;
+            width: 100%;
+            max-width: 520px;
+            aspect-ratio: 4 / 3;
+            border-radius: 24px;
+            overflow: hidden;
+        }
+
+        .hero-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-image-glow {
+            position: absolute;
+            inset: -30px;
+            background: var(--gradient-1);
+            border-radius: 24px;
+            opacity: 0.2;
+            filter: blur(60px);
+            animation: float 6s ease-in-out infinite;
+            z-index: -1;
+        }
+
+        .hero-image-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(5,5,8,0.9) 0%, transparent 100%);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-image-overlay span {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        .hero-image-overlay i { width: 16px; height: 16px; color: var(--accent-primary); }
+
+        @media (max-width: 968px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-stats { justify-content: center; }
+            .button-group { justify-content: center; }
+            .hero-image { order: -1; }
+            .hero-image-container { max-width: 400px; margin: 0 auto; }
+        }
+
+        /* ==================== SCROLLING STRIP ==================== */
+        .specialization-strip {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            color: var(--text-primary);
+            padding: 1.25rem 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .strip-content {
+            display: flex;
+            animation: scrollStrip 25s linear infinite;
+            gap: 3rem;
+            padding: 0 2rem;
+        }
+
+        @keyframes scrollStrip {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .strip-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-weight: 600;
+            white-space: nowrap;
+            font-size: 0.95rem;
+        }
+
+        .strip-item i { width: 18px; height: 18px; color: var(--accent-primary); }
+
+        /* ==================== FEATURES / PACKAGES ==================== */
+        .preset-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .preset-btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass-bg);
+            color: var(--text-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-family: inherit;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .preset-btn:hover {
+            border-color: var(--accent-primary);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.15);
+        }
+
+        .preset-btn.active {
+            background: var(--gradient-1);
+            color: var(--bg-primary);
+            border-color: transparent;
+            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
+        }
+
+        .preset-btn .preset-price {
+            font-size: 0.75rem;
+            opacity: 0.7;
+            display: block;
+            font-weight: 500;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+            gap: 1.5rem;
+        }
+
+        @media (max-width: 480px) {
+            .features-grid { grid-template-columns: 1fr; }
+        }
+
+        .feature-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .feature-card:hover::before,
+        .feature-card.active::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card.core {
+            border-color: rgba(0, 255, 136, 0.2);
+        }
+
+        .feature-card.core::before {
+            transform: scaleX(1);
+        }
+
+        .feature-card.active {
+            border-color: rgba(0, 255, 136, 0.3);
+            box-shadow: 0 0 30px rgba(0, 255, 136, 0.08);
+        }
+
+        .feature-card.disabled {
+            opacity: 0.5;
+        }
+
+        .feature-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            gap: 1rem;
+        }
+
+        .feature-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 255, 136, 0.1);
+            flex-shrink: 0;
+        }
+
+        .feature-icon i { width: 24px; height: 24px; color: var(--accent-primary); }
+
+        .feature-card h3 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-card p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .feature-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-tag {
+            font-size: 0.75rem;
+            padding: 0.25rem 0.75rem;
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 50px;
+            color: var(--accent-secondary);
+            font-weight: 500;
+        }
+
+        .feature-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .feature-cost {
+            font-size: 1.2rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .core-badge {
+            font-size: 0.7rem;
+            padding: 0.3rem 0.75rem;
+            background: rgba(0, 255, 136, 0.15);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            border-radius: 50px;
+            color: var(--accent-primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Toggle Switch */
+        .toggle-switch {
+            position: relative;
+            width: 52px;
+            height: 28px;
+            flex-shrink: 0;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .toggle-slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 28px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid var(--glass-border);
+        }
+
+        .toggle-slider::before {
+            content: '';
+            position: absolute;
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background: var(--text-secondary);
+            border-radius: 50%;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .toggle-switch input:checked + .toggle-slider {
+            background: rgba(0, 255, 136, 0.3);
+            border-color: rgba(0, 255, 136, 0.5);
+        }
+
+        .toggle-switch input:checked + .toggle-slider::before {
+            transform: translateX(24px);
+            background: var(--accent-primary);
+            box-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        /* ==================== BUDGET CALCULATOR ==================== */
+        .budget-section {
+            padding: 6rem 2rem;
+        }
+
+        .budget-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+        }
+
+        .budget-total-wrapper {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .budget-total-label {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .budget-total {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+        }
+
+        .budget-tier-label {
+            display: inline-block;
+            margin-top: 0.75rem;
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            color: var(--accent-primary);
+        }
+
+        /* Range Bar */
+        .budget-range {
+            margin: 2rem 0;
+        }
+
+        .range-labels {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            margin-bottom: 0.75rem;
+            font-weight: 500;
+        }
+
+        .range-track {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .range-fill {
+            height: 100%;
+            background: var(--gradient-1);
+            border-radius: 8px;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+        }
+
+        .range-marker {
+            position: absolute;
+            right: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 16px;
+            height: 16px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            border: 3px solid var(--bg-primary);
+            box-shadow: 0 0 15px var(--accent-primary);
+            transition: right 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Cost Breakdown */
+        .cost-breakdown {
+            margin-top: 2.5rem;
+        }
+
+        .cost-breakdown h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--text-secondary);
+        }
+
+        .cost-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            transition: opacity 0.3s;
+        }
+
+        .cost-item.inactive { opacity: 0.3; }
+
+        .cost-item-label {
+            width: 200px;
+            flex-shrink: 0;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        @media (max-width: 600px) {
+            .cost-item-label { width: 120px; font-size: 0.75rem; }
+        }
+
+        .cost-item-bar {
+            flex: 1;
+            height: 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 6px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .cost-item-fill {
+            height: 100%;
+            border-radius: 6px;
+            transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            min-width: 2px;
+        }
+
+        .cost-item-amount {
+            font-size: 0.8rem;
+            font-weight: 700;
+            width: 85px;
+            text-align: right;
+            flex-shrink: 0;
+        }
+
+        /* Sponsorship Offset */
+        .sponsorship-offset {
+            margin-top: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 16px;
+            text-align: center;
+        }
+
+        .offset-label {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.5rem;
+        }
+
+        .offset-range {
+            font-size: 1.4rem;
+            font-weight: 800;
+            background: var(--gradient-2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .offset-note {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            margin-top: 0.25rem;
+        }
+
+        /* ==================== SPONSORSHIP ==================== */
+        .sponsor-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .sponsor-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .sponsor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+        }
+
+        .sponsor-card.title::before { background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary)); }
+        .sponsor-card.gold::before { background: linear-gradient(90deg, var(--gold), #ffed4a); }
+        .sponsor-card.silver::before { background: linear-gradient(90deg, var(--silver), #e8e8e8); }
+        .sponsor-card.bronze::before { background: linear-gradient(90deg, var(--bronze), #e8a87c); }
+
+        .sponsor-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .sponsor-tier-name {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .sponsor-card.title .sponsor-tier-name { color: var(--accent-primary); }
+        .sponsor-card.gold .sponsor-tier-name { color: var(--gold); }
+        .sponsor-card.silver .sponsor-tier-name { color: var(--silver); }
+        .sponsor-card.bronze .sponsor-tier-name { color: var(--bronze); }
+
+        .sponsor-price {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .sponsor-slots {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+            margin-bottom: 1.5rem;
+        }
+
+        .sponsor-benefits {
+            list-style: none;
+        }
+
+        .sponsor-benefits li {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            padding: 0.4rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .sponsor-benefits li i {
+            width: 16px;
+            height: 16px;
+            color: var(--accent-primary);
+            flex-shrink: 0;
+        }
+
+        /* ==================== TIMELINE ==================== */
+        .timeline-tabs {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+        }
+
+        .timeline-tab {
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: 1px solid var(--glass-border);
+            background: var(--glass-bg);
+            color: var(--text-secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-family: inherit;
+        }
+
+        .timeline-tab:hover {
+            border-color: var(--accent-secondary);
+            color: var(--text-primary);
+        }
+
+        .timeline-tab.active {
+            background: var(--gradient-2);
+            color: var(--bg-primary);
+            border-color: transparent;
+            box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+        }
+
+        .timeline-day {
+            display: none;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .timeline-day.active { display: block; }
+
+        .timeline-track {
+            position: relative;
+            padding-left: 2rem;
+            border-left: 2px solid var(--glass-border);
+        }
+
+        .timeline-item {
+            position: relative;
+            padding: 1.5rem;
+            padding-left: 2rem;
+            margin-bottom: 1.5rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover {
+            border-color: var(--glass-border-hover);
+            background: var(--glass-bg-hover);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -2.6rem;
+            top: 2rem;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: var(--accent-secondary);
+            box-shadow: 0 0 10px var(--accent-secondary);
+            border: 2px solid var(--bg-primary);
+        }
+
+        .timeline-time {
+            font-size: 0.8rem;
+            color: var(--accent-secondary);
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .timeline-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        /* ==================== IMPACT ==================== */
+        .impact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .impact-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .impact-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--glass-border-hover);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .impact-icon {
+            width: 56px;
+            height: 56px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+
+        .impact-icon i { width: 28px; height: 28px; }
+
+        .impact-value {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .impact-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            font-weight: 500;
+        }
+
+        /* ==================== TEAM ==================== */
+        .team-card {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 3rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        @media (max-width: 600px) {
+            .team-card {
+                grid-template-columns: 1fr;
+                text-align: center;
+                padding: 2rem;
+            }
+        }
+
+        .team-photo {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--glass-border);
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.15);
+        }
+
+        @media (max-width: 600px) {
+            .team-photo { margin: 0 auto; }
+        }
+
+        .team-name {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.25rem;
+        }
+
+        .team-role {
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .team-bio {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .team-stats {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        @media (max-width: 600px) {
+            .team-stats { justify-content: center; }
+        }
+
+        .team-stat-value {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--accent-primary);
+        }
+
+        .team-stat-label {
+            font-size: 0.75rem;
+            color: var(--text-tertiary);
+        }
+
+        /* ==================== NEXT STEPS ==================== */
+        .next-steps-card {
+            max-width: 700px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .next-steps-card p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-size: 1.05rem;
+        }
+
+        .next-steps-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ==================== FOOTER ==================== */
+        footer {
+            padding: 2rem;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--text-tertiary);
+        }
+
+        /* ==================== PRINT STYLES ==================== */
+        @media print {
+            :root {
+                --bg-primary: #ffffff;
+                --bg-secondary: #f5f5f5;
+                --text-primary: #111111;
+                --text-secondary: #555555;
+                --text-tertiary: #888888;
+                --glass-bg: rgba(0, 0, 0, 0.03);
+                --glass-border: rgba(0, 0, 0, 0.1);
+                --accent-primary: #00aa55;
+                --accent-secondary: #0088cc;
+            }
+
+            body {
+                background: #ffffff;
+                color: #111111;
+                font-size: 11pt;
+            }
+
+            .mesh-gradient, .noise-overlay, .orb, header, .specialization-strip,
+            .toggle-switch, .preset-buttons, .mobile-menu-btn,
+            .next-steps-buttons, footer { display: none !important; }
+
+            section { padding: 1.5rem 0; page-break-inside: avoid; }
+
+            .glass, .feature-card, .sponsor-card, .impact-card, .budget-card, .team-card, .timeline-item {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                background: rgba(0, 0, 0, 0.02);
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                box-shadow: none;
+                transform: none !important;
+            }
+
+            .feature-card.disabled { opacity: 1; }
+
+            .hero { min-height: auto; padding: 2rem 0; }
+            .hero-image { display: none; }
+            .hero-content { grid-template-columns: 1fr; }
+
+            .text-gradient, .budget-total, .feature-cost, .impact-value, .hero-stat-value {
+                background: none;
+                -webkit-background-clip: unset;
+                -webkit-text-fill-color: #111111;
+                color: #111111;
+            }
+
+            .btn-primary, .btn-secondary { background: none; color: #111111; box-shadow: none; border: 1px solid #ccc; }
+
+            .timeline-day { display: block !important; margin-bottom: 2rem; }
+            .timeline-tabs { display: none; }
+
+            .budget-range { display: none; }
+
+            h1 { font-size: 2rem; }
+            h2 { font-size: 1.5rem; }
+
+            @page { margin: 1.5cm; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background -->
+    <div class="mesh-gradient"></div>
+    <div class="noise-overlay"></div>
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <a href="#" class="logo">
+                <span class="logo-dot"></span>
+                KITAMEN
+            </a>
+            <nav>
+                <a href="#features">Features</a>
+                <a href="#budget">Budget</a>
+                <a href="#sponsorship">Sponsors</a>
+                <a href="#timeline">Timeline</a>
+                <a href="#impact">Impact</a>
+                <a href="#team">Team</a>
+            </nav>
+            <button class="mobile-menu-btn" onclick="document.querySelector('nav').style.display = document.querySelector('nav').style.display === 'flex' ? 'none' : 'flex'" aria-label="Toggle menu">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-badge">
+                    <i data-lucide="gamepad-2"></i>
+                    International Esports Festival Proposal
+                </div>
+                <h1>
+                    <span class="text-gradient">Gaming in</span><br>
+                    the Sky
+                </h1>
+                <p class="hero-subtitle">KL Tower International Esports & Tech Festival</p>
+
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">5,000+</div>
+                        <div class="hero-stat-label">Attendees</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">3</div>
+                        <div class="hero-stat-label">Countries</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">3</div>
+                        <div class="hero-stat-label">Days</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-value">RM 500K–1M</div>
+                        <div class="hero-stat-label">Budget Range</div>
+                    </div>
+                </div>
+
+                <div class="button-group">
+                    <a href="#features" class="btn-primary">
+                        <i data-lucide="sparkles"></i>
+                        Explore Proposal
+                    </a>
+                    <a href="#budget" class="btn-secondary">
+                        <i data-lucide="calculator"></i>
+                        View Budget
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <div class="hero-image-container">
+                    <div class="hero-image-glow"></div>
+                    <img src="https://images.unsplash.com/photo-1596132495786-24fc1a83ffd5?w=800&q=80" alt="KL Tower at night" loading="eager">
+                    <div class="hero-image-overlay">
+                        <i data-lucide="map-pin"></i>
+                        <span>Menara Kuala Lumpur, Malaysia</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SCROLLING STRIP ==================== -->
+    <div class="specialization-strip">
+        <div class="strip-content">
+            <span class="strip-item"><i data-lucide="trophy"></i> International Esports</span>
+            <span class="strip-item"><i data-lucide="code-2"></i> Hackathon in the Sky</span>
+            <span class="strip-item"><i data-lucide="cpu"></i> Mini Super Tech Expo</span>
+            <span class="strip-item"><i data-lucide="monitor"></i> LAN Party in the Sky</span>
+            <span class="strip-item"><i data-lucide="plane"></i> Tourism & Hospitality</span>
+            <span class="strip-item"><i data-lucide="video"></i> Content & Broadcast</span>
+            <span class="strip-item"><i data-lucide="sparkles"></i> Opening & Closing Ceremony</span>
+            <!-- duplicate for infinite scroll -->
+            <span class="strip-item"><i data-lucide="trophy"></i> International Esports</span>
+            <span class="strip-item"><i data-lucide="code-2"></i> Hackathon in the Sky</span>
+            <span class="strip-item"><i data-lucide="cpu"></i> Mini Super Tech Expo</span>
+            <span class="strip-item"><i data-lucide="monitor"></i> LAN Party in the Sky</span>
+            <span class="strip-item"><i data-lucide="plane"></i> Tourism & Hospitality</span>
+            <span class="strip-item"><i data-lucide="video"></i> Content & Broadcast</span>
+            <span class="strip-item"><i data-lucide="sparkles"></i> Opening & Closing Ceremony</span>
+        </div>
+    </div>
+
+    <!-- ==================== FEATURES ==================== -->
+    <section id="features">
+        <div class="section-header">
+            <div class="section-label">
+                <i data-lucide="layers"></i>
+                Event Features
+            </div>
+            <h2>Build Your <span class="text-gradient">Custom Package</span></h2>
+            <p class="section-description">Select a preset or toggle individual features to create the perfect event package for KL Tower.</p>
+        </div>
+
+        <div class="container">
+            <!-- Preset Buttons -->
+            <div class="preset-buttons">
+                <button class="preset-btn" data-preset="essential">
+                    Essential
+                    <span class="preset-price">~RM 510,000</span>
+                </button>
+                <button class="preset-btn" data-preset="standard">
+                    Standard
+                    <span class="preset-price">~RM 690,000</span>
+                </button>
+                <button class="preset-btn" data-preset="premium">
+                    Premium
+                    <span class="preset-price">~RM 780,000</span>
+                </button>
+            </div>
+
+            <!-- Feature Cards -->
+            <div class="features-grid">
+
+                <!-- CORE: Event Management -->
+                <div class="feature-card core" data-feature="core-mgmt">
+                    <div class="feature-card-header">
+                        <div class="feature-icon">
+                            <i data-lucide="clipboard-list"></i>
+                        </div>
+                        <span class="core-badge">Core</span>
+                    </div>
+                    <h3>Event Management & Operations</h3>
+                    <p>End-to-end event management including project planning, staffing, volunteer coordination, on-site operations, and post-event reporting.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">Project Manager</span>
+                        <span class="feature-tag">50+ Crew</span>
+                        <span class="feature-tag">Safety & Compliance</span>
+                        <span class="feature-tag">Post-Event Report</span>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-cost">RM 130,000</span>
+                        <span class="core-badge">Always Included</span>
+                    </div>
+                </div>
+
+                <!-- CORE: Venue Setup -->
+                <div class="feature-card core" data-feature="core-venue">
+                    <div class="feature-card-header">
+                        <div class="feature-icon">
+                            <i data-lucide="building-2"></i>
+                        </div>
+                        <span class="core-badge">Core</span>
+                    </div>
+                    <h3>Venue Setup & Logistics</h3>
+                    <p>Full venue dressing, staging, rigging, power distribution, internet infrastructure, and equipment logistics at KL Tower.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">Main Stage</span>
+                        <span class="feature-tag">Power & Internet</span>
+                        <span class="feature-tag">Signage</span>
+                        <span class="feature-tag">Equipment</span>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-cost">RM 100,000</span>
+                        <span class="core-badge">Always Included</span>
+                    </div>
+                </div>
+
+                <!-- CORE: Marketing -->
+                <div class="feature-card core" data-feature="core-marketing">
+                    <div class="feature-card-header">
+                        <div class="feature-icon">
+                            <i data-lucide="megaphone"></i>
+                        </div>
+                        <span class="core-badge">Core</span>
+                    </div>
+                    <h3>Marketing & PR</h3>
+                    <p>Integrated marketing campaign across digital, social media, press outreach, KOL partnerships, and international media coverage.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">Social Media</span>
+                        <span class="feature-tag">Press Kit</span>
+                        <span class="feature-tag">KOL Partners</span>
+                        <span class="feature-tag">PR Campaign</span>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-cost">RM 80,000</span>
+                        <span class="core-badge">Always Included</span>
+                    </div>
+                </div>
+
+                <!-- TOGGLE: International Invitational -->
+                <div class="feature-card active" data-feature="invitational">
+                    <div class="feature-card-header">
+                        <div class="feature-icon" style="background: rgba(168, 85, 247, 0.15);">
+                            <i data-lucide="trophy" style="color: var(--accent-tertiary);"></i>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked data-toggle="invitational">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <h3>International Invitational Esports</h3>
+                    <p>MLBB & Honor of Kings invitational tournament featuring top teams from Malaysia, Philippines, and Indonesia. Full competitive format with group stages and grand finals.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">MLBB</span>
+                        <span class="feature-tag">Honor of Kings</span>
+                        <span class="feature-tag">MY vs PH vs ID</span>
+                        <span class="feature-tag">Prize Pool</span>
+                        <span class="feature-tag">Casters</span>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-cost">RM 120,000</span>
+                    </div>
+                </div>
+
+                <!-- TOGGLE: Hackathon -->
+                <div class="feature-card" data-feature="hackathon">
+                    <div class="feature-card-header">
+                        <div class="feature-icon" style="background: rgba(0, 212, 255, 0.15);">
+                            <i data-lucide="code-2" style="color: var(--accent-secondary);"></i>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" data-toggle="hackathon">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <h3>Hackathon in the Sky</h3>
+                    <p>48-hour hackathon challenge at KL Tower's observation deck. Teams build gaming, AI, or tourism-tech prototypes with mentorship from industry leaders.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">48 Hours</span>
+                        <span class="feature-tag">20 Teams</span>
+                        <span class="feature-tag">Mentors</span>
+                        <span class="feature-tag">Demo Day</span>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-cost">RM 60,000</span>
+                    </div>
+                </div>
+
+                <!-- TOGGLE: Tech Expo -->
+                <div class="feature-card" data-feature="techexpo">
+                    <div class="feature-card-header">
+                        <div class="feature-icon" style="background: rgba(0, 255, 136, 0.15);">
+                            <i data-lucide="cpu" style="color: var(--accent-primary);"></i>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" data-toggle="techexpo">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <h3>Mini Super Tech Expo</h3>
+                    <p>Exhibition space featuring gaming peripherals, VR/AR demos, AI showcases, and tech startup booths. Interactive product launches and hands-on experiences.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">30+ Booths</span>
+                        <span class="feature-tag">VR/AR Zone</span>
+                        <span class="feature-tag">Product Launches</span>
+                        <span class="feature-tag">Tech Talks</span>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-cost">RM 80,000</span>
+                    </div>
+                </div>
+
+                <!-- TOGGLE: LAN Party -->
+                <div class="feature-card" data-feature="lanparty">
+                    <div class="feature-card-header">
+                        <div class="feature-icon" style="background: rgba(255, 107, 107, 0.15);">
+                            <i data-lucide="monitor" style="color: var(--accent-warm);"></i>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" data-toggle="lanparty">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <h3>LAN Party in the Sky</h3>
+                    <p>Open-access LAN gaming zone with 100+ gaming PCs. Casual tournaments, community gaming sessions, and retro gaming corner at elevation.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">100+ PCs</span>
+                        <span class="feature-tag">Casual Tourneys</span>
+                        <span class="feature-tag">Retro Corner</span>
+                        <span class="feature-tag">Free Play</span>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-cost">RM 40,000</span>
+                    </div>
+                </div>
+
+                <!-- TOGGLE: Tourism -->
+                <div class="feature-card" data-feature="tourism">
+                    <div class="feature-card-header">
+                        <div class="feature-icon" style="background: rgba(0, 212, 255, 0.15);">
+                            <i data-lucide="plane" style="color: var(--accent-secondary);"></i>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" data-toggle="tourism">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <h3>Tourism & Hospitality Package</h3>
+                    <p>International player & VIP experience: airport transfers, hotel partnerships, KL city tours, halal food trails, and cultural experiences for visiting teams.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">Airport Transfers</span>
+                        <span class="feature-tag">Hotel Partners</span>
+                        <span class="feature-tag">City Tours</span>
+                        <span class="feature-tag">VIP Lounge</span>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-cost">RM 50,000</span>
+                    </div>
+                </div>
+
+                <!-- TOGGLE: Broadcast -->
+                <div class="feature-card active" data-feature="broadcast">
+                    <div class="feature-card-header">
+                        <div class="feature-icon" style="background: rgba(168, 85, 247, 0.15);">
+                            <i data-lucide="video" style="color: var(--accent-tertiary);"></i>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" checked data-toggle="broadcast">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <h3>Content & Broadcast Production</h3>
+                    <p>Full broadcast production with multi-camera setup, live streaming to major platforms, replay systems, on-screen graphics, and post-event highlight reels.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">Multi-Camera</span>
+                        <span class="feature-tag">Live Stream</span>
+                        <span class="feature-tag">Replay System</span>
+                        <span class="feature-tag">Highlight Reels</span>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-cost">RM 80,000</span>
+                    </div>
+                </div>
+
+                <!-- TOGGLE: Ceremony -->
+                <div class="feature-card" data-feature="ceremony">
+                    <div class="feature-card-header">
+                        <div class="feature-icon" style="background: rgba(255, 215, 0, 0.15);">
+                            <i data-lucide="sparkles" style="color: var(--gold);"></i>
+                        </div>
+                        <label class="toggle-switch">
+                            <input type="checkbox" data-toggle="ceremony">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <h3>Opening / Closing Ceremony</h3>
+                    <p>Grand opening with VIP speeches, LED countdown, light shows, and cultural performances. Closing ceremony with awards presentation and after-party.</p>
+                    <div class="feature-tags">
+                        <span class="feature-tag">VIP Speeches</span>
+                        <span class="feature-tag">LED Show</span>
+                        <span class="feature-tag">Cultural Acts</span>
+                        <span class="feature-tag">Awards Night</span>
+                    </div>
+                    <div class="feature-footer">
+                        <span class="feature-cost">RM 40,000</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== BUDGET CALCULATOR ==================== -->
+    <section id="budget" class="budget-section">
+        <div class="section-header">
+            <div class="section-label">
+                <i data-lucide="calculator"></i>
+                Budget Calculator
+            </div>
+            <h2>Live <span class="text-gradient">Cost Estimate</span></h2>
+            <p class="section-description">Your total updates in real-time as you toggle features above.</p>
+        </div>
+
+        <div class="budget-card">
+            <div class="budget-total-wrapper">
+                <div class="budget-total-label">Estimated Total Investment</div>
+                <div class="budget-total" id="budget-total">RM 510,000</div>
+                <div class="budget-tier-label" id="budget-tier">Essential</div>
+            </div>
+
+            <div class="budget-range">
+                <div class="range-labels">
+                    <span>RM 500,000</span>
+                    <span>RM 1,000,000</span>
+                </div>
+                <div class="range-track">
+                    <div class="range-fill" id="range-fill" style="width: 2%;">
+                        <div class="range-marker"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cost-breakdown" id="cost-breakdown">
+                <!-- Populated by JS -->
+            </div>
+
+            <div class="sponsorship-offset">
+                <div class="offset-label">Potential Sponsorship Cost Recovery</div>
+                <div class="offset-range" id="offset-range">RM 306,000 — RM 433,500</div>
+                <div class="offset-note">Estimated 60–85% offset through sponsorship tiers</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SPONSORSHIP ==================== -->
+    <section id="sponsorship">
+        <div class="section-header">
+            <div class="section-label">
+                <i data-lucide="handshake"></i>
+                Sponsorship Prospectus
+            </div>
+            <h2>Partnership <span class="text-gradient">Tiers</span></h2>
+            <p class="section-description">Flexible sponsorship packages designed to deliver maximum ROI for brands entering the gaming and esports space.</p>
+        </div>
+
+        <div class="container">
+            <div class="sponsor-grid">
+
+                <!-- Title Sponsor -->
+                <div class="sponsor-card title">
+                    <div class="sponsor-tier-name">Title Sponsor</div>
+                    <div class="sponsor-price">RM 250,000 – 500,000</div>
+                    <div class="sponsor-slots">1 exclusive slot</div>
+                    <ul class="sponsor-benefits">
+                        <li><i data-lucide="check"></i> Event naming rights ("Gaming in the Sky by [Brand]")</li>
+                        <li><i data-lucide="check"></i> Logo on all marketing & broadcast overlays</li>
+                        <li><i data-lucide="check"></i> Main stage branding & LED integration</li>
+                        <li><i data-lucide="check"></i> Premium booth (largest footprint)</li>
+                        <li><i data-lucide="check"></i> 20 VIP passes + exclusive lounge</li>
+                        <li><i data-lucide="check"></i> Speaking slot at opening ceremony</li>
+                        <li><i data-lucide="check"></i> Full social media campaign partnership</li>
+                        <li><i data-lucide="check"></i> Post-event data & analytics report</li>
+                    </ul>
+                </div>
+
+                <!-- Gold -->
+                <div class="sponsor-card gold">
+                    <div class="sponsor-tier-name">Gold Sponsor</div>
+                    <div class="sponsor-price">RM 100,000 – 200,000</div>
+                    <div class="sponsor-slots">3 slots available</div>
+                    <ul class="sponsor-benefits">
+                        <li><i data-lucide="check"></i> Logo on event marketing materials</li>
+                        <li><i data-lucide="check"></i> Stage branding & broadcast mentions</li>
+                        <li><i data-lucide="check"></i> Large exhibition booth</li>
+                        <li><i data-lucide="check"></i> 10 VIP passes</li>
+                        <li><i data-lucide="check"></i> Social media feature posts (3x)</li>
+                        <li><i data-lucide="check"></i> Product activation opportunity</li>
+                        <li><i data-lucide="check"></i> Post-event summary report</li>
+                    </ul>
+                </div>
+
+                <!-- Silver -->
+                <div class="sponsor-card silver">
+                    <div class="sponsor-tier-name">Silver Sponsor</div>
+                    <div class="sponsor-price">RM 50,000 – 100,000</div>
+                    <div class="sponsor-slots">5 slots available</div>
+                    <ul class="sponsor-benefits">
+                        <li><i data-lucide="check"></i> Logo on event signage & website</li>
+                        <li><i data-lucide="check"></i> Medium exhibition booth</li>
+                        <li><i data-lucide="check"></i> 5 VIP passes</li>
+                        <li><i data-lucide="check"></i> Social media mentions (2x)</li>
+                        <li><i data-lucide="check"></i> Product placement opportunity</li>
+                    </ul>
+                </div>
+
+                <!-- Bronze -->
+                <div class="sponsor-card bronze">
+                    <div class="sponsor-tier-name">Bronze Sponsor</div>
+                    <div class="sponsor-price">RM 20,000 – 50,000</div>
+                    <div class="sponsor-slots">10 slots available</div>
+                    <ul class="sponsor-benefits">
+                        <li><i data-lucide="check"></i> Logo on event website & program</li>
+                        <li><i data-lucide="check"></i> Small exhibition booth</li>
+                        <li><i data-lucide="check"></i> 2 VIP passes</li>
+                        <li><i data-lucide="check"></i> Social media mention (1x)</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TIMELINE ==================== -->
+    <section id="timeline">
+        <div class="section-header">
+            <div class="section-label">
+                <i data-lucide="calendar"></i>
+                Event Schedule
+            </div>
+            <h2>3-Day <span class="text-gradient">Programme</span></h2>
+            <p class="section-description">A packed three-day experience blending competitive esports, innovation, and entertainment at KL Tower.</p>
+        </div>
+
+        <div class="container">
+            <div class="timeline-tabs">
+                <button class="timeline-tab active" data-day="1">Day 1 — Opening</button>
+                <button class="timeline-tab" data-day="2">Day 2 — Competition</button>
+                <button class="timeline-tab" data-day="3">Day 3 — Finals</button>
+            </div>
+
+            <!-- Day 1 -->
+            <div class="timeline-day active" data-day-content="1">
+                <div class="timeline-track">
+                    <div class="timeline-item">
+                        <div class="timeline-time">09:00 — 10:00</div>
+                        <div class="timeline-title">Grand Opening Ceremony</div>
+                        <div class="timeline-desc">VIP speeches, LED countdown, cultural performances, and official event launch.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">10:00 — 12:00</div>
+                        <div class="timeline-title">Hackathon Kickoff</div>
+                        <div class="timeline-desc">Team registration, problem statement reveal, and 48-hour challenge begins.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">10:00 — 18:00</div>
+                        <div class="timeline-title">Tech Expo Opens</div>
+                        <div class="timeline-desc">Exhibition halls open with VR/AR demos, product showcases, and tech talks.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">12:00 — 22:00</div>
+                        <div class="timeline-title">LAN Party — Open Gaming</div>
+                        <div class="timeline-desc">100+ PCs live, casual tournaments and free play sessions throughout the day.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">14:00 — 20:00</div>
+                        <div class="timeline-title">MLBB Group Stage</div>
+                        <div class="timeline-desc">International invitational group stage matches — MY, PH, ID teams compete.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 2 -->
+            <div class="timeline-day" data-day-content="2">
+                <div class="timeline-track">
+                    <div class="timeline-item">
+                        <div class="timeline-time">09:00 — 12:00</div>
+                        <div class="timeline-title">Honor of Kings Group Stage</div>
+                        <div class="timeline-desc">HOK invitational group matches with live commentary and analysis desk.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">10:00 — 18:00</div>
+                        <div class="timeline-title">Tech Expo — Day 2</div>
+                        <div class="timeline-desc">Continued exhibition, keynote sessions, and product launch events.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">All Day</div>
+                        <div class="timeline-title">Hackathon Continues</div>
+                        <div class="timeline-desc">Teams build prototypes. Mentor check-ins and mid-point presentations.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">14:00 — 18:00</div>
+                        <div class="timeline-title">MLBB Semifinals</div>
+                        <div class="timeline-desc">Top teams face off in semifinal bracket. Full broadcast with analysis.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">19:00 — 21:00</div>
+                        <div class="timeline-title">Content Creator Sessions</div>
+                        <div class="timeline-desc">Meet & greet with gaming influencers, live streaming collabs, and fan activities.</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Day 3 -->
+            <div class="timeline-day" data-day-content="3">
+                <div class="timeline-track">
+                    <div class="timeline-item">
+                        <div class="timeline-time">09:00 — 11:00</div>
+                        <div class="timeline-title">Hackathon Demo Day</div>
+                        <div class="timeline-desc">Final presentations, judging panel, and hackathon prize ceremony.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">12:00 — 15:00</div>
+                        <div class="timeline-title">MLBB Grand Finals</div>
+                        <div class="timeline-desc">Championship match on the main stage with full production and live audience.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">15:30 — 18:00</div>
+                        <div class="timeline-title">Honor of Kings Grand Finals</div>
+                        <div class="timeline-desc">HOK championship decider with international broadcast coverage.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">18:30 — 19:30</div>
+                        <div class="timeline-title">Awards Ceremony</div>
+                        <div class="timeline-desc">Prize distribution, MVP awards, hackathon winners, and special recognitions.</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-time">20:00 — 22:00</div>
+                        <div class="timeline-title">Closing Ceremony & After-Party</div>
+                        <div class="timeline-desc">Highlight reel screening, closing speeches, DJ set, and networking mixer.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== IMPACT ==================== -->
+    <section id="impact">
+        <div class="section-header">
+            <div class="section-label">
+                <i data-lucide="trending-up"></i>
+                Expected Impact
+            </div>
+            <h2>Projected <span class="text-gradient">Outcomes</span></h2>
+            <p class="section-description">Conservative estimates based on comparable regional esports and tech events.</p>
+        </div>
+
+        <div class="container">
+            <div class="impact-grid">
+                <div class="impact-card">
+                    <div class="impact-icon" style="background: rgba(0, 255, 136, 0.1);">
+                        <i data-lucide="users" style="color: var(--accent-primary);"></i>
+                    </div>
+                    <div class="impact-value text-gradient">5,000+</div>
+                    <div class="impact-label">Total Attendees</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon" style="background: rgba(0, 212, 255, 0.1);">
+                        <i data-lucide="share-2" style="color: var(--accent-secondary);"></i>
+                    </div>
+                    <div class="impact-value text-gradient">500K+</div>
+                    <div class="impact-label">Social Impressions</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon" style="background: rgba(168, 85, 247, 0.1);">
+                        <i data-lucide="tv" style="color: var(--accent-tertiary);"></i>
+                    </div>
+                    <div class="impact-value text-gradient">50K+</div>
+                    <div class="impact-label">Livestream Viewers</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon" style="background: rgba(255, 107, 107, 0.1);">
+                        <i data-lucide="newspaper" style="color: var(--accent-warm);"></i>
+                    </div>
+                    <div class="impact-value text-gradient">100+</div>
+                    <div class="impact-label">Media Mentions</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon" style="background: rgba(0, 212, 255, 0.1);">
+                        <i data-lucide="globe" style="color: var(--accent-secondary);"></i>
+                    </div>
+                    <div class="impact-value text-gradient">200+</div>
+                    <div class="impact-label">International Visitors</div>
+                </div>
+                <div class="impact-card">
+                    <div class="impact-icon" style="background: rgba(0, 255, 136, 0.1);">
+                        <i data-lucide="eye" style="color: var(--accent-primary);"></i>
+                    </div>
+                    <div class="impact-value text-gradient">30%</div>
+                    <div class="impact-label">KL Tower Visibility Boost</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== TEAM ==================== -->
+    <section id="team">
+        <div class="section-header">
+            <div class="section-label">
+                <i data-lucide="user-check"></i>
+                About the Organizer
+            </div>
+            <h2>Proven <span class="text-gradient">Track Record</span></h2>
+        </div>
+
+        <div class="container">
+            <div class="team-card">
+                <img src="https://framerusercontent.com/images/psPfOaBsuiL1ETkiMltqDp3xfQ.jpg" alt="Hazman Hassan" class="team-photo" loading="lazy">
+                <div>
+                    <div class="team-name">Hazman Hassan</div>
+                    <div class="team-role">Founder, KITAMEN / Special Ops Sdn Bhd</div>
+                    <p class="team-bio">
+                        Pioneer in Malaysian esports infrastructure. Building KITAMEN as the nation's leading esports event operator, with Special Ops Sdn Bhd handling full-scale event production across gaming, tech, and creative industries.
+                    </p>
+                    <div class="team-stats">
+                        <div>
+                            <div class="team-stat-value">220+</div>
+                            <div class="team-stat-label">Events Produced</div>
+                        </div>
+                        <div>
+                            <div class="team-stat-value">500+</div>
+                            <div class="team-stat-label">Talents Trained</div>
+                        </div>
+                        <div>
+                            <div class="team-stat-value">RM 2M+</div>
+                            <div class="team-stat-label">Prize Pools Managed</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== NEXT STEPS ==================== -->
+    <section id="next-steps">
+        <div class="section-header">
+            <div class="section-label">
+                <i data-lucide="rocket"></i>
+                Next Steps
+            </div>
+            <h2>Let's Make <span class="text-gradient">History</span></h2>
+        </div>
+
+        <div class="container">
+            <div class="next-steps-card">
+                <p>Ready to bring "Gaming in the Sky" to life at KL Tower? Let's discuss your preferred package and customization options.</p>
+                <div class="next-steps-buttons">
+                    <a href="mailto:hazman@kitamen.my?subject=Gaming%20in%20the%20Sky%20—%20KL%20Tower%20Proposal" class="btn-primary">
+                        <i data-lucide="mail"></i>
+                        Contact Us
+                    </a>
+                    <button class="btn-secondary" onclick="window.print()">
+                        <i data-lucide="printer"></i>
+                        Print Proposal
+                    </button>
+                    <a href="#features" class="btn-secondary">
+                        <i data-lucide="settings"></i>
+                        Customize Package
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>Gaming in the Sky &mdash; A proposal by KITAMEN / Special Ops Sdn Bhd &copy; 2025</p>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // ==================== DATA ====================
+        const CORE_COSTS = {
+            'core-mgmt': { label: 'Event Management', cost: 130000, color: 'var(--accent-primary)' },
+            'core-venue': { label: 'Venue & Logistics', cost: 100000, color: 'var(--accent-primary)' },
+            'core-marketing': { label: 'Marketing & PR', cost: 80000, color: 'var(--accent-primary)' }
+        };
+
+        const OPTIONAL_FEATURES = {
+            invitational: { label: 'International Esports', cost: 120000, color: 'var(--accent-tertiary)' },
+            hackathon: { label: 'Hackathon', cost: 60000, color: 'var(--accent-secondary)' },
+            techexpo: { label: 'Tech Expo', cost: 80000, color: 'var(--accent-primary)' },
+            lanparty: { label: 'LAN Party', cost: 40000, color: 'var(--accent-warm)' },
+            tourism: { label: 'Tourism Package', cost: 50000, color: 'var(--accent-secondary)' },
+            broadcast: { label: 'Broadcast Production', cost: 80000, color: 'var(--accent-tertiary)' },
+            ceremony: { label: 'Ceremony', cost: 40000, color: 'var(--gold)' }
+        };
+
+        const PRESETS = {
+            essential: new Set(['invitational', 'broadcast']),
+            standard: new Set(['invitational', 'hackathon', 'techexpo', 'broadcast', 'ceremony']),
+            premium: new Set(['invitational', 'hackathon', 'techexpo', 'lanparty', 'tourism', 'broadcast', 'ceremony'])
+        };
+
+        const CORE_TOTAL = Object.values(CORE_COSTS).reduce((s, f) => s + f.cost, 0);
+        const MIN_BUDGET = 500000;
+        const MAX_BUDGET = 1000000;
+
+        // ==================== STATE ====================
+        const activeFeatures = new Set(['invitational', 'broadcast']);
+
+        // ==================== DOM REFS ====================
+        const budgetTotalEl = document.getElementById('budget-total');
+        const budgetTierEl = document.getElementById('budget-tier');
+        const rangeFillEl = document.getElementById('range-fill');
+        const costBreakdownEl = document.getElementById('cost-breakdown');
+        const offsetRangeEl = document.getElementById('offset-range');
+
+        // ==================== BUDGET ANIMATION ====================
+        let currentDisplayedTotal = 510000;
+        let animationId = null;
+
+        function animateTotal(target) {
+            const start = currentDisplayedTotal;
+            const diff = target - start;
+            const duration = 500;
+            const startTime = performance.now();
+
+            if (animationId) cancelAnimationFrame(animationId);
+
+            function step(now) {
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const eased = 1 - Math.pow(1 - progress, 3);
+                const current = Math.round(start + diff * eased);
+                currentDisplayedTotal = current;
+                budgetTotalEl.textContent = 'RM ' + current.toLocaleString();
+                if (progress < 1) {
+                    animationId = requestAnimationFrame(step);
+                }
+            }
+            animationId = requestAnimationFrame(step);
+        }
+
+        // ==================== CALCULATE & RENDER ====================
+        function recalculate() {
+            let optionalTotal = 0;
+            activeFeatures.forEach(id => {
+                if (OPTIONAL_FEATURES[id]) optionalTotal += OPTIONAL_FEATURES[id].cost;
+            });
+            const total = CORE_TOTAL + optionalTotal;
+
+            // Animate total
+            animateTotal(total);
+
+            // Update range bar
+            const pct = Math.max(0, Math.min(100, ((total - MIN_BUDGET) / (MAX_BUDGET - MIN_BUDGET)) * 100));
+            rangeFillEl.style.width = Math.max(2, pct) + '%';
+
+            // Tier label
+            let tier = 'Custom';
+            for (const [name, features] of Object.entries(PRESETS)) {
+                if (features.size === activeFeatures.size && [...features].every(f => activeFeatures.has(f))) {
+                    tier = name.charAt(0).toUpperCase() + name.slice(1);
+                    break;
+                }
+            }
+            budgetTierEl.textContent = tier;
+
+            // Sponsorship offset (60-85%)
+            const low = Math.round(total * 0.6);
+            const high = Math.round(total * 0.85);
+            offsetRangeEl.textContent = 'RM ' + low.toLocaleString() + ' — RM ' + high.toLocaleString();
+
+            // Update preset button states
+            document.querySelectorAll('.preset-btn').forEach(btn => {
+                const preset = btn.dataset.preset;
+                const features = PRESETS[preset];
+                const match = features.size === activeFeatures.size && [...features].every(f => activeFeatures.has(f));
+                btn.classList.toggle('active', match);
+            });
+
+            // Render cost breakdown
+            renderBreakdown(total);
+        }
+
+        function renderBreakdown(total) {
+            const maxCost = Math.max(...Object.values(CORE_COSTS).map(f => f.cost), ...Object.values(OPTIONAL_FEATURES).map(f => f.cost));
+            let html = '<h3>Cost Breakdown</h3>';
+
+            // Core items
+            for (const [id, feat] of Object.entries(CORE_COSTS)) {
+                const widthPct = (feat.cost / maxCost) * 100;
+                html += `
+                    <div class="cost-item">
+                        <div class="cost-item-label">${feat.label}</div>
+                        <div class="cost-item-bar">
+                            <div class="cost-item-fill" style="width:${widthPct}%; background:${feat.color};"></div>
+                        </div>
+                        <div class="cost-item-amount">RM ${feat.cost.toLocaleString()}</div>
+                    </div>`;
+            }
+
+            // Optional items
+            for (const [id, feat] of Object.entries(OPTIONAL_FEATURES)) {
+                const isActive = activeFeatures.has(id);
+                const widthPct = isActive ? (feat.cost / maxCost) * 100 : 0;
+                html += `
+                    <div class="cost-item ${isActive ? '' : 'inactive'}">
+                        <div class="cost-item-label">${feat.label}</div>
+                        <div class="cost-item-bar">
+                            <div class="cost-item-fill" style="width:${widthPct}%; background:${feat.color};"></div>
+                        </div>
+                        <div class="cost-item-amount">${isActive ? 'RM ' + feat.cost.toLocaleString() : '—'}</div>
+                    </div>`;
+            }
+
+            costBreakdownEl.innerHTML = html;
+        }
+
+        // ==================== TOGGLE HANDLERS ====================
+        document.querySelectorAll('[data-toggle]').forEach(toggle => {
+            toggle.addEventListener('change', (e) => {
+                const featureId = e.target.dataset.toggle;
+                const card = document.querySelector(`.feature-card[data-feature="${featureId}"]`);
+
+                if (e.target.checked) {
+                    activeFeatures.add(featureId);
+                    card.classList.add('active');
+                    card.classList.remove('disabled');
+                } else {
+                    activeFeatures.delete(featureId);
+                    card.classList.remove('active');
+                    card.classList.add('disabled');
+                }
+
+                recalculate();
+            });
+        });
+
+        // ==================== PRESET HANDLERS ====================
+        document.querySelectorAll('.preset-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const preset = btn.dataset.preset;
+                const features = PRESETS[preset];
+
+                activeFeatures.clear();
+                features.forEach(f => activeFeatures.add(f));
+
+                // Update all toggles
+                document.querySelectorAll('[data-toggle]').forEach(toggle => {
+                    const id = toggle.dataset.toggle;
+                    const card = document.querySelector(`.feature-card[data-feature="${id}"]`);
+                    toggle.checked = activeFeatures.has(id);
+                    if (activeFeatures.has(id)) {
+                        card.classList.add('active');
+                        card.classList.remove('disabled');
+                    } else {
+                        card.classList.remove('active');
+                        card.classList.add('disabled');
+                    }
+                });
+
+                recalculate();
+            });
+        });
+
+        // ==================== TIMELINE TABS ====================
+        document.querySelectorAll('.timeline-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                const day = tab.dataset.day;
+
+                document.querySelectorAll('.timeline-tab').forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+
+                document.querySelectorAll('.timeline-day').forEach(d => d.classList.remove('active'));
+                document.querySelector(`[data-day-content="${day}"]`).classList.add('active');
+            });
+        });
+
+        // ==================== SCROLL REVEALS ====================
+        const revealElements = document.querySelectorAll('.feature-card, .sponsor-card, .impact-card, .timeline-item, .team-card');
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.transitionDelay = `${index * 0.05}s`;
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+
+        revealElements.forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+            revealObserver.observe(el);
+        });
+
+        // ==================== PARALLAX ORBS ====================
+        let ticking = false;
+        window.addEventListener('scroll', () => {
+            if (!ticking) {
+                window.requestAnimationFrame(() => {
+                    const scrollY = window.pageYOffset;
+                    document.querySelectorAll('.orb').forEach((orb, index) => {
+                        const speed = 0.05 + (index * 0.02);
+                        orb.style.transform = `translateY(${scrollY * speed}px)`;
+                    });
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }, { passive: true });
+
+        // ==================== SMOOTH SCROLL NAV ====================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', (e) => {
+                const href = anchor.getAttribute('href');
+                if (href && href !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        const headerOffset = 100;
+                        const elementPosition = target.getBoundingClientRect().top;
+                        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+
+        // ==================== INITIAL RENDER ====================
+        // Set initial disabled state for non-active cards
+        document.querySelectorAll('[data-toggle]').forEach(toggle => {
+            const id = toggle.dataset.toggle;
+            const card = document.querySelector(`.feature-card[data-feature="${id}"]`);
+            if (!activeFeatures.has(id)) {
+                card.classList.add('disabled');
+                card.classList.remove('active');
+            }
+        });
+
+        recalculate();
+    });
+    </script>
+</body>
+</html>
