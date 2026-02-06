@@ -6,6 +6,9 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Static portfolio website for Hazman Hassan — no build system, no package manager, no frameworks. Pure HTML5, CSS3, and vanilla JavaScript served as-is.
 
+**Live site:** [www.zemang.my](https://www.zemang.my)
+**Repository:** github.com/zemang86/kitamenmy
+
 ## Architecture
 
 - **index.html** — Main single-page portfolio (2,200+ lines). Contains all HTML, CSS (via `<style>`), and JS (via `<script>`) inline. Sections: hero (with WebGL shader background), services, skills/tools, ventures, stats, portfolio, about, contact.
