@@ -411,6 +411,24 @@ td{padding:7px 12px;border-bottom:1px solid #eee;font-size:13px}
 
   return (
     <div ref={scrollContainerRef} className="font-[family-name:var(--font-inter)]">
+      {/* ════════════════════ MOBILE WARNING ════════════════════ */}
+      <div className="fixed inset-0 z-[200] bg-bg-primary flex items-center justify-center p-8 md:hidden">
+        <div className="text-center max-w-[320px]">
+          <div className="w-16 h-16 mx-auto mb-6 bg-[rgba(0,255,136,0.1)] border border-[rgba(0,255,136,0.2)] flex items-center justify-center">
+            <DynamicIcon name="Monitor" size={28} className="text-accent-primary" />
+          </div>
+          <h2 className="text-lg font-bold mb-3 font-[family-name:var(--font-ibm-plex-mono)]">
+            Desktop Only
+          </h2>
+          <p className="text-[0.85rem] text-text-secondary leading-relaxed mb-4">
+            This proposal is optimised for desktop viewing. Please open on a laptop or desktop for the best experience.
+          </p>
+          <span className="inline-block text-[0.65rem] font-semibold tracking-[0.15em] uppercase text-accent-primary py-1.5 px-4 border border-[rgba(0,255,136,0.2)] bg-[rgba(0,255,136,0.05)] font-[family-name:var(--font-ibm-plex-mono)]">
+            KITAMEN &times; Rev Media
+          </span>
+        </div>
+      </div>
+
       <div aria-hidden="true">
         <FloatingOrbs />
       </div>
