@@ -14,7 +14,7 @@
 
 **NTU x WirForce** is Southeast Asia's first campus-scale gaming festival, bringing the renowned Taiwanese WirForce LAN party format to Nanyang Technological University, Singapore.
 
-**Key concept:** BYOC (Bring Your Own Computer) — attendees bring their own gaming rigs, meaning $0 hardware investment from the organiser. At 10K scale, gamers bring an estimated $2M+ worth of equipment.
+**Key concept:** BYOC (Bring Your Own Computer) — attendees bring their own gaming rigs, meaning $0 hardware investment from the organiser. At full scale (10K), gamers bring an estimated $2M+ worth of equipment.
 
 **What makes this unique:**
 - First WirForce outside Taiwan
@@ -33,7 +33,7 @@
 
 ## 2. Budget Philosophy
 
-- **Modular, not monolithic** — 3 core costs (always on) + 8 toggleable features
+- **Modular, not monolithic** — 3 core costs (always on) + 11 toggleable features
 - **Three clear tiers** — "The Launch" (5K), "Standard" (7.5K), and "Full Scale" (10K)
 - **Optimized for NTU** — leverage free venues, existing infrastructure, student volunteers
 - **Revenue-offset mindset** — budgets designed to be 55–80% recoverable through sponsorship, tickets, exhibitors, and F&B
@@ -60,7 +60,7 @@ These are non-negotiable regardless of tier:
 
 ---
 
-## 4. Optional Features (8 toggleable modules, $860,000 total)
+## 4. Optional Features (11 toggleable modules, $1,280,000 total)
 
 | # | Feature | Amount | One-Liner for Slide |
 |---|---------|--------|---------------------|
@@ -70,8 +70,11 @@ These are non-negotiable regardless of tier:
 | 4 | Live Broadcast | $100,000 | Multi-camera rig (6+ cams), streaming encoder & CDN, replay & graphics workstation, satellite screen deployment |
 | 5 | Campus Activations | $90,000 | Cosplay runway & judging panel, LED Campfire sleepover zone, Showcase City booth build, Screenverse cinema conversion |
 | 6 | Music & Entertainment | $80,000 | Anisong performer booking, DJ lineup & fees, performance stage & PA system, lighting & effects rig |
-| 7 | Marketing Campaign | $90,000 | Digital ad spend (social, SEM), influencer partnership deals, content crew (photo/video), PR & media outreach |
-| 8 | Premium Scale-Up | $180,000 | International headline acts, Innovation Dome fabrication, Wellness Village setup, expanded security + ambulance, premium environmental branding |
+| 7 | Marketing Campaign | $140,000 | Integrated multi-channel campaign (digital, social, SEM), KOL partnerships & influencer collaborations, campus ambassador programme, content crew (photo/video), traditional media buys, PR & media outreach |
+| 8 | Premium Scale-Up | $250,000 | International headline acts, Innovation Dome fabrication, custom stage design, Wellness Village setup, expanded security + ambulance, premium environmental branding |
+| 9 | F&B & Vendor Village | $100,000 | Food court infrastructure & setup, food truck coordination & vendor liaison, hydration stations & beverage partners, vendor licensing & permits |
+| 10 | VIP & Hospitality | $80,000 | VIP lounge buildout & staffing, sponsor hospitality suites, premium viewing areas, concierge services |
+| 11 | Prize Pool & Awards | $120,000 | Tournament prize money distribution, community recognition awards, NTU scholarship fund contribution, best-in-show prizes |
 
 ---
 
@@ -112,9 +115,9 @@ These are non-negotiable regardless of tier:
 
 ## 7. Budget Tier 3: "Full Scale" — 10,000 Attendees
 
-**Total: $1,120,000 SGD (~$112 per attendee)**
+**Total: $1,540,000 SGD (~$154 per attendee)**
 
-**Active modules:** Core ($260K) + All 8 optional features ($860K)
+**Active modules:** Core ($260K) + All 11 optional features ($1,280K)
 
 **Positioning:** Premium, top-tier, bespoke. The definitive campus gaming festival in Southeast Asia.
 
@@ -123,8 +126,11 @@ These are non-negotiable regardless of tier:
 - Main stage + 2 side stages + satellite screens
 - 4K broadcast-quality, international reach
 - Full Overdex (cashless, quests, analytics)
-- Full campus takeover + headline acts + Innovation Dome + Wellness Village
-- Integrated multi-channel marketing
+- Full campus takeover + headline acts + Innovation Dome + custom stage design + Wellness Village
+- Integrated multi-channel marketing campaign (KOL partnerships, campus ambassadors, traditional media)
+- Food court & vendor village with F&B partners
+- VIP lounge & sponsor hospitality suites
+- Tournament prize pool + community awards + NTU scholarship fund
 - Full-scale security across all campus zones + ambulance standby
 
 ---
@@ -166,18 +172,39 @@ These are non-negotiable regardless of tier:
 - **DJ lineup:** Multi-DJ sets across the event
 - **Stage & PA:** Performance stage, sound system, lighting & effects rig
 
-### 8.7 Marketing Campaign ($90,000)
+### 8.7 Marketing Campaign ($140,000)
 - **Digital:** Social media ads, SEM, community outreach
-- **Influencers:** Partnership deals with gaming content creators
+- **KOL partnerships:** Collaborations with gaming content creators and influencers
+- **Campus ambassadors:** Student ambassador programme across NTU schools
+- **Traditional media:** Radio spots, print ads, outdoor advertising
 - **Content crew:** On-site photo/video team
 - **PR:** Media outreach, press kits, post-event coverage
 
-### 8.8 Premium Scale-Up ($180,000)
+### 8.8 Premium Scale-Up ($250,000)
 - **International acts:** Headline performers from outside Singapore
 - **Innovation Dome:** Tech demo space for NTU research and sponsor showcases
-- **Wellness Village:** Rest areas, yoga, F&B garden
+- **Custom stage design:** Bespoke stage builds with premium production values
+- **Wellness Village:** Rest areas, yoga, meditation zones
 - **Expanded security:** Multi-zone coverage + ambulance standby
-- **Premium branding:** Environmental installations, premium wayfinding
+- **Premium branding:** Environmental installations, premium wayfinding, immersive brand experiences
+
+### 8.9 F&B & Vendor Village ($100,000)
+- **Food court infrastructure:** Tent structures, tables, seating, waste management
+- **Food truck coordination:** Vendor liaison, scheduling, placement logistics
+- **Hydration stations:** Water refill points, beverage partner activations
+- **Vendor licensing:** Permits, NEA compliance, health & safety inspections
+
+### 8.10 VIP & Hospitality ($80,000)
+- **VIP lounge:** Exclusive lounge buildout with premium seating and amenities
+- **Sponsor hospitality suites:** Private spaces for sponsor entertainment
+- **Premium viewing areas:** Elevated viewing platforms for VIP ticket holders
+- **Concierge services:** Dedicated hospitality staff and guest services
+
+### 8.11 Prize Pool & Awards ($120,000)
+- **Tournament prize money:** Cash prizes for competitive esports brackets
+- **Community recognition awards:** Best cosplay, best setup, community choice awards
+- **NTU scholarship fund:** Contribution to gaming/esports scholarship programme
+- **Best-in-show prizes:** Hardware and peripherals for outstanding participants
 
 ---
 
@@ -185,13 +212,16 @@ These are non-negotiable regardless of tier:
 
 | Aspect | 5K — The Launch | 7.5K — Standard | 10K — Full Scale |
 |--------|:---:|:---:|:---:|
-| **Total** | $600,000 | $850,000 | $1,120,000 |
-| **Per Attendee** | ~$120 | ~$113 | ~$112 |
+| **Total** | $600,000 | $850,000 | $1,540,000 |
+| **Per Attendee** | ~$120 | ~$113 | ~$154 |
 | **LAN Arena** | 800 BYOC seats | 1,000 BYOC seats | 1,200+ BYOC seats |
 | **Stages** | Main + 1 side | Main + 1 side + rotating | Main + 2 sides + satellite |
 | **Broadcast** | HD multi-cam | HD multi-cam | 4K broadcast-quality |
 | **Overdex** | — | v1 (entry + quests) | Full (cashless + analytics) |
 | **Programming** | Core activations | Core + music & campus | Full campus takeover |
+| **F&B & Vendors** | — | — | Food court + vendor village |
+| **VIP & Hospitality** | — | — | VIP lounge + sponsor suites |
+| **Prize Pool** | — | — | Tournament + community awards |
 | **Security** | Standard | Standard + expanded | Full-scale + ambulance |
 | **Marketing** | Within production baseline | Within production baseline | Full integrated campaign |
 | **Positioning** | Lean, proven, impactful | Comprehensive campus festival | Premium, top-tier, bespoke |
@@ -215,10 +245,10 @@ All three tiers are designed to be offset by multiple revenue streams. Estimated
 
 **Applied to each tier:**
 
-| | The Launch ($600K) | Standard ($850K) | Full Scale ($1.12M) |
+| | The Launch ($600K) | Standard ($850K) | Full Scale ($1.54M) |
 |---|:---:|:---:|:---:|
-| Offset range (55–80%) | $330K–$480K | $468K–$680K | $616K–$896K |
-| Net cost after offset | $120K–$270K | $170K–$382K | $224K–$504K |
+| Offset range (55–80%) | $330K–$480K | $468K–$680K | $847K–$1,232K |
+| Net cost after offset | $120K–$270K | $170K–$382K | $308K–$693K |
 
 ---
 
@@ -276,6 +306,7 @@ Budget includes a **~5% contingency buffer** within the Operations & Security li
 
 - "At $120 per attendee, The Launch delivers a full-scale gaming festival — LAN Arena, esports, and professional broadcast — at a fraction of typical event costs."
 - "The Standard tier at $113 per head is the sweet spot — it adds Overdex, campus programming, and music for just $250K more."
+- "Full Scale at $154 per attendee scales to 10,000 people and adds premium elements: F&B village, VIP hospitality, prize pools, and integrated marketing campaigns."
 - "The BYOC model is our superpower: gamers bring $2M+ worth of equipment. We invest in infrastructure and experience, not hardware."
 - "NTU is not just a venue — it's a partner. Free spaces, existing infrastructure, and student volunteers cut our baseline costs by an estimated 40%."
 - "All three tiers are designed to be 55–80% offset by sponsorship, tickets, and exhibitor revenue. The net investment for The Launch could be as low as $120K."
@@ -295,13 +326,13 @@ For the colleague building the budgeting deck, here's a recommended slide flow:
 | 4 | Projected Impact | 6 key metrics (attendees, BYOC gamers, social reach, livestream, hardware, media) |
 | 5 | Scale Options | Three tiers: 5K (Launch) vs 7.5K (Standard) vs 10K (Full Scale) |
 | 6 | Why NTU Keeps Costs Down | 5 cost advantages (free venues, BYOC, infra, volunteers, academic) |
-| 7 | How the Budget Works | Core costs ($260K always-on) + 8 toggleable features (modular approach) |
+| 7 | How the Budget Works | Core costs ($260K always-on) + 11 toggleable features (modular approach) |
 | 8 | Tier 1: The Launch | $600K, 5K attendees, ~$120/head — core + LAN + esports + broadcast |
 | 9 | Tier 2: Standard | $850K, 7.5K attendees, ~$113/head — adds Overdex, campus, music |
-| 10 | Tier 3: Full Scale | $1.12M, 10K attendees, ~$112/head — all features, premium |
-| 11 | Side-by-Side Comparison | Tier comparison table (7 aspects across all 3 tiers) |
+| 10 | Tier 3: Full Scale | $1.54M, 10K attendees, ~$154/head — all features, premium, F&B, VIP, prizes |
+| 11 | Side-by-Side Comparison | Tier comparison table (10 aspects across all 3 tiers) |
 | 12 | Revenue Model | 6 revenue streams + offset percentages (55–80%) |
 | 13 | Sponsorship Packages | Title / Gold / Silver / Bronze with pricing and benefits |
-| 14 | Net Investment | After offset: $120K–$270K (Launch) / $170K–$382K (Standard) / $224K–$504K (Full Scale) |
+| 14 | Net Investment | After offset: $120K–$270K (Launch) / $170K–$382K (Standard) / $308K–$693K (Full Scale) |
 | 15 | Risk & Contingency | 5 risks with mitigations, ~5% buffer |
 | 16 | Next Steps | Decision points, timeline, contact |

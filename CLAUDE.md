@@ -11,13 +11,15 @@ Static portfolio website for Hazman Hassan — no build system, no package manag
 
 ## Architecture
 
-- **index.html** — Main single-page portfolio (2,200+ lines). Contains all HTML, CSS (via `<style>`), and JS (via `<script>`) inline. Sections: hero (with WebGL shader background), services, skills/tools, ventures, stats, portfolio, about, contact.
+- **index.html** — Main single-page portfolio (~2,200 lines). Sections: hero (WebGL shader background), services, skills/tools, ventures, stats, portfolio, about, contact.
+- **kltower/index.html** — Gaming in the Sky proposal (~2,450 lines). Interactive esports festival budget configurator for KL Tower. Glassmorphism design, tiered pricing, sponsorship packages.
+- **ntu/index.html** — NTU x WirForce 2026 proposal (~2,050 lines). Interactive budget configurator with 3 presets, 8 toggleable features, tier comparison table, revenue breakdown, impact metrics, sponsorship packages, risk mitigation. See `ntu/CLAUDE.md` for full docs.
 - **roblox/index.html** — Standalone Roblox tournament registration page with retro design.
 - **zakuan/** — Alternative landing pages (index.html, index2.html).
 - **a_index.html** — Archived version with different accent color (#00ff41 vs #00ff88).
 - **backup.html** — Backup of a previous version.
 
-There is no component system or templating. Each HTML file is fully self-contained with its own styles and scripts.
+Each HTML file is fully self-contained (inline `<style>` + `<script>`). No component system or templating.
 
 ## Development
 
@@ -49,12 +51,20 @@ Responsive breakpoints: 480px, 768px, 968px.
 
 ## Key JavaScript Patterns
 
-- **WebGL fragment shader** renders the animated plasma background in the hero section canvas.
-- **IntersectionObserver** triggers scroll-reveal animations with staggered delays.
-- **Counter animation** uses `requestAnimationFrame` to animate statistics from 0 to target values.
-- **Passive scroll listeners** update floating orb positions for parallax effect.
+- **WebGL fragment shader** renders the animated plasma background in the hero section canvas (index.html only).
+- **IntersectionObserver** triggers scroll-reveal animations with staggered delays (all pages).
+- **Counter animation** uses `requestAnimationFrame` to animate statistics from 0 to target values (index.html, ntu/).
+- **Passive scroll listeners** update floating orb positions for parallax effect (all pages).
+- **Budget configurator** (kltower/, ntu/) — `recalculate()` master function drives preset/toggle state, cost breakdown, revenue breakdown, and tier highlighting.
 - All animations respect `prefers-reduced-motion` media query.
+
+## Subproject Docs
+
+- **kltower/CLAUDE.md** — KL Tower proposal page details
+- **ntu/CLAUDE.md** — NTU x WirForce page details, budget logic, JS function reference
+- **ntu/budget.md** — Quick-reference budget numbers
+- **ntu/budgeting.md** — Comprehensive deck brief for Manus (16-slide structure, talking points, deep dives)
 
 ## Assets
 
-Favicons (ico, png at 16/32/180/192/512px) and `og-image.jpg` are in the root. `roblox/edvideo.mp4` is an 18.8MB video asset — be mindful of git history size.
+Favicons (ico, png at 16/32/180/192/512px) and `og-image.jpg` are in the root. `roblox/edvideo.mp4` is an 18.8MB video asset — be mindful of git history size. `ntu/docs/` contains reference PDFs and deck JPGs (gitignored).

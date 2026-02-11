@@ -20,7 +20,7 @@ Scrolling Marquee (CSS-only infinite ticker)
 Configurator
   ├─ Preset buttons (3 tiers)
   ├─ Core costs banner ($260K always-on)
-  ├─ Feature cards grid (8 toggleable)
+  ├─ Feature cards grid (11 toggleable)
   └─ Budget card
        ├─ Animated total + range bar
        ├─ Cost breakdown (bar chart)
@@ -37,10 +37,10 @@ Footer
 ## Key Numbers
 
 - **Currency:** SGD ($)
-- **Budget range:** $600K – $1.2M SGD
+- **Budget range:** $600K – $1.5M SGD
 - **Tier 1 "The Launch":** $600,000 / 5,000 attendees (~$120/head)
 - **Tier 2 "Standard":** $850,000 / ~7,500 attendees (~$113/head)
-- **Tier 3 "Full Scale":** $1,120,000 / 10,000 attendees (~$112/head)
+- **Tier 3 "Full Scale":** $1,540,000 / 10,000 attendees (~$154/head)
 - **Core costs (always on):** $260,000
 - **Sponsorship offset:** 55–80% cost recovery
 
@@ -53,7 +53,7 @@ Footer
 | Operations & Safety | $90,000 |
 | Production Baseline | $50,000 |
 
-**8 Optional features (toggleable, $860K total):**
+**11 Optional features (toggleable, $1,280K total):**
 | Feature | Cost |
 |---------|------|
 | Overdex Platform | $80,000 |
@@ -62,13 +62,16 @@ Footer
 | Live Broadcast | $100,000 |
 | Campus Activations | $90,000 |
 | Music & Entertainment | $80,000 |
-| Marketing Campaign | $90,000 |
-| Premium Scale-Up | $180,000 |
+| Marketing Campaign | $140,000 |
+| Premium Scale-Up | $250,000 |
+| F&B & Vendor Village | $100,000 |
+| VIP & Hospitality | $80,000 |
+| Prize Pool & Awards | $120,000 |
 
 **3 Presets (attendee-based):**
 - **5K — The Launch ($600K):** LAN Arena + Esports + Broadcast
 - **7.5K — Standard ($850K):** + Overdex + Campus + Music
-- **Full Scale ($1,120K):** All 8 features
+- **Full Scale ($1,540K):** All 11 features (10K attendees)
 
 **Revenue streams (% of total, dynamic):**
 Title sponsorship (13–20%), Gold/Silver/Bronze sponsors (13–17%), BYOC seat fees (4–5%), General admission (8–14%), Exhibitor booths (5–7%), F&B & merch (3–7%)

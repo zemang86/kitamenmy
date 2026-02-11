@@ -6,7 +6,7 @@
     <title>Hazman Hassan — AI Builder & Operator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
@@ -53,8 +53,8 @@
             --glass-bg-hover: rgba(255, 255, 255, 0.08);
             --glass-border: rgba(255, 255, 255, 0.1);
             --glass-border-hover: rgba(255, 255, 255, 0.2);
-            --glow-primary: rgba(0, 255, 136, 0.4);
-            --glow-secondary: rgba(0, 212, 255, 0.4);
+            --glow-primary: rgba(0, 255, 136, 0.15);
+            --glow-secondary: rgba(0, 212, 255, 0.15);
             --gradient-1: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
             --gradient-2: linear-gradient(135deg, var(--accent-secondary), var(--accent-tertiary));
             --gradient-3: linear-gradient(135deg, var(--accent-tertiary), var(--accent-warm));
@@ -66,10 +66,10 @@
         }
 
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-family: 'IBM Plex Mono', 'Courier New', monospace;
             background-color: var(--bg-primary);
             color: var(--text-primary);
-            line-height: 1.6;
+            line-height: 1.7;
             overflow-x: hidden;
             position: relative;
             -webkit-font-smoothing: antialiased;
@@ -130,10 +130,10 @@
             width: 200%;
             height: 200%;
             background:
-                radial-gradient(ellipse at 20% 20%, rgba(0, 255, 136, 0.15) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 20%, rgba(0, 212, 255, 0.12) 0%, transparent 50%),
-                radial-gradient(ellipse at 40% 80%, rgba(168, 85, 247, 0.1) 0%, transparent 50%),
-                radial-gradient(ellipse at 80% 80%, rgba(255, 107, 107, 0.08) 0%, transparent 50%);
+                radial-gradient(ellipse at 20% 20%, rgba(0, 255, 136, 0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(0, 212, 255, 0.05) 0%, transparent 50%),
+                radial-gradient(ellipse at 40% 80%, rgba(168, 85, 247, 0.04) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(255, 107, 107, 0.03) 0%, transparent 50%);
             animation: meshMove 20s ease-in-out infinite;
         }
 
@@ -148,8 +148,8 @@
         .orb {
             position: fixed;
             border-radius: 50%;
-            filter: blur(60px);
-            opacity: 0.4;
+            filter: blur(80px);
+            opacity: 0.15;
             pointer-events: none;
             z-index: -1;
             contain: layout style paint;
@@ -225,20 +225,20 @@
         /* Glass Card Base */
         .glass {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            border-radius: 16px;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .glass:hover {
             background: var(--glass-bg-hover);
             border-color: var(--glass-border-hover);
-            transform: translateY(-4px);
+            transform: translateY(-2px);
             box-shadow:
                 0 20px 40px rgba(0, 0, 0, 0.3),
-                0 0 60px rgba(0, 255, 136, 0.1);
+                0 0 30px rgba(0, 255, 136, 0.05);
         }
 
         /* Header */
@@ -284,12 +284,12 @@
             background: var(--accent-primary);
             border-radius: 50%;
             animation: pulse 2s infinite;
-            box-shadow: 0 0 20px var(--accent-primary);
+            box-shadow: 0 0 10px var(--accent-primary);
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 20px var(--accent-primary); }
-            50% { opacity: 0.8; transform: scale(1.2); box-shadow: 0 0 30px var(--accent-primary); }
+            0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 10px var(--accent-primary); }
+            50% { opacity: 0.8; transform: scale(1.2); box-shadow: 0 0 15px var(--accent-primary); }
         }
 
         nav {
@@ -310,7 +310,7 @@
             font-weight: 500;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             padding: 0.5rem 1rem;
-            border-radius: 50px;
+            border-radius: 8px;
             position: relative;
         }
 
@@ -327,7 +327,7 @@
             background: var(--gradient-1);
             color: var(--bg-primary);
             padding: 0.6rem 1.5rem;
-            border-radius: 50px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
@@ -335,12 +335,12 @@
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
+            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.15);
         }
 
         .cta-header:hover {
             transform: translateY(-2px) scale(1.02);
-            box-shadow: 0 8px 30px rgba(0, 255, 136, 0.5);
+            box-shadow: 0 8px 30px rgba(0, 255, 136, 0.25);
         }
 
         /* Hero Section */
@@ -348,7 +348,7 @@
             min-height: 100vh;
             display: flex;
             align-items: center;
-            padding: 8rem 2rem 4rem;
+            padding: 10rem 2rem 4rem;
             position: relative;
             overflow: hidden;
         }
@@ -384,7 +384,7 @@
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             padding: 0.5rem 1rem;
-            border-radius: 50px;
+            border-radius: 8px;
             font-size: 0.9rem;
             margin-bottom: 1.5rem;
             color: var(--text-primary);
@@ -408,29 +408,26 @@
         }
 
         h1 {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            font-weight: 800;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700;
             line-height: 1.1;
             margin-bottom: 0.5rem;
             letter-spacing: -0.03em;
         }
 
         .name-highlight {
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent-primary);
         }
 
         .hero-subtitle {
-            font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+            font-size: clamp(1rem, 2vw, 1.3rem);
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
             font-weight: 500;
         }
 
         .hero-description {
-            font-size: 1.1rem;
+            font-size: 1rem;
             color: var(--text-secondary);
             margin-bottom: 2.5rem;
             line-height: 1.8;
@@ -459,36 +456,19 @@
             background: var(--gradient-1);
             color: var(--bg-primary);
             padding: 1rem 2rem;
-            border-radius: 50px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-primary::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.5s;
-        }
-
-        .btn-primary:hover::before {
-            left: 100%;
+            box-shadow: 0 4px 20px rgba(0, 255, 136, 0.15);
         }
 
         .btn-primary:hover {
             transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 8px 40px rgba(0, 255, 136, 0.5);
+            box-shadow: 0 8px 40px rgba(0, 255, 136, 0.25);
         }
 
         .btn-secondary {
@@ -498,7 +478,7 @@
             color: var(--text-primary);
             padding: 1rem 2rem;
             border: 1px solid var(--glass-border);
-            border-radius: 50px;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: 600;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -507,7 +487,7 @@
         .btn-secondary:hover {
             border-color: var(--accent-primary);
             background: var(--glass-bg-hover);
-            box-shadow: 0 0 30px rgba(0, 255, 136, 0.2);
+            box-shadow: 0 0 20px rgba(0, 255, 136, 0.1);
         }
 
         .hero-image {
@@ -614,7 +594,7 @@
             display: flex;
             align-items: center;
             gap: 0.75rem;
-            font-weight: 600;
+            font-weight: 500;
             white-space: nowrap;
             font-size: 0.95rem;
         }
@@ -627,13 +607,13 @@
         
         /* Services Section */
         .services {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             position: relative;
         }
 
         .section-header {
             max-width: 1400px;
-            margin: 0 auto 4rem;
+            margin: 0 auto 5rem;
             text-align: center;
         }
 
@@ -646,7 +626,7 @@
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             padding: 0.5rem 1rem;
-            border-radius: 50px;
+            border-radius: 6px;
             font-size: 0.85rem;
             margin-bottom: 1.5rem;
             color: var(--accent-primary);
@@ -654,7 +634,7 @@
         }
 
         h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
+            font-size: clamp(1.6rem, 3.5vw, 2.4rem);
             margin-bottom: 1rem;
             font-weight: 700;
             letter-spacing: -0.02em;
@@ -672,15 +652,15 @@
             margin: 0 auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .service-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            border-radius: 16px;
             padding: 2.5rem;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -700,33 +680,16 @@
             transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .service-card::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top right, rgba(0, 255, 136, 0.1), transparent 50%);
-            opacity: 0;
-            transition: opacity 0.4s;
-            pointer-events: none;
-        }
-
         .service-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-2px);
             border-color: var(--glass-border-hover);
             box-shadow:
                 0 20px 40px rgba(0, 0, 0, 0.3),
-                0 0 60px rgba(0, 255, 136, 0.1);
+                0 0 30px rgba(0, 255, 136, 0.05);
         }
 
         .service-card:hover::before {
             transform: scaleX(1);
-        }
-
-        .service-card:hover::after {
-            opacity: 1;
         }
 
         .service-icon {
@@ -769,7 +732,7 @@
             color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.7;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         .service-link {
@@ -789,13 +752,13 @@
         
         /* Tools Section */
         .tools {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             position: relative;
         }
 
         /* Ventures Section */
         .ventures {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             position: relative;
         }
 
@@ -809,8 +772,8 @@
 
         .venture-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
             border-radius: 16px;
             padding: 1.5rem;
@@ -835,11 +798,11 @@
         }
 
         .venture-card:hover {
-            transform: translateY(-6px);
+            transform: translateY(-2px);
             border-color: var(--glass-border-hover);
             box-shadow:
                 0 15px 30px rgba(0, 0, 0, 0.3),
-                0 0 40px rgba(0, 255, 136, 0.1);
+                0 0 20px rgba(0, 255, 136, 0.05);
         }
 
         .venture-card:hover::before {
@@ -908,9 +871,25 @@
     .legend-box-i { background: linear-gradient(135deg, #00d4ff, #0099ff); }
     .legend-box-b { background: linear-gradient(135deg, #666, #888); }
 
-    .tools-grid {
+    .tools-categories {
         max-width: 1400px;
         margin: 3rem auto 0;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+
+    .tools-category-label {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--text-tertiary);
+        margin-bottom: 1rem;
+        padding-left: 0.25rem;
+    }
+
+    .tools-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
         gap: 1rem;
@@ -931,8 +910,8 @@
 
     .tool-card {
         background: var(--glass-bg);
-        backdrop-filter: blur(20px);
-        -webkit-backdrop-filter: blur(20px);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
         border: 1px solid var(--glass-border);
         border-radius: 16px;
         padding: 1.25rem 1rem;
@@ -970,7 +949,7 @@
     }
 
     .tool-card:hover {
-        transform: translateY(-4px);
+        transform: translateY(-2px);
         border-color: var(--glass-border-hover);
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     }
@@ -1026,7 +1005,7 @@
         
         /* Portfolio Section */
         .portfolio {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             position: relative;
         }
 
@@ -1035,15 +1014,15 @@
             margin: 3rem auto 0;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .portfolio-card {
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
-            border-radius: 24px;
+            border-radius: 16px;
             overflow: hidden;
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             position: relative;
@@ -1053,11 +1032,11 @@
         }
 
         .portfolio-card:hover {
-            transform: translateY(-8px);
+            transform: translateY(-2px);
             border-color: var(--glass-border-hover);
             box-shadow:
                 0 20px 40px rgba(0, 0, 0, 0.3),
-                0 0 60px rgba(0, 255, 136, 0.1);
+                0 0 30px rgba(0, 255, 136, 0.05);
         }
 
         .portfolio-image-wrapper {
@@ -1102,11 +1081,12 @@
         }
 
         .tag {
-            background: var(--gradient-1);
-            color: var(--bg-primary);
+            background: rgba(0, 255, 136, 0.15);
+            color: var(--accent-primary);
+            border: 1px solid rgba(0, 255, 136, 0.3);
             font-size: 0.7rem;
             padding: 0.3rem 0.75rem;
-            border-radius: 50px;
+            border-radius: 4px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.05em;
@@ -1122,12 +1102,12 @@
         .portfolio-description {
             color: var(--text-secondary);
             line-height: 1.7;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
 
         /* About Section */
         .about {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             position: relative;
         }
 
@@ -1155,7 +1135,7 @@
             max-width: 320px;
             height: 320px;
             object-fit: cover;
-            border-radius: 24px;
+            border-radius: 16px;
             border: 1px solid var(--glass-border);
             filter: grayscale(50%);
             transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1205,17 +1185,14 @@
         }
 
         .stat-item:hover {
-            transform: translateY(-4px);
+            transform: translateY(-2px);
             border-color: var(--glass-border-hover);
         }
 
         .stat-number {
             font-size: 2.2rem;
             font-weight: 700;
-            background: var(--gradient-1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: var(--accent-primary);
         }
 
         .stat-label {
@@ -1224,9 +1201,55 @@
             margin-top: 0.25rem;
         }
 
+        /* Stats Section (standalone) */
+        .stats-section {
+            padding: 4rem 2rem;
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .stats-section-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            text-align: center;
+        }
+
+        .stat-box {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .stat-box:hover {
+            transform: translateY(-2px);
+            border-color: var(--glass-border-hover);
+            box-shadow:
+                0 15px 30px rgba(0, 0, 0, 0.3),
+                0 0 20px rgba(0, 255, 136, 0.05);
+        }
+
+        .stat-box .stat-number {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-box .stat-label {
+            font-size: 0.9rem;
+        }
+
         /* Contact Section */
         .contact {
-            padding: 6rem 2rem;
+            padding: 8rem 2rem;
             position: relative;
         }
 
@@ -1235,10 +1258,10 @@
             margin: 0 auto;
             text-align: center;
             background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
             border: 1px solid var(--glass-border);
-            border-radius: 32px;
+            border-radius: 16px;
             padding: 4rem 3rem;
             position: relative;
             overflow: hidden;
@@ -1354,6 +1377,187 @@
         ::-webkit-scrollbar-thumb:hover {
             background: var(--glass-border-hover);
         }
+
+        /* ── Mobile Responsive ── */
+        @media (max-width: 968px) {
+            .header-content {
+                padding: 0.4rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .cta-header {
+                padding: 0.5rem 1rem;
+                font-size: 0.8rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .contact-content {
+                padding: 2.5rem 1.5rem;
+            }
+
+            .tools-categories {
+                gap: 2rem;
+            }
+
+            h1 {
+                word-break: break-word;
+            }
+
+            .hero {
+                padding: 8rem 1.5rem 3rem;
+            }
+
+            .services,
+            .tools,
+            .ventures,
+            .portfolio,
+            .about,
+            .contact {
+                padding: 5rem 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .portfolio-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                padding: 2rem 1.25rem;
+            }
+
+            .contact-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero {
+                padding: 7rem 1rem 2rem;
+            }
+
+            .services,
+            .tools,
+            .ventures,
+            .portfolio,
+            .about,
+            .contact {
+                padding: 4rem 1rem;
+            }
+
+            .section-header {
+                margin-bottom: 3rem;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+
+            .hero-description {
+                font-size: 0.9rem;
+            }
+
+            .btn-primary,
+            .btn-secondary {
+                padding: 0.85rem 1.5rem;
+                font-size: 0.85rem;
+                width: 100%;
+                justify-content: center;
+            }
+
+            .about-content {
+                gap: 2rem;
+            }
+
+            .about-photo {
+                max-width: 100%;
+                height: 240px;
+            }
+
+            .venture-card {
+                padding: 1.25rem;
+            }
+
+            .strip-item {
+                font-size: 0.8rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.5rem;
+            }
+
+            .footer-links a {
+                font-size: 0.8rem;
+            }
+
+            .copyright {
+                font-size: 0.75rem;
+            }
+
+            .contact-description {
+                font-size: 0.9rem;
+            }
+
+            .section-description {
+                font-size: 0.9rem;
+            }
+
+            .skill-legend {
+                gap: 0.5rem;
+            }
+
+            .legend-item {
+                font-size: 0.75rem;
+                padding: 0.3rem 0.6rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1453,7 +1657,7 @@
                 <div class="service-icon"><i data-lucide="gamepad-2"></i></div>
                 <h3 class="service-title">Esports & Gaming</h3>
                 <p class="service-description">
-                    esigning cultural infrastructure for gaming: from esports venues and PlayPod deployments to tournament systems and community platforms that scale.
+                    Designing cultural infrastructure for gaming: from esports venues and PlayPod deployments to tournament systems and community platforms that scale.
                 </p>
                 <a href="#contact" class="service-link">Learn more →</a>
             </div>
@@ -1494,150 +1698,278 @@
             </div>
         </div>
     </div>
-    <div class="tools-grid">
+    <div class="tools-categories">
         <!-- AI & Automation -->
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="brain"></i></div>
-                <div class="tool-name">OpenAI Platform</div>
+        <div>
+            <div class="tools-category-label">AI & Automation</div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="brain"></i></div>
+                        <div class="tool-name">OpenAI Platform</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="bot"></i></div>
+                        <div class="tool-name">LLMs (ChatGPT, Gemini, Claude)</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="terminal"></i></div>
+                        <div class="tool-name">Claude Code</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="zap"></i></div>
+                        <div class="tool-name">Cursor</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="refresh-cw"></i></div>
+                        <div class="tool-name">n8n Workflows</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="sparkles"></i></div>
+                        <div class="tool-name">AI Prompt Engineering</div>
+                    </div>
+                    <span class="skill-level skill-level-a">A</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="wand-2"></i></div>
+                        <div class="tool-name">Midjourney / DALL-E</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
             </div>
-            <span class="skill-level skill-level-i">I</span>
         </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="bot"></i></div>
-                <div class="tool-name">LLMs (ChatGPT, Gemini, Claude)</div>
+
+        <!-- Web & Dev -->
+        <div>
+            <div class="tools-category-label">Web & Dev</div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="code"></i></div>
+                        <div class="tool-name">HTML / CSS / JS</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="git-branch"></i></div>
+                        <div class="tool-name">GitHub / Git</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="rocket"></i></div>
+                        <div class="tool-name">Vercel / Netlify</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="database"></i></div>
+                        <div class="tool-name">Supabase</div>
+                    </div>
+                    <span class="skill-level skill-level-b">B</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="palette"></i></div>
+                        <div class="tool-name">Framer</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="file-text"></i></div>
+                        <div class="tool-name">WordPress</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="cloud"></i></div>
+                        <div class="tool-name">Google Cloud API</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
             </div>
-            <span class="skill-level skill-level-i">I</span>
         </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="terminal"></i></div>
-                <div class="tool-name">Claude Code</div>
-            </div>
-            <span class="skill-level skill-level-i">I</span>
-        </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="zap"></i></div>
-                <div class="tool-name">Cursor</div>
-            </div>
-            <span class="skill-level skill-level-i">I</span>
-        </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="refresh-cw"></i></div>
-                <div class="tool-name">n8n Workflows</div>
-            </div>
-            <span class="skill-level skill-level-i">I</span>
-        </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="sparkles"></i></div>
-                <div class="tool-name">AI Prompt Engineering</div>
-            </div>
-            <span class="skill-level skill-level-a">A</span>
-        </div>
-        <!-- Web & Product -->
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="database"></i></div>
-                <div class="tool-name">Supabase</div>
-            </div>
-            <span class="skill-level skill-level-b">B</span>
-        </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="palette"></i></div>
-                <div class="tool-name">Framer</div>
-            </div>
-            <span class="skill-level skill-level-i">I</span>
-        </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="file-text"></i></div>
-                <div class="tool-name">WordPress</div>
-            </div>
-            <span class="skill-level skill-level-i">I</span>
-        </div>
+
         <!-- Design & Creative -->
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="image"></i></div>
-                <div class="tool-name">Adobe Photoshop</div>
+        <div>
+            <div class="tools-category-label">Design & Creative</div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="image"></i></div>
+                        <div class="tool-name">Adobe Photoshop</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="pen-tool"></i></div>
+                        <div class="tool-name">Adobe Illustrator</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="clapperboard"></i></div>
+                        <div class="tool-name">Adobe Premiere Pro</div>
+                    </div>
+                    <span class="skill-level skill-level-b">B</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="video"></i></div>
+                        <div class="tool-name">DaVinci Resolve</div>
+                    </div>
+                    <span class="skill-level skill-level-b">B</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="layout"></i></div>
+                        <div class="tool-name">Canva</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="ruler"></i></div>
+                        <div class="tool-name">AutoCAD</div>
+                    </div>
+                    <span class="skill-level skill-level-a">A</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="box"></i></div>
+                        <div class="tool-name">SketchUp</div>
+                    </div>
+                    <span class="skill-level skill-level-a">A</span>
+                </div>
             </div>
-            <span class="skill-level skill-level-i">I</span>
         </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="pen-tool"></i></div>
-                <div class="tool-name">Adobe Illustrator</div>
+
+        <!-- Broadcast & Esports -->
+        <div>
+            <div class="tools-category-label">Broadcast & Esports</div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="monitor"></i></div>
+                        <div class="tool-name">vMix (Broadcast/Overlay)</div>
+                    </div>
+                    <span class="skill-level skill-level-s">S</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="radio"></i></div>
+                        <div class="tool-name">OBS Studio</div>
+                    </div>
+                    <span class="skill-level skill-level-a">A</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="trophy"></i></div>
+                        <div class="tool-name">Tournament Platforms</div>
+                    </div>
+                    <span class="skill-level skill-level-a">A</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="gamepad-2"></i></div>
+                        <div class="tool-name">Roblox Studio</div>
+                    </div>
+                    <span class="skill-level skill-level-b">B</span>
+                </div>
             </div>
-            <span class="skill-level skill-level-i">I</span>
         </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="clapperboard"></i></div>
-                <div class="tool-name">Adobe Premiere Pro</div>
+
+        <!-- Business & Ops -->
+        <div>
+            <div class="tools-category-label">Business & Ops</div>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="file"></i></div>
+                        <div class="tool-name">Google Workspace</div>
+                    </div>
+                    <span class="skill-level skill-level-a">A</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="layout-grid"></i></div>
+                        <div class="tool-name">Notion</div>
+                    </div>
+                    <span class="skill-level skill-level-a">A</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="message-circle"></i></div>
+                        <div class="tool-name">WhatsApp Business</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="megaphone"></i></div>
+                        <div class="tool-name">Meta Business Suite</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="message-square"></i></div>
+                        <div class="tool-name">Discord</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="hash"></i></div>
+                        <div class="tool-name">Slack</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="trending-up"></i></div>
+                        <div class="tool-name">SEO / Growth Strategy</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="bar-chart-2"></i></div>
+                        <div class="tool-name">Google Analytics</div>
+                    </div>
+                    <span class="skill-level skill-level-i">I</span>
+                </div>
+                <div class="tool-card">
+                    <div>
+                        <div class="tool-icon"><i data-lucide="credit-card"></i></div>
+                        <div class="tool-name">Stripe</div>
+                    </div>
+                    <span class="skill-level skill-level-b">B</span>
+                </div>
             </div>
-            <span class="skill-level skill-level-b">B</span>
-        </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="video"></i></div>
-                <div class="tool-name">DaVinci Resolve</div>
-            </div>
-            <span class="skill-level skill-level-b">B</span>
-        </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="ruler"></i></div>
-                <div class="tool-name">AutoCAD</div>
-            </div>
-            <span class="skill-level skill-level-a">A</span>
-        </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="box"></i></div>
-                <div class="tool-name">SketchUp</div>
-            </div>
-            <span class="skill-level skill-level-a">A</span>
-        </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="monitor"></i></div>
-                <div class="tool-name">vMix (Broadcast/Overlay)</div>
-            </div>
-            <span class="skill-level skill-level-s">S</span>
-        </div>
-        <!-- Ops & Growth -->
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="trending-up"></i></div>
-                <div class="tool-name">SEO / Growth Strategy</div>
-            </div>
-            <span class="skill-level skill-level-i">I</span>
-        </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="file"></i></div>
-                <div class="tool-name">Google Docs / Workspace</div>
-            </div>
-            <span class="skill-level skill-level-a">A</span>
-        </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="cloud"></i></div>
-                <div class="tool-name">Google Cloud API</div>
-            </div>
-            <span class="skill-level skill-level-i">I</span>
-        </div>
-        <div class="tool-card">
-            <div>
-                <div class="tool-icon"><i data-lucide="layout-grid"></i></div>
-                <div class="tool-name">Notion</div>
-            </div>
-            <span class="skill-level skill-level-a">A</span>
         </div>
     </div>
 </section>
@@ -1692,6 +2024,18 @@
                 <div class="venture-name">Mimpilab</div>
                 <div class="venture-url">mlbb.my →</div>
             </a>
+            <a href="https://www.centralintelligence.my" target="_blank" class="venture-card">
+                <div class="venture-name">Central Intelligence</div>
+                <div class="venture-url">www.centralintelligence.my →</div>
+            </a>
+            <a href="https://afhe.io" target="_blank" class="venture-card">
+                <div class="venture-name">Aura HFE</div>
+                <div class="venture-url">afhe.io →</div>
+            </a>
+            <a href="https://playmaster.my" target="_blank" class="venture-card">
+                <div class="venture-name">PlayMasters</div>
+                <div class="venture-url">playmaster.my →</div>
+            </a>
             <div class="venture-card">
                 <div class="venture-name">SuperPA</div>
                 <div class="venture-url" style="color: var(--text-secondary);">Coming soon</div>
@@ -1707,29 +2051,29 @@
         </div>
     </section>
 	
-	<!-- Stats Section -->
-<section class="stats-section" style="padding: 4rem 2rem; border-top: 1px solid var(--glass-border); border-bottom: 1px solid var(--glass-border);">
-    <div style="max-width: 1400px; margin: 0 auto;">
-        <div class="stats-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; text-align: center;">
-            <div class="stat-box" style="background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 2rem 1.5rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
-                <div class="stat-number" style="font-size: 2.5rem; font-weight: 700; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem;">220+</div>
-                <div class="stat-label" style="color: var(--text-secondary); font-size: 0.9rem;">Esports Events Delivered</div>
-            </div>
-            <div class="stat-box" style="background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 2rem 1.5rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
-                <div class="stat-number" style="font-size: 2.5rem; font-weight: 700; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem;">500+</div>
-                <div class="stat-label" style="color: var(--text-secondary); font-size: 0.9rem;">Professionals Trained in AI</div>
-            </div>
-            <div class="stat-box" style="background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 2rem 1.5rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
-                <div class="stat-number" style="font-size: 2.5rem; font-weight: 700; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem;">RM 2M+</div>
-                <div class="stat-label" style="color: var(--text-secondary); font-size: 0.9rem;">Prize Pools Managed</div>
-            </div>
-            <div class="stat-box" style="background: var(--glass-bg); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid var(--glass-border); border-radius: 20px; padding: 2rem 1.5rem; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);">
-                <div class="stat-number" style="font-size: 2.5rem; font-weight: 700; background: var(--gradient-1); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 0.5rem;">13</div>
-                <div class="stat-label" style="color: var(--text-secondary); font-size: 0.9rem;">Ventures Launched</div>
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="stats-section-inner">
+            <div class="stats-container">
+                <div class="stat-box">
+                    <div class="stat-number">220+</div>
+                    <div class="stat-label">Esports Events Delivered</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">500+</div>
+                    <div class="stat-label">Professionals Trained in AI</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">RM 2M+</div>
+                    <div class="stat-label">Prize Pools Managed</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">13</div>
+                    <div class="stat-label">Ventures Launched</div>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- Portfolio Section -->
     <section class="portfolio" id="portfolio">
@@ -1806,8 +2150,114 @@
                     </div>
                     <h3 class="portfolio-title">Sora - Adaptive LMS</h3>
                     <p class="portfolio-description">
-                        Next-generation learning management system with AI avatars 
+                        Next-generation learning management system with AI avatars
                         and personalized learning paths.
+                    </p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1554048612-b6a482bc67e5?w=400&h=200&fit=crop" alt="Herographers" class="portfolio-image" loading="lazy">
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">Platform</span>
+                        <span class="tag">On-Demand</span>
+                    </div>
+                    <h3 class="portfolio-title">Herographers</h3>
+                    <p class="portfolio-description">
+                        On-demand visual services platform with tiered photography packages — from smartphone to premium bespoke creator selection.
+                    </p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1625772299848-391b6a87d7b3?w=400&h=200&fit=crop" alt="Salaam Cola" class="portfolio-image" loading="lazy">
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">Brand</span>
+                        <span class="tag">Social Impact</span>
+                    </div>
+                    <h3 class="portfolio-title">Salaam Cola</h3>
+                    <p class="portfolio-description">
+                        Premium halal beverage brand website. 10% of profits donated to humanitarian causes across 33 countries.
+                    </p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=200&fit=crop" alt="MyPSI Mental Health" class="portfolio-image" loading="lazy">
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">Health</span>
+                        <span class="tag">Social Impact</span>
+                    </div>
+                    <h3 class="portfolio-title">MyPSI - Mental Health Screening</h3>
+                    <p class="portfolio-description">
+                        Evidence-based mental health assessments with AI-powered guidance. Free screenings for anxiety, depression, and stress management support.
+                    </p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1505373877841-8d25f7d46678?w=400&h=200&fit=crop" alt="ESUKAN Masterclass" class="portfolio-image" loading="lazy">
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">Esports</span>
+                        <span class="tag">Training</span>
+                    </div>
+                    <h3 class="portfolio-title">ESUKAN Masterclass</h3>
+                    <p class="portfolio-description">
+                        Professional training series for Malaysian esports enthusiasts — workshops in AI-enhanced content creation and streaming tech to international standards.
+                    </p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=400&h=200&fit=crop" alt="Program Kepimpinan E-Sukan" class="portfolio-image" loading="lazy">
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">Esports</span>
+                        <span class="tag">Youth</span>
+                        <span class="tag">B40</span>
+                    </div>
+                    <h3 class="portfolio-title">Kepimpinan E-Sukan Belia</h3>
+                    <p class="portfolio-description">
+                        Free youth leadership programme transforming gamers into esports event organizers — 2-day workshop, 3-week mentored field assignment, and a showcase event for B40 participants.
+                    </p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=200&fit=crop" alt="PlayPod Configurator" class="portfolio-image" loading="lazy">
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">Tool</span>
+                        <span class="tag">Interactive</span>
+                    </div>
+                    <h3 class="portfolio-title">PlayPod Configurator</h3>
+                    <p class="portfolio-description">
+                        Interactive rental configurator for KITAMEN's PlayPod gaming setups — select categories, platforms, and upgrades, then generate quotes via WhatsApp or email.
+                    </p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=200&fit=crop" alt="Esports Event Calculator" class="portfolio-image" loading="lazy">
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">Tool</span>
+                        <span class="tag">Esports</span>
+                    </div>
+                    <h3 class="portfolio-title">Esports Event Calculator</h3>
+                    <p class="portfolio-description">
+                        Budget planning tool for tournament organizers — estimate costs from event specs, or find what package a fixed budget can deliver.
+                    </p>
+                </div>
+            </div>
+            <div class="portfolio-card">
+                <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=400&h=200&fit=crop" alt="UBBL Exit Width Calculator" class="portfolio-image" loading="lazy">
+                <div class="portfolio-content">
+                    <div class="portfolio-tags">
+                        <span class="tag">Architecture</span>
+                        <span class="tag">Compliance</span>
+                    </div>
+                    <h3 class="portfolio-title">UBBL Exit Width Calculator</h3>
+                    <p class="portfolio-description">
+                        Malaysian building compliance tool — calculates minimum emergency exit widths based on occupant load per UBBL 1984, with detailed fire safety reports.
                     </p>
                 </div>
             </div>
@@ -2105,19 +2555,6 @@ Beyond work, I explore how culture, gaming, and technology can create new forms 
             requestAnimationFrame(render);
         }
         
-        // Smooth scroll for navigation links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
     </script>
 	<!-- Optional: Animated counter effect -->
 <script>

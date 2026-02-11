@@ -17,7 +17,7 @@
 
 ---
 
-## Optional Features (Toggleable, $860,000 total)
+## Optional Features (Toggleable, $1,280,000 total)
 
 | Feature | Amount (SGD) | Description |
 |---------|:---:|-------------|
@@ -27,8 +27,11 @@
 | Live Broadcast | $100,000 | Multi-camera rig (6+ cams), streaming encoder & CDN, replay & graphics workstation, satellite screen deployment |
 | Campus Activations | $90,000 | Cosplay runway & judging panel, LED Campfire sleepover zone, Showcase City booth build, Screenverse cinema conversion |
 | Music & Entertainment | $80,000 | Anisong performer booking, DJ lineup & fees, performance stage & PA system, lighting & effects rig |
-| Marketing Campaign | $90,000 | Digital ad spend (social, SEM), influencer partnership deals, content crew (photo/video), PR & media outreach |
-| Premium Scale-Up | $180,000 | International headline acts, Innovation Dome fabrication, Wellness Village setup, expanded security + ambulance, premium environmental branding |
+| Marketing Campaign | $140,000 | Integrated multi-channel campaign (digital, social, SEM), KOL partnerships & influencer collaborations, campus ambassador programme, content crew (photo/video), traditional media buys, PR & media outreach |
+| Premium Scale-Up | $250,000 | International headline acts, Innovation Dome fabrication, custom stage design, Wellness Village setup, expanded security + ambulance, premium environmental branding |
+| F&B & Vendor Village | $100,000 | Food court infrastructure & setup, food truck coordination & vendor liaison, hydration stations & beverage partners, vendor licensing & permits |
+| VIP & Hospitality | $80,000 | VIP lounge buildout & staffing, sponsor hospitality suites, premium viewing areas, concierge services |
+| Prize Pool & Awards | $120,000 | Tournament prize money distribution, community recognition awards, NTU scholarship fund contribution, best-in-show prizes |
 
 ---
 
@@ -57,13 +60,13 @@
 - **Music & Entertainment:** $80,000
 - **Total:** $850,000 (~$113 per attendee)
 
-### Tier 3: 10,000 Attendees — "Full Scale" ($1,120,000)
+### Tier 3: 10,000 Attendees — "Full Scale" ($1,540,000)
 
 *Premium, top-tier, bespoke.*
 
 - **Core:** $260,000
-- **All 8 optional features:** $860,000
-- **Total:** $1,120,000 (~$112 per attendee)
+- **All 11 optional features:** $1,280,000
+- **Total:** $1,540,000 (~$154 per attendee)
 
 ---
 
@@ -76,8 +79,11 @@
 | Broadcast | HD multi-cam | HD multi-cam | 4K broadcast-quality |
 | Overdex | — | v1 (entry + quests) | Full (cashless + analytics) |
 | Programming | Core activations | Core + music & campus | Full campus takeover |
+| F&B & Vendors | — | — | Food court + vendor village |
+| VIP & Hospitality | — | — | VIP lounge + sponsor suites |
+| Prize Pool | — | — | Tournament + community awards |
 | Security | Standard | Standard + expanded | Full-scale + ambulance |
-| Per Attendee | ~$120 | ~$113 | ~$112 |
+| Per Attendee | ~$120 | ~$113 | ~$154 |
 
 ---
 
@@ -85,15 +91,15 @@
 
 **Estimated 55–80% cost recovery** through 6 revenue streams:
 
-| Stream | Low % | High % | At $600K | At $1.12M |
+| Stream | Low % | High % | At $600K | At $1.54M |
 |--------|:---:|:---:|:---:|:---:|
-| Title sponsorship | 13% | 20% | $78K–$120K | $146K–$224K |
-| Gold/Silver/Bronze sponsors | 13% | 17% | $78K–$102K | $146K–$190K |
-| BYOC seat fees | 4% | 5% | $24K–$30K | $45K–$56K |
-| General admission tickets | 8% | 14% | $48K–$84K | $90K–$157K |
-| Exhibitor booth fees | 5% | 7% | $30K–$42K | $56K–$78K |
-| F&B & merchandise | 3% | 7% | $18K–$42K | $34K–$78K |
-| **Total offset range** | **55%** | **80%** | **$330K–$480K** | **$616K–$896K** |
+| Title sponsorship | 13% | 20% | $78K–$120K | $200K–$308K |
+| Gold/Silver/Bronze sponsors | 13% | 17% | $78K–$102K | $200K–$262K |
+| BYOC seat fees | 4% | 5% | $24K–$30K | $62K–$77K |
+| General admission tickets | 8% | 14% | $48K–$84K | $123K–$216K |
+| Exhibitor booth fees | 5% | 7% | $30K–$42K | $77K–$108K |
+| F&B & merchandise | 3% | 7% | $18K–$42K | $46K–$108K |
+| **Total offset range** | **55%** | **80%** | **$330K–$480K** | **$847K–$1,232K** |
 
 ---
 
@@ -138,7 +144,7 @@ Budget includes ~5% contingency buffer within Operations & Security.
 
 **NTU cost advantages:**
 - Venues provided by NTU — no rental fees (auditoriums, lecture halls, green spaces)
-- BYOC model = $0 hardware investment (gamers bring $2M+ worth of rigs at 10K scale)
+- BYOC model = $0 hardware investment (gamers bring $2M+ worth of rigs at 10K scale, estimated across all tiers)
 - Existing campus power, Wi-Fi backbone, and security infrastructure
 - Student volunteer programme reduces staffing costs by 30–40%
 
