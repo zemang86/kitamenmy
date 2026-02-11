@@ -4,7 +4,6 @@ import { useState, useCallback, useRef, useEffect, useMemo, Fragment } from "rea
 import Link from "next/link";
 import { Check } from "lucide-react";
 import DynamicIcon from "@/components/ui/DynamicIcon";
-import GlassCard from "@/components/ui/GlassCard";
 import FloatingOrbs from "@/components/effects/FloatingOrbs";
 import {
   CORE_COSTS,
@@ -168,7 +167,6 @@ const NAV_LINKS = [
   { label: "Equipment", id: "equipment" },
   { label: "Team", id: "team" },
   { label: "Portfolio", id: "portfolio" },
-  { label: "Contact", id: "contact" },
 ];
 
 // ── Tier Table Keys ──
@@ -1195,7 +1193,7 @@ td{padding:7px 12px;border-bottom:1px solid #eee;font-size:13px}
               </h2>
             </div>
 
-            <div className="grid grid-cols-6 gap-4">
+            <div className="grid grid-cols-5 gap-4">
               {IMPACT_METRICS.map((metric, idx) => (
                 <ImpactCounter
                   key={metric.label}
@@ -1211,45 +1209,6 @@ td{padding:7px 12px;border-bottom:1px solid #eee;font-size:13px}
           </div>
         </section>
 
-        {/* ════════════════════ CTA ════════════════════ */}
-        <section id="contact" className="py-24 relative z-[1]">
-          <div className="max-w-[800px] mx-auto px-8 text-center">
-            <h2 className="text-[clamp(1.8rem,4vw,3rem)] font-extrabold mb-4 font-[family-name:var(--font-ibm-plex-mono)]">
-              Ready to Go Live?
-            </h2>
-            <p className="text-text-secondary text-[1rem] mb-10 max-w-[500px] mx-auto">
-              Let&apos;s discuss the World Cup 2026 livestream production package.
-              Reach out to start the conversation.
-            </p>
-            <div className="flex justify-center gap-4">
-              <GlassCard
-                as="a"
-                href="mailto:hello@kitamen.my"
-                className="!rounded-none px-8 py-4 text-center"
-              >
-                <div className="text-[0.65rem] text-text-tertiary uppercase tracking-[0.12em] mb-1 font-[family-name:var(--font-ibm-plex-mono)]">
-                  Email
-                </div>
-                <div className="text-[0.85rem] font-semibold text-accent-primary font-[family-name:var(--font-ibm-plex-mono)]">
-                  hello@kitamen.my
-                </div>
-              </GlassCard>
-              <GlassCard
-                as="a"
-                href="https://wa.me/60123456789"
-                target="_blank"
-                className="!rounded-none px-8 py-4 text-center"
-              >
-                <div className="text-[0.65rem] text-text-tertiary uppercase tracking-[0.12em] mb-1 font-[family-name:var(--font-ibm-plex-mono)]">
-                  WhatsApp
-                </div>
-                <div className="text-[0.85rem] font-semibold text-accent-primary font-[family-name:var(--font-ibm-plex-mono)]">
-                  +60 12-345 6789
-                </div>
-              </GlassCard>
-            </div>
-          </div>
-        </section>
       </main>
 
       {/* ════════════════════ FOOTER ════════════════════ */}

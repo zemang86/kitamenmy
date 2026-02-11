@@ -300,7 +300,6 @@ export const IMPACT_METRICS: ImpactMetric[] = [
   { target: 8, suffix: "", prefix: "", multiplier: 1, label: "Match Days", display: "8" },
   { target: 24, suffix: "h+", prefix: "", multiplier: 1, label: "Live Content", display: "24h+" },
   { target: 3, suffix: "+", prefix: "", multiplier: 1, label: "Platforms", display: "3+" },
-  { target: 50, suffix: "K+", prefix: "", multiplier: 1000, label: "Potential Reach", display: "50K+" },
   { target: 6, suffix: "+", prefix: "", multiplier: 1, label: "Crew Members", display: "6+" },
   { target: 1, suffix: "", prefix: "", multiplier: 1, label: "Integrated Data System", display: "1" },
 ];
