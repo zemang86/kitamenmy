@@ -118,6 +118,9 @@ function loadShader(gl: WebGLRenderingContext, type: number, source: string) {
   return shader;
 }
 
+// Target ~30fps instead of uncapped 60fps
+const FRAME_INTERVAL = 1000 / 30;
+
 export default function WebGLCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [failed, setFailed] = useState(false);
@@ -189,8 +192,19 @@ export default function WebGLCanvas() {
 
     const startTime = Date.now();
     let animId: number;
+    let lastFrameTime = 0;
+    let isVisible = true;
 
-    function render() {
+    function render(now: number) {
+      animId = requestAnimationFrame(render);
+
+      // Skip rendering when tab is hidden
+      if (!isVisible) return;
+
+      // Throttle to ~30fps
+      if (now - lastFrameTime < FRAME_INTERVAL) return;
+      lastFrameTime = now;
+
       if (!gl || !canvas) return;
       const time = (Date.now() - startTime) / 1000;
 
@@ -203,15 +217,20 @@ export default function WebGLCanvas() {
       gl.vertexAttribPointer(vertexPos, 2, gl.FLOAT, false, 0, 0);
       gl.enableVertexAttribArray(vertexPos);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-
-      animId = requestAnimationFrame(render);
     }
+
+    // Pause when tab not visible
+    function onVisibilityChange() {
+      isVisible = !document.hidden;
+    }
+    document.addEventListener("visibilitychange", onVisibilityChange);
 
     animId = requestAnimationFrame(render);
 
     return () => {
       cancelAnimationFrame(animId);
       window.removeEventListener("resize", resize);
+      document.removeEventListener("visibilitychange", onVisibilityChange);
     };
   }, []);
 

@@ -19,6 +19,8 @@ import ScrollingStrip from "@/components/ui/ScrollingStrip";
 import DynamicIcon from "@/components/ui/DynamicIcon";
 import SponsorshipCards from "@/components/budget/SponsorshipCards";
 import BudgetConfigurator from "@/components/budget/BudgetConfigurator";
+import KLTowerHeader from "@/components/budget/KLTowerHeader";
+import TimelineSection from "@/components/budget/TimelineSection";
 import { IMPACT_STATS, MARQUEE_ITEMS } from "@/lib/budget-data/kltower";
 
 // ---------------------------------------------------------------------------
@@ -38,46 +40,6 @@ export const metadata: Metadata = {
 };
 
 // ---------------------------------------------------------------------------
-// Nav
-// ---------------------------------------------------------------------------
-
-const NAV_LINKS = [
-  { label: "Features", href: "#features" },
-  { label: "Budget", href: "#budget" },
-  { label: "Sponsors", href: "#sponsorship" },
-  { label: "Impact", href: "#impact" },
-  { label: "Team", href: "#team" },
-];
-
-function KLTowerHeader() {
-  return (
-    <header className="fixed top-4 left-1/2 -translate-x-1/2 w-[calc(100%-2rem)] max-w-[1200px] z-[1000] bg-[rgba(10,10,15,0.7)] backdrop-blur-[30px] border border-glass-border rounded-full p-2">
-      <div className="flex items-center justify-between px-6 py-2">
-        <a
-          href="#"
-          className="text-[clamp(0.65rem,1.5vw,0.95rem)] font-bold text-text-primary no-underline flex items-center gap-2 tracking-tight whitespace-nowrap"
-        >
-          <span className="w-2.5 h-2.5 bg-accent-primary rounded-full animate-pulse-glow shadow-[0_0_10px_var(--color-accent-primary)]" />
-          Gaming In The Sky @ KL TOWER 2026
-        </a>
-
-        <nav className="hidden md:flex gap-2">
-          {NAV_LINKS.map(({ label, href }) => (
-            <a
-              key={href}
-              href={href}
-              className="text-text-secondary text-sm font-medium px-3 py-2 rounded-full no-underline transition-all duration-300 hover:text-text-primary hover:bg-glass-bg"
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
-      </div>
-    </header>
-  );
-}
-
-// ---------------------------------------------------------------------------
 // Hero
 // ---------------------------------------------------------------------------
 
@@ -86,7 +48,7 @@ function HeroSection() {
     <section className="min-h-screen flex items-center py-32 px-8 max-[600px]:py-24 max-[600px]:px-4 relative overflow-hidden">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center w-full relative z-1">
         {/* Text */}
-        <div className="z-2">
+        <div className="z-2 max-[600px]:text-center">
           <div className="inline-flex items-center gap-3 bg-glass-bg backdrop-blur-[10px] border border-glass-border px-4 py-2 rounded-full text-sm mb-6 text-accent-primary font-medium">
             <Gamepad2 size={18} />
             International Esports Festival Proposal
@@ -103,7 +65,7 @@ function HeroSection() {
           </p>
 
           {/* Quick stats */}
-          <div className="flex gap-8 mb-10 flex-wrap">
+          <div className="flex gap-8 mb-10 flex-wrap max-[600px]:justify-center">
             {[
               { value: "5,000+", label: "Attendees" },
               { value: "3", label: "Countries" },
@@ -122,7 +84,7 @@ function HeroSection() {
           </div>
 
           {/* CTAs */}
-          <div className="flex gap-4 flex-wrap">
+          <div className="flex gap-4 flex-wrap max-[600px]:justify-center">
             <a
               href="#features"
               className="inline-flex items-center gap-2 bg-gradient-to-br from-accent-primary to-accent-secondary text-bg-primary px-8 py-4 rounded-full no-underline font-semibold transition-all duration-300 shadow-[0_4px_20px_rgba(0,255,136,0.3)] hover:-translate-y-[3px] hover:scale-[1.02] hover:shadow-[0_8px_40px_rgba(0,255,136,0.5)]"
@@ -142,7 +104,10 @@ function HeroSection() {
 
         {/* Hero image */}
         <div className="relative max-[600px]:hidden">
-          <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20 blur-[60px] scale-110" />
+          <div
+            className="absolute inset-0 rounded-3xl bg-gradient-to-br from-accent-primary/20 to-accent-secondary/20 blur-[60px] scale-110"
+            aria-hidden="true"
+          />
           <div className="relative rounded-3xl overflow-hidden border border-glass-border shadow-[0_20px_60px_rgba(0,0,0,0.5)]">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
@@ -424,33 +389,40 @@ export default function KLTowerPage() {
   return (
     <div className="font-[family-name:var(--font-inter)] overflow-x-hidden">
       {/* Background effects */}
-      <MeshGradient />
-      <NoiseOverlay />
-      <FloatingOrbs />
+      <div aria-hidden="true">
+        <MeshGradient />
+        <NoiseOverlay />
+        <FloatingOrbs />
+      </div>
 
       {/* Nav */}
       <KLTowerHeader />
 
-      {/* Hero */}
-      <HeroSection />
+      <main id="main-content">
+        {/* Hero */}
+        <HeroSection />
 
-      {/* Scrolling marquee */}
-      <MarqueeStrip />
+        {/* Scrolling marquee */}
+        <MarqueeStrip />
 
-      {/* Features + Budget (interactive configurator) */}
-      <BudgetConfigurator />
+        {/* Features + Budget (interactive configurator) */}
+        <BudgetConfigurator />
 
-      {/* Sponsorship */}
-      <SponsorshipSection />
+        {/* Sponsorship */}
+        <SponsorshipSection />
 
-      {/* Impact */}
-      <ImpactSection />
+        {/* Timeline */}
+        <TimelineSection />
 
-      {/* Team */}
-      <TeamSection />
+        {/* Impact */}
+        <ImpactSection />
 
-      {/* Next Steps */}
-      <NextStepsSection />
+        {/* Team */}
+        <TeamSection />
+
+        {/* Next Steps */}
+        <NextStepsSection />
+      </main>
 
       {/* Footer */}
       <KLTowerFooter />

@@ -11,7 +11,7 @@ interface CoreFeatureCardProps {
 
 export function CoreFeatureCard({ feature }: CoreFeatureCardProps) {
   return (
-    <div className="scroll-reveal bg-glass-bg backdrop-blur-[10px] border border-glass-border rounded-2xl p-6 transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-glass-bg-hover hover:border-glass-border-hover hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_30px_rgba(0,255,136,0.05)]">
+    <div className="relative overflow-hidden bg-glass-bg backdrop-blur-[20px] border border-accent-primary/30 rounded-2xl p-6 transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)] hover:bg-glass-bg-hover hover:border-glass-border-hover hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_30px_rgba(0,255,136,0.05)] before:absolute before:top-0 before:left-0 before:w-full before:h-[2px] before:bg-gradient-to-r before:from-accent-primary before:to-accent-secondary before:scale-x-100 before:origin-left before:transition-transform before:duration-400">
       <div className="flex items-center justify-between mb-4">
         <div className="w-12 h-12 rounded-xl bg-accent-primary/15 flex items-center justify-center">
           <DynamicIcon name={feature.icon} size={22} className="text-accent-primary" />
@@ -62,12 +62,15 @@ export function OptionalFeatureCard({
   return (
     <div
       className={`
-        scroll-reveal bg-glass-bg backdrop-blur-[10px] border rounded-2xl p-6
+        relative overflow-hidden bg-glass-bg backdrop-blur-[20px] border rounded-2xl p-6
         transition-all duration-400 ease-[cubic-bezier(0.4,0,0.2,1)]
+        before:absolute before:top-0 before:left-0 before:w-full before:h-[2px]
+        before:bg-gradient-to-r before:from-accent-primary before:to-accent-secondary
+        before:origin-left before:transition-transform before:duration-400
         ${
           isActive
-            ? "border-glass-border-hover shadow-[0_0_20px_rgba(0,255,136,0.08)] hover:bg-glass-bg-hover hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_30px_rgba(0,255,136,0.05)]"
-            : "border-glass-border opacity-50 hover:opacity-70"
+            ? "border-glass-border-hover shadow-[0_0_20px_rgba(0,255,136,0.08)] hover:bg-glass-bg-hover hover:-translate-y-0.5 hover:shadow-[0_20px_40px_rgba(0,0,0,0.3),0_0_30px_rgba(0,255,136,0.05)] before:scale-x-100"
+            : "border-glass-border opacity-65 hover:opacity-85 before:scale-x-0 hover:before:scale-x-100"
         }
       `}
     >
@@ -88,17 +91,20 @@ export function OptionalFeatureCard({
             checked={isActive}
             onChange={() => onToggle(feature.id)}
             className="sr-only peer"
+            aria-label={`Toggle ${feature.label}`}
           />
           <div
             className="
               w-11 h-6 rounded-full
               bg-[rgba(255,255,255,0.1)]
+              border border-glass-border
               peer-checked:bg-accent-primary/40
-              after:content-[''] after:absolute after:top-0.5 after:left-[2px]
-              after:bg-text-secondary after:rounded-full after:h-5 after:w-5
+              peer-checked:shadow-[0_0_10px_var(--color-accent-primary)]
+              after:content-[''] after:absolute after:top-[3px] after:left-[3px]
+              after:bg-text-secondary after:rounded-full after:h-[18px] after:w-[18px]
               after:transition-all after:duration-300
               peer-checked:after:translate-x-full peer-checked:after:bg-accent-primary
-              transition-colors duration-300
+              transition-all duration-300
             "
           />
         </label>

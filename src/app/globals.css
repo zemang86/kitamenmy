@@ -122,3 +122,97 @@
   opacity: 1;
   transform: translateY(0);
 }
+
+/* ── Print styles ── */
+@media print {
+  /* Light theme override */
+  body {
+    background: #fff !important;
+    color: #1a1a1a !important;
+  }
+
+  /* Dark text for all elements */
+  h1, h2, h3, h4, h5, h6, p, span, div, li, td, th, a, label {
+    color: #1a1a1a !important;
+    -webkit-text-fill-color: #1a1a1a !important;
+  }
+
+  /* Convert gradient text to solid */
+  .bg-clip-text {
+    background: none !important;
+    -webkit-background-clip: unset !important;
+    background-clip: unset !important;
+    -webkit-text-fill-color: #1a1a1a !important;
+    color: #1a1a1a !important;
+  }
+
+  /* Glass cards: white bg, visible border */
+  .glass,
+  [class*="bg-glass-bg"],
+  [class*="backdrop-blur"] {
+    background: rgba(0, 0, 0, 0.03) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-color: rgba(0, 0, 0, 0.15) !important;
+  }
+
+  /* Hide decorative / interactive elements */
+  .mesh-gradient,
+  .floating-orbs,
+  .noise-overlay,
+  [class*="animate-orb"],
+  [class*="animate-mesh"],
+  [class*="animate-marquee"],
+  header,
+  nav,
+  [aria-hidden="true"],
+  .format-switcher,
+  .timeline-tabs-container,
+  [class*="peer-checked"],
+  label:has(input[type="checkbox"]),
+  button[class*="preset"],
+  button[class*="format-btn"],
+  button[class*="timeline-tab"] {
+    display: none !important;
+  }
+
+  /* Show all feature cards at full opacity */
+  .scroll-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  [class*="opacity-65"],
+  [class*="opacity-50"] {
+    opacity: 1 !important;
+  }
+
+  /* Show all timeline days/formats (no tabs needed) */
+  .timeline-day,
+  .format-content {
+    display: block !important;
+  }
+
+  /* Remove shadows and glows */
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  /* Ensure page breaks don't split cards */
+  .scroll-reveal,
+  [class*="rounded-2xl"] {
+    break-inside: avoid;
+  }
+
+  /* Secondary text slightly darker for print readability */
+  .text-text-secondary {
+    color: #555 !important;
+    -webkit-text-fill-color: #555 !important;
+  }
+
+  .text-text-tertiary {
+    color: #777 !important;
+    -webkit-text-fill-color: #777 !important;
+  }
+}

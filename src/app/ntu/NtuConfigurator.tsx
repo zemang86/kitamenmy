@@ -300,7 +300,9 @@ export default function NtuConfigurator() {
 
   return (
     <div ref={scrollContainerRef} className="font-[family-name:var(--font-inter)]">
-      <FloatingOrbs />
+      <div aria-hidden="true">
+        <FloatingOrbs />
+      </div>
 
       {/* ── Navigation ── */}
       <nav className="fixed top-0 left-0 right-0 z-[100] px-8 py-4 bg-[rgba(5,5,8,0.8)] backdrop-blur-[20px] border-b border-glass-border">
@@ -320,6 +322,7 @@ export default function NtuConfigurator() {
         </div>
       </nav>
 
+      <main id="main-content">
       {/* ── Hero ── */}
       <section className="pt-32 pb-16 text-center relative z-[1]">
         <div className="max-w-[1200px] mx-auto px-8">
@@ -447,10 +450,10 @@ export default function NtuConfigurator() {
               return (
                 <div
                   key={feat.id}
-                  className={`relative overflow-hidden p-6 rounded-[20px] backdrop-blur-[10px] border transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-0.5 scroll-reveal ${
+                  className={`relative overflow-hidden p-6 rounded-[20px] backdrop-blur-[20px] border transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-0.5 before:absolute before:top-0 before:left-0 before:w-full before:h-[2px] before:bg-gradient-to-r before:from-accent-primary before:to-accent-secondary before:origin-left before:transition-transform before:duration-400 ${
                     isActive
-                      ? "border-glass-border-hover bg-glass-bg-hover"
-                      : "border-glass-border bg-glass-bg opacity-40"
+                      ? "border-glass-border-hover bg-glass-bg-hover shadow-[0_0_20px_rgba(0,255,136,0.08)] before:scale-x-100"
+                      : "border-glass-border bg-glass-bg opacity-65 hover:opacity-85 before:scale-x-0 hover:before:scale-x-100"
                   }`}
                 >
                   {/* Header: icon + toggle */}
@@ -472,8 +475,9 @@ export default function NtuConfigurator() {
                         checked={isActive}
                         onChange={() => toggleFeature(feat.id)}
                         className="opacity-0 w-0 h-0 peer"
+                        aria-label={`Toggle ${feat.label}`}
                       />
-                      <span className="absolute inset-0 bg-[rgba(255,255,255,0.1)] border border-[rgba(255,255,255,0.15)] rounded-[26px] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] peer-checked:bg-[rgba(0,255,136,0.3)] peer-checked:border-[rgba(0,255,136,0.5)] before:content-[''] before:absolute before:w-[18px] before:h-[18px] before:left-[3px] before:bottom-[3px] before:bg-text-secondary before:rounded-full before:transition-all before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)] peer-checked:before:translate-x-[22px] peer-checked:before:bg-accent-primary peer-checked:before:shadow-[0_0_10px_var(--color-accent-primary)]" />
+                      <span className="absolute inset-0 bg-[rgba(255,255,255,0.1)] border border-glass-border rounded-[26px] transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] peer-checked:bg-[rgba(0,255,136,0.3)] peer-checked:border-[rgba(0,255,136,0.5)] peer-checked:shadow-[0_0_10px_var(--color-accent-primary)] before:content-[''] before:absolute before:w-[18px] before:h-[18px] before:left-[3px] before:bottom-[3px] before:bg-text-secondary before:rounded-full before:transition-all before:duration-300 before:ease-[cubic-bezier(0.4,0,0.2,1)] peer-checked:before:translate-x-[22px] peer-checked:before:bg-accent-primary peer-checked:before:shadow-[0_0_10px_var(--color-accent-primary)]" />
                     </label>
                   </div>
 
@@ -878,6 +882,8 @@ export default function NtuConfigurator() {
           </p>
         </div>
       </section>
+
+      </main>
 
       {/* ── Footer ── */}
       <footer className="py-12 border-t border-glass-border text-center relative z-[1]">

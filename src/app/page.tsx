@@ -286,6 +286,7 @@ export default function HomePage() {
                     width={400}
                     height={220}
                     className="w-full h-[220px] object-cover transition-transform duration-600 group-hover:scale-[1.08]"
+                    loading="lazy"
                   />
                   <div className="absolute bottom-0 left-0 right-0 h-[60%] bg-gradient-to-t from-bg-primary to-transparent pointer-events-none" />
                 </div>
