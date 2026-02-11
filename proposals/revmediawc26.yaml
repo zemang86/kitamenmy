@@ -1,0 +1,314 @@
+meta:
+  slug: "revmediawc26"
+  componentName: "RevMedia"
+  title: "World Cup 2026"
+  subtitle: "Live Reaction Show"
+  tagline: "Livestream Production Proposal"
+  description: "Rev Media &times; KITAMEN &mdash; Pre-production &amp; technical coordination for an 8-day World Cup host reaction show with live data integration via matchops.my."
+  footnote: "* All figures in RM and subject to change. matchops.my development is FOC / courtesy if Rev Media appoints KITAMEN for production. Internet connectivity to be provided by Rev Media / venue. All key artworks provided by Rev Media — KITAMEN will iterate when needed (supported formats: AI, Figma, SVG). Final budgets confirmed upon detailed scoping."
+
+seo:
+  title: "World Cup 2026 — Livestream Production Proposal"
+  description: "KITAMEN × matchops.my livestream production package for Rev Media World Cup 2026. Pre-production & technical coordination with live data integration."
+
+client:
+  name: "Rev Social Malaysia Sdn Bhd"
+
+company:
+  name: "KITAMEN"
+  brand: "KITAMEN"
+  brandSub: "Kitamen Resources Sdn Bhd · matchops.my"
+  website: "zemang.my"
+  ref: "KTM-WC26-001"
+
+budget:
+  currency: "RM"
+  days: 8
+  dayLabel: "Match Days"
+  minBudget: 32000
+  maxBudget: 52000
+
+coreCosts:
+  - id: "core-crew"
+    label: "Production Crew (6 pax)"
+    category: "Crew"
+    cost: 14800
+    icon: "Users"
+    items: ["Director", "Camera Operator ×2", "Assistant Director", "Switcher", "GFX Operator"]
+    lineItems:
+      - { item: "Director", description: "Show vision, shot calling & creative direction", qty: 1, days: 8, rate: 350, total: 2800 }
+      - { item: "Camera Operator (Main)", description: "Sony PXW-Z190 — main camera operation", qty: 1, days: 8, rate: 300, total: 2400 }
+      - { item: "Camera Operator (2nd)", description: "Sony PXW-Z90 — 2nd angle operation", qty: 1, days: 8, rate: 300, total: 2400 }
+      - { item: "Assistant Director", description: "Rundown management, talent cues & coordination", qty: 1, days: 8, rate: 250, total: 2000 }
+      - { item: "Technical Director / Switcher", description: "VMix operation & live switching", qty: 1, days: 8, rate: 350, total: 2800 }
+      - { item: "Graphics Operator", description: "Real-time graphics & matchops.my overlays", qty: 1, days: 8, rate: 300, total: 2400 }
+
+  - id: "core-equipment"
+    label: "Equipment"
+    category: "Equipment"
+    cost: 8400
+    icon: "Monitor"
+    items: ["Sony PXW-Z190 (main)", "Sony PXW-Z90 (2nd)", "VMix PC", "Capture cards", "3× Monitors", "Audio interface", "Intercom (×5)", "Tripods", "Tally lights", "UPS"]
+    lineItems:
+      - { item: "Sony PXW-Z190 (Main Cam)", description: "3-chip 4K broadcast camera, 25× zoom", qty: 1, days: 8, rate: 150, total: 1200 }
+      - { item: "Sony PXW-Z90 (2nd Cam)", description: "Compact 4K camcorder", qty: 1, days: 8, rate: 100, total: 800 }
+      - { item: "VMix PC + Capture Cards", description: "Switching workstation, multi-input capture", qty: 1, days: 8, rate: 250, total: 2000 }
+      - { item: "Monitors (×3)", description: "Program, preview & multiview", qty: 3, days: 8, rate: 50, total: 1200 }
+      - { item: "Audio Interface + Mixer", description: "Multi-channel audio mixing", qty: 1, days: 8, rate: 100, total: 800 }
+      - { item: "Intercom System (×5)", description: "Wired crew communication headsets", qty: 5, days: 8, rate: 20, total: 800 }
+      - { item: "Professional Tripods (×2)", description: "Fluid-head tripods for Z190 & Z90", qty: 2, days: 8, rate: 50, total: 800 }
+      - { item: "Tally Light System", description: "On-air indicators for camera ops", qty: 1, days: 8, rate: 50, total: 400 }
+      - { item: "UPS / Power Backup", description: "Uninterruptible power for critical gear", qty: 1, days: 8, rate: 50, total: 400 }
+
+  - id: "core-technical"
+    label: "Technical"
+    category: "Technical"
+    cost: 1800
+    icon: "Wifi"
+    items: ["Power supply", "Cabling", "Contingency"]
+    lineItems:
+      - { item: "Power & Cabling", description: "Power distribution, SDI/HDMI runs", qty: 1, days: 8, rate: 150, total: 1200 }
+      - { item: "Contingency", description: "Technical contingency buffer", qty: 1, days: 1, rate: 600, total: 600 }
+
+  - id: "core-preproduction"
+    label: "Pre-Production & Management"
+    category: "Pre-Production"
+    cost: 4000
+    icon: "ClipboardList"
+    items: ["Planning", "Scheduling", "Rehearsal", "Coordination"]
+    lineItems:
+      - { item: "Planning & Scheduling", description: "Production planning, show scheduling", qty: 1, days: 1, rate: 2000, total: 2000 }
+      - { item: "Rehearsal & Coordination", description: "Tech rehearsal & crew coordination", qty: 1, days: 1, rate: 2000, total: 2000 }
+
+  - id: "core-studio"
+    label: "Studio / Location Setup"
+    category: "Studio"
+    cost: 3000
+    icon: "Building2"
+    items: ["Set dressing", "Basic lighting", "Backdrop"]
+    lineItems:
+      - { item: "Set Dressing & Lighting", description: "Set design, basic lighting, backdrop", qty: 1, days: 1, rate: 3000, total: 3000 }
+
+optionalFeatures:
+  - id: "third-camera"
+    label: "3rd Camera + Operator"
+    cost: 2800
+    color: "var(--color-accent-secondary)"
+    iconColor: "text-accent-secondary"
+    iconBg: "rgba(0,212,255,0.12)"
+    icon: "Video"
+    description: "Third camera angle (Sony PXW-Z90) with dedicated operator for premium multi-angle coverage."
+    tags: ["Sony PXW-Z90", "3rd Angle", "Dedicated Op"]
+    lineItem: { item: "3rd Camera + Operator", description: "Sony PXW-Z90 + dedicated cam op", qty: 1, days: 8, rate: 350, total: 2800 }
+
+  - id: "social-media"
+    label: "Social Media Content Manager"
+    cost: 2400
+    color: "var(--color-accent-primary)"
+    iconColor: "text-accent-primary"
+    iconBg: "rgba(0,255,136,0.12)"
+    icon: "Smartphone"
+    description: "Dedicated social media manager creating real-time clips, stories, and engagement content during broadcasts."
+    tags: ["Real-Time Clips", "Stories", "Engagement"]
+    lineItem: { item: "Social Media Manager", description: "Real-time clips, stories & engagement", qty: 1, days: 8, rate: 300, total: 2400 }
+
+  - id: "highlights"
+    label: "Post-Show Highlight Reels"
+    cost: 3200
+    color: "var(--color-accent-tertiary)"
+    iconColor: "text-accent-tertiary"
+    iconBg: "rgba(168,85,247,0.12)"
+    icon: "Sparkles"
+    description: "Professional highlight reels edited and delivered within 24 hours of each broadcast for social distribution."
+    tags: ["24h Turnaround", "Social-Ready"]
+    lineItem: { item: "Post-Show Highlight Reels", description: "Edited highlights, 24h turnaround", qty: 1, days: 8, rate: 400, total: 3200 }
+
+  - id: "premium-gfx"
+    label: "Premium Motion Graphics Package"
+    cost: 3600
+    color: "var(--color-accent-secondary)"
+    iconColor: "text-accent-secondary"
+    iconBg: "rgba(0,212,255,0.12)"
+    icon: "Wand2"
+    description: "Custom-designed motion graphics including lower thirds, transitions, stingers, and branded overlay package."
+    tags: ["Lower Thirds", "Transitions", "Stingers"]
+    lineItem: { item: "Premium Motion Graphics", description: "Custom lower thirds, transitions, stingers", qty: 1, days: 1, rate: 3600, total: 3600 }
+
+  - id: "multistream"
+    label: "Multi-Platform Streaming"
+    cost: 1600
+    color: "var(--color-accent-primary)"
+    iconColor: "text-accent-primary"
+    iconBg: "rgba(0,255,136,0.12)"
+    icon: "Globe"
+    description: "Simultaneous streaming to multiple platforms with platform-specific encoding and chat management."
+    tags: ["YouTube", "Facebook", "TikTok"]
+    lineItem: { item: "Multi-Platform Streaming", description: "Simultaneous YouTube, Facebook, TikTok", qty: 1, days: 8, rate: 200, total: 1600 }
+
+  - id: "floor-manager"
+    label: "Dedicated Floor Manager"
+    cost: 2000
+    color: "var(--color-accent-warm)"
+    iconColor: "text-accent-warm"
+    iconBg: "rgba(255,107,107,0.12)"
+    icon: "ClipboardList"
+    description: "On-site floor manager handling talent cues, timing, audience management, and production communication."
+    tags: ["Talent Cues", "Timing", "Comms"]
+    lineItem: { item: "Floor Manager", description: "Talent cues, timing & on-site comms", qty: 1, days: 8, rate: 250, total: 2000 }
+
+  - id: "replay"
+    label: "Replay & Analysis System"
+    cost: 2400
+    color: "var(--color-accent-tertiary)"
+    iconColor: "text-accent-tertiary"
+    iconBg: "rgba(168,85,247,0.12)"
+    icon: "RefreshCw"
+    description: "Instant replay system for key match moments with slow-motion capability and telestrator analysis tools."
+    tags: ["Instant Replay", "Slow-Mo", "Analysis"]
+    lineItem: { item: "Replay & Analysis System", description: "Instant replay, slow-mo & telestrator", qty: 1, days: 8, rate: 300, total: 2400 }
+
+  - id: "backup"
+    label: "Redundancy & Backup Stream"
+    cost: 1200
+    color: "var(--color-accent-secondary)"
+    iconColor: "text-accent-secondary"
+    iconBg: "rgba(0,212,255,0.12)"
+    icon: "ShieldCheck"
+    description: "Backup streaming encoder and redundant internet connection ensuring zero downtime during live broadcasts."
+    tags: ["Backup Encoder", "Redundant Net"]
+    lineItem: { item: "Redundancy & Backup", description: "Backup encoder + redundant internet", qty: 1, days: 8, rate: 150, total: 1200 }
+
+presets:
+  - id: "essential"
+    label: "Essential"
+    subtitle: "Core Production"
+    features: []
+
+  - id: "standard"
+    label: "Standard"
+    subtitle: "Enhanced Coverage"
+    features: ["multistream", "social-media", "highlights"]
+
+  - id: "premium"
+    label: "Premium"
+    subtitle: "Full Production"
+    features: ["multistream", "social-media", "highlights", "third-camera", "premium-gfx", "floor-manager"]
+
+tierComparison:
+  tiers: ["essential", "standard", "premium"]
+  tierLabels: ["Essential", "Standard", "Premium"]
+  rows:
+    - { aspect: "Production Crew", values: ["6 pax", "6 pax", "7 pax (+ 3rd cam op)"] }
+    - { aspect: "Camera Setup", values: ["2 cams (Z190 + Z90)", "2 cams (Z190 + Z90)", "3 cams (Z190 + 2× Z90)"] }
+    - { aspect: "Streaming", values: ["Single platform", "Multi-platform", "Multi-platform"] }
+    - { aspect: "Social Content", values: ["—", "Content manager", "Content manager"] }
+    - { aspect: "Highlight Reels", values: ["—", "24h delivery", "24h delivery"] }
+    - { aspect: "Graphics", values: ["Standard overlays", "Standard overlays", "Premium motion GFX"] }
+    - { aspect: "Floor Manager", values: ["AD handles", "AD handles", "Dedicated FM"] }
+    - { aspect: "matchops.my", values: ["Included", "Included", "Included"] }
+    - { aspect: "Per Day", values: ["RM 4,000", "RM 4,900", "RM 5,950"] }
+
+crew:
+  - { icon: "Eye", role: "Director", description: "Overall show vision, shot calling, pacing, and creative direction of the live broadcast." }
+  - { icon: "Video", role: "Camera Operators (×2)", description: "Sony PXW-Z190 (main) and PXW-Z90 (2nd angle) — framing, movement, and live shot execution." }
+  - { icon: "ClipboardList", role: "Assistant Director", description: "Rundown management, talent cues, timing, and coordination between all departments." }
+  - { icon: "LayoutGrid", role: "Technical Director / Switcher", description: "VMix operation, source switching, transition execution, and technical broadcast control." }
+  - { icon: "Palette", role: "Graphics Operator", description: "Real-time graphics triggering, matchops.my data overlay management, and lower thirds." }
+
+equipment:
+  - { icon: "Video", label: "Sony PXW-Z190", description: "Main camera — 3-chip 4K sensor, 25× optical zoom, professional broadcast quality." }
+  - { icon: "Video", label: "Sony PXW-Z90", description: "2nd camera — compact 4K camcorder for secondary angle coverage." }
+  - { icon: "Cpu", label: "VMix Computer", description: "High-performance switching and streaming workstation with VMix Pro." }
+  - { icon: "LayoutGrid", label: "Capture Cards", description: "Multi-input capture for camera feeds, game sources, and data overlays." }
+  - { icon: "Monitor", label: "Monitors (×3)", description: "Program, preview, and multiview monitoring for production control." }
+  - { icon: "Radio", label: "Audio Interface + Mixer", description: "Multi-channel audio mixing for host mics, game audio, and music." }
+  - { icon: "Zap", label: "Cabling & Accessories", description: "SDI/HDMI runs, power distribution, audio cables, and backup components." }
+  - { icon: "Headphones", label: "Intercom System (×5)", description: "Wired crew communication headsets for director, camera ops, AD, switcher, and GFX operator." }
+  - { icon: "Triangle", label: "Professional Tripods (×2)", description: "Fluid-head tripods for stable camera support on both Z190 and Z90 setups." }
+  - { icon: "Lightbulb", label: "Tally Light System", description: "On-air indicator lights for camera operators — red for live, green for preview." }
+  - { icon: "BatteryCharging", label: "UPS / Power Backup", description: "Uninterruptible power supply protecting VMix PC and critical switching equipment." }
+
+scope:
+  - icon: "ClipboardList"
+    title: "Pre-Production"
+    duration: "2–4 weeks before"
+    description: "Planning, scheduling, and coordination ahead of show days."
+    items:
+      - "Production planning & scheduling"
+      - "Crew briefing & assignment"
+      - "Technical rehearsal"
+      - "matchops.my data integration setup"
+      - "Key artwork iteration (AI / Figma / SVG — originals by Rev Media)"
+
+  - icon: "Radio"
+    title: "Show Day (Technical)"
+    duration: "Per match day"
+    description: "On-site technical setup and production execution. Rev Media handles show content & talent."
+    items:
+      - "Equipment setup & testing"
+      - "Camera positioning & framing"
+      - "VMix configuration & switching"
+      - "Live graphics & data overlay operation"
+
+  - icon: "Sparkles"
+    title: "Post-Production"
+    duration: "24–48h after"
+    description: "Deliverables and content distribution after each show day."
+    items:
+      - "Highlight reel editing (if selected)"
+      - "Social media content delivery"
+      - "Technical debrief & notes"
+      - "Equipment breakdown & wrap"
+
+portfolio:
+  - { icon: "Trophy", title: "Malaysia Premier Futsal League", description: "Full multi-camera livestream production for national-level futsal competition across multiple match days." }
+  - { icon: "Swords", title: "Liga A1 Semi Pro", description: "Broadcast production for semi-professional football league with live graphics and multi-platform streaming." }
+  - { icon: "Gamepad2", title: "Esports Tournaments", description: "Tournament livestream production including player cams, instant replay, and custom overlay packages." }
+  - { icon: "Music", title: "Concert Livestreams", description: "Live music broadcast with multi-camera setups, audio mixing, and real-time social media content." }
+  - { icon: "Building2", title: "Corporate Events", description: "Professional livestream production for corporate conferences, launches, and hybrid events." }
+
+metrics:
+  - { target: 8, suffix: "", prefix: "", multiplier: 1, label: "Match Days", display: "8" }
+  - { target: 24, suffix: "h+", prefix: "", multiplier: 1, label: "Live Content", display: "24h+" }
+  - { target: 3, suffix: "+", prefix: "", multiplier: 1, label: "Platforms", display: "3+" }
+  - { target: 6, suffix: "+", prefix: "", multiplier: 1, label: "Crew Members", display: "6+" }
+  - { target: 1, suffix: "", prefix: "", multiplier: 1, label: "Integrated Data System", display: "1" }
+
+marquee:
+  - "Malaysia Premier Futsal League"
+  - "Liga A1 Semi Pro"
+  - "Esports Tournaments"
+  - "Concert Livestreams"
+  - "Corporate Events"
+  - "Multi-Camera Production"
+  - "VMix Workflows"
+  - "Live Data Integration"
+
+nav:
+  - { label: "Scope", id: "format" }
+  - { label: "matchops.my", id: "matchop" }
+  - { label: "Budget", id: "budget" }
+  - { label: "Equipment", id: "equipment" }
+  - { label: "Team", id: "team" }
+  - { label: "Portfolio", id: "portfolio" }
+
+hero:
+  stats:
+    - { value: "8", label: "Match Days" }
+    - { value: "3h", label: "Per Show" }
+    - { value: "6+", label: "Crew" }
+    - { value: "Multi", label: "Platform" }
+  ctaPrimary: { label: "View Budget", target: "budget" }
+  ctaSecondary: { label: "Contact Us", target: "contact" }
+
+quotation:
+  title: "World Cup 2026 Livestream Production"
+  terms:
+    - "All prices in Malaysian Ringgit (RM). This quotation is valid for 30 days from date of issue."
+    - "50% deposit required upon confirmation. Balance due upon project completion."
+    - "matchops.my live data integration is complimentary if KITAMEN is appointed for production."
+    - "Equipment transport and accommodation (if applicable) are not included in the above pricing."
+    - "Internet connectivity to be provided by Rev Media / venue."
+    - "All key artworks provided by Rev Media. KITAMEN will iterate when needed — supported formats: Adobe Illustrator (AI), Figma, or SVG."
+    - "Final scope and pricing subject to detailed scoping discussion and written agreement."
+  footer: "KITAMEN &middot; zemang.my &middot; World Cup 2026 Livestream Production Proposal"
