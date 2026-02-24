@@ -77,21 +77,11 @@
             text-rendering: optimizeLegibility;
         }
 
-        /* GPU Acceleration for smooth animations */
+        /* GPU Acceleration for continuously animated elements only */
         .orb,
         .mesh-gradient::before,
-        .hero-circle,
-        .service-card,
-        .tool-card,
-        .venture-card,
-        .portfolio-card,
-        .stat-item,
-        .btn-primary,
-        .btn-secondary,
-        header {
+        .hero-circle {
             will-change: transform;
-            transform: translateZ(0);
-            backface-visibility: hidden;
         }
 
         /* Reduced motion for accessibility */
@@ -814,6 +804,15 @@
             font-weight: 600;
             margin-bottom: 0.5rem;
             color: var(--text-primary);
+            position: relative;
+            z-index: 1;
+        }
+
+        .venture-description {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
             position: relative;
             z-index: 1;
         }
@@ -1577,9 +1576,10 @@
 </a>
             <nav>
     <a href="#services">Services</a>
+    <a href="#skills">Skills</a>
     <a href="#ventures">Ventures</a>
-    <a href="#portfolio">Projects</a>
-    <a href="#about">About Me</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#about">About</a>
 </nav>
             <a href="mailto:hazman@kitamen.my" class="cta-header">Let's Talk</a>
         </div>
@@ -1595,13 +1595,12 @@
                     <span>Hello There!</span>
                 </div>
                 <h1>
-                    I'm <span class="name-highlight">Hazman Hassan</span>,<br>
-                    Architect turned AI Builder & Operator<br>
-                    based in Malaysia.
+                    I’m <span class="name-highlight">Hazman Hassan</span>,<br>
+                    AI Builder & Venture Operator
                 </h1>
-                <p class="hero-subtitle">Shaping the future of AI, Esports & Education</p>
+                <p class="hero-subtitle">Building at the intersection of AI, Esports & Education</p>
                 <p class="hero-description">
-                    With a decade of experience, I’ve applied architectural rigor to building AI-first, esports, and education ventures — from the ground up and at scale.
+                    Architect by training, operator by obsession. I build AI-powered products, esports infrastructure, and learning platforms — from zero to scale, across 16 ventures and counting.
                 </p>
                 <div class="button-group">
                     <a href="#portfolio" class="btn-primary">View My Work</a>
@@ -1651,7 +1650,7 @@
                 <p class="service-description">
                     End-to-end AI adoption: from strategy to working automations. Expertise in OpenAI, RAG systems, and n8n workflows to unlock 10× efficiency.
                 </p>
-                <a href="#contact" class="service-link">Learn more →</a>
+                <a href="#contact" class="service-link">Get in touch →</a>
             </div>
             <div class="service-card">
                 <div class="service-icon"><i data-lucide="gamepad-2"></i></div>
@@ -1659,7 +1658,7 @@
                 <p class="service-description">
                     Designing cultural infrastructure for gaming: from esports venues and PlayPod deployments to tournament systems and community platforms that scale.
                 </p>
-                <a href="#contact" class="service-link">Learn more →</a>
+                <a href="#contact" class="service-link">Get in touch →</a>
             </div>
             <div class="service-card">
                 <div class="service-icon"><i data-lucide="bar-chart-3"></i></div>
@@ -1667,7 +1666,7 @@
                 <p class="service-description">
                     From 0→1 ventures to enterprise pivots: product roadmaps, go-to-market plays, and growth engines built for measurable traction.
                 </p>
-                <a href="#contact" class="service-link">Learn more →</a>
+                <a href="#contact" class="service-link">Get in touch →</a>
             </div>
         </div>
     </section>
@@ -1986,66 +1985,82 @@
         <div class="ventures-grid">
             <a href="https://www.kitamen.my" target="_blank" class="venture-card">
                 <div class="venture-name">KITAMEN</div>
-                <div class="venture-url">www.kitamen.my →</div>
+                <div class="venture-description">Esports infrastructure — gaming lounges, tournaments, and PlayPod rentals</div>
+                <div class="venture-url">kitamen.my →</div>
             </a>
             <a href="https://www.1milabs.com" target="_blank" class="venture-card">
                 <div class="venture-name">1MiLabs</div>
-                <div class="venture-url">www.1milabs.com →</div>
+                <div class="venture-description">AI training bootcamps for teams and organizations</div>
+                <div class="venture-url">1milabs.com →</div>
             </a>
             <a href="https://www.specialops.co" target="_blank" class="venture-card">
                 <div class="venture-name">Special Ops</div>
-                <div class="venture-url">www.specialops.co →</div>
+                <div class="venture-description">Parent company — venture building and operations</div>
+                <div class="venture-url">specialops.co →</div>
             </a>
             <a href="https://www.edventure.plus" target="_blank" class="venture-card">
                 <div class="venture-name">Edventure+</div>
-                <div class="venture-url">www.edventure.plus →</div>
+                <div class="venture-description">EdTech platform with adaptive learning paths</div>
+                <div class="venture-url">edventure.plus →</div>
             </a>
             <a href="https://www.halalgo.fun" target="_blank" class="venture-card">
                 <div class="venture-name">HalalGo Places</div>
-                <div class="venture-url">www.halalgo.fun →</div>
+                <div class="venture-description">Halal food and travel discovery platform</div>
+                <div class="venture-url">halalgo.fun →</div>
             </a>
             <a href="https://www.matchops.my" target="_blank" class="venture-card">
                 <div class="venture-name">MatchOps</div>
-                <div class="venture-url">www.matchops.my →</div>
+                <div class="venture-description">Esports match operations and tournament management</div>
+                <div class="venture-url">matchops.my →</div>
             </a>
-            <a href="https://www.eracing.my/display" target="_blank" class="venture-card">
-                <div class="venture-name">ERacing My</div>
-                <div class="venture-url">www.eracing.my →</div>
+            <a href="https://www.eracing.my" target="_blank" class="venture-card">
+                <div class="venture-name">ERacing MY</div>
+                <div class="venture-description">Sim racing community and competitive league</div>
+                <div class="venture-url">eracing.my →</div>
             </a>
             <a href="https://thefounderx.netlify.app" target="_blank" class="venture-card">
                 <div class="venture-name">FounderX</div>
-                <div class="venture-url">thefounderx.netlify.app →</div>
+                <div class="venture-description">Founder community and startup resource hub</div>
+                <div class="venture-url">founderx.co →</div>
             </a>
             <a href="https://damaura.ai" target="_blank" class="venture-card">
                 <div class="venture-name">Damaura</div>
+                <div class="venture-description">AI-powered digital assistant platform</div>
                 <div class="venture-url">damaura.ai →</div>
             </a>
             <a href="https://mlbb.my" target="_blank" class="venture-card">
                 <div class="venture-name">Mimpilab</div>
-                <div class="venture-url">mlbb.my →</div>
+                <div class="venture-description">Creative lab for gaming content and experiences</div>
+                <div class="venture-url">mimpilab.my →</div>
             </a>
             <a href="https://www.centralintelligence.my" target="_blank" class="venture-card">
                 <div class="venture-name">Central Intelligence</div>
-                <div class="venture-url">www.centralintelligence.my →</div>
+                <div class="venture-description">Business intelligence and data automation</div>
+                <div class="venture-url">centralintelligence.my →</div>
             </a>
             <a href="https://afhe.io" target="_blank" class="venture-card">
                 <div class="venture-name">Aura HFE</div>
-                <div class="venture-url">afhe.io →</div>
+                <div class="venture-description">Human factors engineering consultancy</div>
+                <div class="venture-url">aurahfe.io →</div>
             </a>
             <a href="https://playmaster.my" target="_blank" class="venture-card">
                 <div class="venture-name">PlayMasters</div>
+                <div class="venture-description">Gaming talent and content creator network</div>
                 <div class="venture-url">playmaster.my →</div>
             </a>
             <div class="venture-card">
                 <div class="venture-name">SuperPA</div>
+                <div class="venture-description">AI-powered personal assistant for SMEs</div>
                 <div class="venture-url" style="color: var(--text-secondary);">Coming soon</div>
             </div>
             <div class="venture-card">
                 <div class="venture-name">LegalX</div>
+                <div class="venture-description">AI legal document automation</div>
                 <div class="venture-url" style="color: var(--text-secondary);">Coming soon</div>
             </div>
             <a href="https://startrise.asia" target="_blank" class="venture-card">
                 <div class="venture-name">Startrise Asia</div>
+                <div class="venture-description">Startup ecosystem and regional accelerator</div>
                 <div class="venture-url">startrise.asia →</div>
             </a>
         </div>
@@ -2068,7 +2083,7 @@
                     <div class="stat-label">Prize Pools Managed</div>
                 </div>
                 <div class="stat-box">
-                    <div class="stat-number">13</div>
+                    <div class="stat-number">16</div>
                     <div class="stat-label">Ventures Launched</div>
                 </div>
             </div>
@@ -2279,17 +2294,17 @@
             <div class="about-text">
                 <h3>Building at the intersection of AI & Culture</h3>
                 <p>
-                    Trained as an architect, I’ve spent the last decade building at the intersection of AI, esports, and learning—designing systems that change how people work, learn, and play
+                    Trained as an architect, I’ve spent the last decade building at the intersection of AI, esports, and learning — designing systems that change how people work, learn, and play.
                 </p>
                 <p>
-                    As co-founder of Special Ops Sdn Bhd and operator of ventures like KITAMEN, 1MiLabs, and Edventure+, I focus on turning ideas into scalable solutions that deliver measurable outcomes.
+                    As co-founder of Special Ops Sdn Bhd, I operate ventures like KITAMEN, 1MiLabs, and Edventure+ — turning ideas into scalable solutions that deliver measurable outcomes.
                 </p>
                 <p>
                     My approach blends design thinking from architecture with hands-on technical execution, helping organizations adopt AI and esports strategies that create lasting impact.
                 </p>
-<p>
-Beyond work, I explore how culture, gaming, and technology can create new forms of community.
-				</p>
+                <p>
+                    Beyond work, I explore how culture, gaming, and technology can create new forms of community.
+                </p>
                 <div class="stats-grid">
                     <div class="stat-item">
                         <div class="stat-number">50+</div>

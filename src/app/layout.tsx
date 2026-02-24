@@ -4,14 +4,14 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Hazman Hassan — AI Builder & Operator",
+    default: "Hazman Hassan — AI Builder & Venture Operator",
     template: "%s | Hazman Hassan",
   },
   description:
-    "Hazman Hassan: AI-first builder and operator. Co-founder Special Ops Sdn Bhd. Leading KITAMEN (esports), 1MiLabs (AI learning), Edventure.plus (edtech).",
+    "Hazman Hassan: AI builder and venture operator. Co-founder Special Ops Sdn Bhd. Building KITAMEN (esports), 1MiLabs (AI learning), Edventure.plus (edtech), and 13 more ventures.",
   metadataBase: new URL("https://zemang.my"),
   openGraph: {
-    title: "Hazman Hassan — AI Builder & Operator",
+    title: "Hazman Hassan — AI Builder & Venture Operator",
     description:
       "Building AI-powered products and cultural infrastructure at the intersection of technology and human experience.",
     url: "https://zemang.my",
@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Hazman Hassan — AI Builder & Operator",
+    title: "Hazman Hassan — AI Builder & Venture Operator",
     description:
       "Building AI-powered products and cultural infrastructure at the intersection of technology and human experience.",
     images: ["/og-image.jpg"],
@@ -51,9 +51,9 @@ const jsonLd = {
   url: "https://zemang.my",
   image:
     "https://framerusercontent.com/images/HtJJ5OHCEucfc6kNrJBGr7vK08.png?scale-down-to=1024",
-  jobTitle: "AI Builder & Operator",
+  jobTitle: "AI Builder & Venture Operator",
   description:
-    "AI-first builder and operator. Co-founder Special Ops Sdn Bhd. Leading KITAMEN (esports), 1MiLabs (AI learning), Edventure.plus (edtech).",
+    "AI builder and venture operator. Co-founder Special Ops Sdn Bhd. Building KITAMEN (esports), 1MiLabs (AI learning), Edventure.plus (edtech), and 13 more ventures.",
   sameAs: [
     "https://linkedin.com/in/hazmanhassan",
     "https://www.instagram.com/zemang86",

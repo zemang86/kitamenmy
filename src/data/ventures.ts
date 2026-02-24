@@ -1,5 +1,6 @@
 export interface Venture {
   name: string;
+  description: string;
   url?: string;
   urlText: string;
   href?: string;
@@ -7,20 +8,21 @@ export interface Venture {
 }
 
 export const ventures: Venture[] = [
-  { name: "KITAMEN", url: "https://www.kitamen.my", urlText: "www.kitamen.my \u2192" },
-  { name: "1MiLabs", url: "https://www.1milabs.com", urlText: "www.1milabs.com \u2192" },
-  { name: "Special Ops", url: "https://www.specialops.co", urlText: "www.specialops.co \u2192" },
-  { name: "Edventure+", url: "https://www.edventure.plus", urlText: "www.edventure.plus \u2192" },
-  { name: "HalalGo Places", url: "https://www.halalgo.fun", urlText: "www.halalgo.fun \u2192" },
-  { name: "MatchOps", url: "https://www.matchops.my", urlText: "www.matchops.my \u2192" },
-  { name: "ERacing My", url: "https://www.eracing.my/display", urlText: "www.eracing.my \u2192" },
-  { name: "FounderX", url: "https://thefounderx.netlify.app", urlText: "thefounderx.netlify.app \u2192" },
-  { name: "Damaura", url: "https://damaura.ai", urlText: "damaura.ai \u2192" },
-  { name: "Mimpilab", url: "https://mlbb.my", urlText: "mlbb.my \u2192" },
-  { name: "Central Intelligence", url: "https://www.centralintelligence.my", urlText: "www.centralintelligence.my \u2192" },
-  { name: "Aura HFE", url: "https://afhe.io", urlText: "afhe.io \u2192" },
-  { name: "PlayMasters", url: "https://playmaster.my", urlText: "playmaster.my \u2192" },
-  { name: "SuperPA", urlText: "Coming soon", comingSoon: true },
-  { name: "LegalX", urlText: "Coming soon", comingSoon: true },
-  { name: "Startrise Asia", url: "https://startrise.asia", urlText: "startrise.asia \u2192" },
+  { name: "KITAMEN", description: "Esports infrastructure — gaming lounges, tournaments, and PlayPod rentals", url: "https://www.kitamen.my", urlText: "kitamen.my →" },
+  { name: "1MiLabs", description: "AI training bootcamps for teams and organizations", url: "https://www.1milabs.com", urlText: "1milabs.com →" },
+  { name: "Special Ops", description: "Parent company — venture building and operations", url: "https://www.specialops.co", urlText: "specialops.co →" },
+  { name: "Edventure+", description: "EdTech platform with adaptive learning paths", url: "https://www.edventure.plus", urlText: "edventure.plus →" },
+  { name: "HalalGo Places", description: "Halal food and travel discovery platform", url: "https://www.halalgo.fun", urlText: "halalgo.fun →" },
+  { name: "MatchOps", description: "Esports match operations and tournament management", url: "https://www.matchops.my", urlText: "matchops.my →" },
+  { name: "ERacing MY", description: "Sim racing community and competitive league", url: "https://www.eracing.my", urlText: "eracing.my →" },
+  { name: "FounderX", description: "Founder community and startup resource hub", url: "https://thefounderx.netlify.app", urlText: "founderx.co →" },
+  { name: "Damaura", description: "AI-powered digital assistant platform", url: "https://damaura.ai", urlText: "damaura.ai →" },
+  { name: "Mimpilab", description: "Creative lab for gaming content and experiences", url: "https://mlbb.my", urlText: "mimpilab.my →" },
+  { name: "Central Intelligence", description: "Business intelligence and data automation", url: "https://www.centralintelligence.my", urlText: "centralintelligence.my →" },
+  { name: "Aura HFE", description: "Human factors engineering consultancy", url: "https://afhe.io", urlText: "aurahfe.io →" },
+  { name: "PlayMasters", description: "Gaming talent and content creator network", url: "https://playmaster.my", urlText: "playmaster.my →" },
+  { name: "SuperPA", description: "AI-powered personal assistant for SMEs", urlText: "Coming soon", comingSoon: true },
+  { name: "LegalX", description: "AI legal document automation", urlText: "Coming soon", comingSoon: true },
+  { name: "Sereniti Lab", description: "", url: "https://sereniti.my", urlText: "sereniti.my →" },
+  { name: "Startrise Asia", description: "Startup ecosystem and regional accelerator", url: "https://startrise.asia", urlText: "startrise.asia →" },
 ];

@@ -46,6 +46,7 @@ export const toolCategories: ToolCategory[] = [
       { icon: "Layout", name: "Canva", level: "I" },
       { icon: "Ruler", name: "AutoCAD", level: "A" },
       { icon: "Box", name: "SketchUp", level: "A" },
+      { icon: "Figma", name: "Figma", level: "I" },
     ],
   },
   {

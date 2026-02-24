@@ -42,7 +42,7 @@ export default function StatsSection() {
             label="Professionals Trained in AI"
           />
           <StatBox value={2} prefix="RM " suffix="M+" label="Prize Pools Managed" />
-          <StatBox value={13} label="Ventures Launched" />
+          <StatBox value={17} label="Ventures Launched" />
         </div>
       </div>
     </section>
