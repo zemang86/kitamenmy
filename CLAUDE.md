@@ -15,6 +15,7 @@ Static portfolio website for Hazman Hassan — no build system, no package manag
 - **kltower/index.html** — Gaming in the Sky proposal (~2,450 lines). Interactive esports festival budget configurator for KL Tower. Glassmorphism design, tiered pricing, sponsorship packages.
 - **ntu/index.html** — NTU x WirForce 2026 proposal (~2,050 lines). Interactive budget configurator with 3 presets, 8 toggleable features, tier comparison table, revenue breakdown, impact metrics, sponsorship packages, risk mitigation. See `ntu/CLAUDE.md` for full docs.
 - **src/app/revmediawc26/** — Rev Media × KITAMEN World Cup 2026 livestream production proposal (Next.js). Budget configurator with 3 presets (Essential/Standard/Premium), 8 optional features, tier comparison, quotation generator with printable download. Data layer in `src/lib/budget-data/revmedia.ts`. Client: Rev Social Malaysia Sdn Bhd, from: Kitamen Resources Sdn Bhd.
+- **src/app/holidayai/** — Holiday AI investor proposal (Next.js). 14-slide paginated deck optimized for 16:9 screens with keyboard/touch/dot navigation. Two interactive slides: P&L projection (growth multiplier slider) and investment calculator (investment + valuation sliders, custom input, exit scenarios, funds pie chart). Data in `src/lib/budget-data/holidayai.ts`. Uses shared effects (MeshGradient, FloatingOrbs, NoiseOverlay). Tone: "AI-powered travel for everyone" — halal features positioned as one perk, not core identity.
 - **roblox/index.html** — Standalone Roblox tournament registration page with retro design.
 - **zakuan/** — Alternative landing pages (index.html, index2.html).
 - **a_index.html** — Archived version with different accent color (#00ff41 vs #00ff88).
@@ -58,6 +59,7 @@ Responsive breakpoints: 480px, 768px, 968px.
 - **Passive scroll listeners** update floating orb positions for parallax effect (all pages).
 - **Budget configurator** (kltower/, ntu/) — `recalculate()` master function drives preset/toggle state, cost breakdown, revenue breakdown, and tier highlighting.
 - **Budget configurator** (revmediawc26/) — React-based with `useMemo`/`useCallback` hooks. Data in `src/lib/budget-data/revmedia.ts`, UI in `RevMediaConfigurator.tsx`. Core RM 32,000 (8 match days), optional features toggle on/off.
+- **Investor proposal** (holidayai/) — 14-slide paginated deck for Holiday AI seed raise. Data + calculator functions in `src/lib/budget-data/holidayai.ts`, slide deck in `HolidayAIProposal.tsx`. Interactive P&L configurator (growth multiplier 0.5x-2.0x) and investment calculator (sliders for amount/valuation, custom % ↔ RM converter, exit return table, use-of-funds pie). Source content from the Holiday AI project at `~/holiday/holiday/docs/thepropopsal.md` (equity terms, RM 500K raise) and `~/holiday/holiday/docs/BUSINESS_MODEL.md` (revenue model, P&L, market sizing).
 - All animations respect `prefers-reduced-motion` media query.
 
 ## Subproject Docs
