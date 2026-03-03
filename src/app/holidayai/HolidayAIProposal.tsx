@@ -88,10 +88,12 @@ function Slide({
 }) {
   return (
     <div
-      className={`h-dvh w-full flex-shrink-0 flex items-center justify-center overflow-y-auto ${className}`}
+      className={`h-dvh w-full flex-shrink-0 flex items-center justify-center overflow-y-auto p-4 sm:p-6 ${className}`}
     >
-      <div className="max-w-[1400px] w-full mx-auto px-6 sm:px-10 py-12 sm:py-8">
-        {children}
+      <div className="max-w-[1400px] w-full h-full bg-white rounded-2xl shadow-[0_1px_3px_rgba(0,0,0,0.08),0_4px_24px_rgba(0,0,0,0.04)] border border-[#e5e7eb]/60 flex items-center justify-center overflow-y-auto">
+        <div className="w-full px-8 sm:px-12 py-10 sm:py-8">
+          {children}
+        </div>
       </div>
     </div>
   );
@@ -1225,7 +1227,7 @@ export default function HolidayAIProposal() {
       )}
 
       {/* Dot indicators */}
-      <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-10 flex gap-1.5">
+      <div className="fixed top-3 left-1/2 -translate-x-1/2 z-10 flex gap-1.5">
         {Array.from({ length: TOTAL_SLIDES }).map((_, i) => (
           <button
             key={i}
