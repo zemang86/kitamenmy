@@ -36,12 +36,13 @@ Inherits all CSS custom properties from the main site:
 1. **Hero** — Headline, quick stats (5,000+ attendees, 3 countries, 2–3 days, RM 500K–1M), CTAs, KL Tower image
 2. **Scrolling Strip** — Event pillars ticker (International Esports, Community Tournaments, Hackathon, Tech Expo, LAN Party, Tourism, Livestream & Talent, Ceremony)
 3. **Features** (`#features`) — 3 core cards (always on) + 8 toggleable feature cards + 3 preset buttons
-4. **Budget Calculator** (`#budget`) — Live animated total, range bar, cost breakdown bars, sponsorship offset (60–85%)
+4. **Budget Calculator** (`#budget`) — Live animated total, range bar, cost breakdown bars
 5. **Sponsorship** (`#sponsorship`) — 4 tier cards (Title/Gold/Silver/Bronze)
-6. **Timeline** (`#timeline`) — Format switcher (2D1N / 3-Day) + day tab switcher per format
-7. **Impact** (`#impact`) — 6 metric cards
-8. **Team** (`#team`) — Organizer credentials (Hazman Hassan)
-9. **Next Steps** (`#next-steps`) — Contact, Print, Customize CTAs
+6. **Revenue** (`#revenue`) — Dynamic revenue projection cards (admission + participation fees). Cards show/hide based on feature toggles. Premium international-tier pricing.
+7. **Timeline** (`#timeline`) — Format switcher (2D1N / 3-Day) + day tab switcher per format
+8. **Impact** (`#impact`) — 6 metric cards
+9. **Team** (`#team`) — Organizer credentials (Hazman Hassan)
+10. **Next Steps** (`#next-steps`) — Contact, Print, Customize CTAs
 
 ## Tournament Structure
 
@@ -66,6 +67,7 @@ Two tiers of competition run in parallel:
 - **Format switcher:** Show/hide 2D1N or 3-Day format containers
 - **Day tabs:** Scoped to parent `.format-container` — show/hide timeline content per day within the active format
 - **Scroll reveals:** IntersectionObserver with staggered fade-in
+- **Revenue projection:** `REVENUE_STREAMS` array defines 6 streams (GA, VIP, Tournament Entry, Hackathon, BYOC LAN, Exhibitor Booth) with premium international pricing. `renderRevenueBreakdown(total)` renders glass cards per stream, shows/hides based on `featureTied` feature toggle state, re-creates Lucide icons after DOM update.
 - **Print mode:** `@media print` converts dark → light, expands all formats + tabs, hides interactive elements
 
 ## Budget Math (verified)

@@ -993,26 +993,135 @@
             flex-shrink: 0;
         }
 
-        /* Sponsorship Offset */
-        .sponsorship-offset {
-            margin-top: 2.5rem;
-            padding: 1.5rem;
-            background: rgba(0, 212, 255, 0.05);
-            border: 1px solid rgba(0, 212, 255, 0.2);
-            border-radius: 16px;
-            text-align: center;
+        /* Revenue Section */
+        .revenue-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
         }
 
-        .offset-label {
-            font-size: 0.8rem;
-            color: var(--text-tertiary);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+        .revenue-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 2rem;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 1;
+            max-height: 500px;
+            overflow: hidden;
+        }
+
+        .revenue-card.hidden {
+            opacity: 0;
+            max-height: 0;
+            padding: 0;
+            border: 0;
+            margin: 0;
+        }
+
+        .revenue-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .revenue-card-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.25rem;
+        }
+
+        .revenue-card-icon i {
+            width: 24px;
+            height: 24px;
+        }
+
+        .revenue-card h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
             margin-bottom: 0.5rem;
         }
 
-        .offset-range {
-            font-size: 1.4rem;
+        .revenue-card-desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+        }
+
+        .revenue-card-stats {
+            display: flex;
+            gap: 1.5rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--glass-border);
+        }
+
+        .revenue-stat-value {
+            font-size: 1rem;
+            font-weight: 800;
+            color: var(--accent-primary);
+        }
+
+        .revenue-stat-label {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+            margin-top: 0.15rem;
+        }
+
+        .revenue-card-range {
+            margin-top: 1.25rem;
+            padding: 0.75rem 1rem;
+            background: rgba(0, 255, 136, 0.05);
+            border: 1px solid rgba(0, 255, 136, 0.15);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .revenue-range-label {
+            font-size: 0.7rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 0.25rem;
+        }
+
+        .revenue-range-amount {
+            font-size: 1.1rem;
+            font-weight: 800;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .revenue-total {
+            margin-top: 2rem;
+            padding: 1.5rem 2rem;
+            background: rgba(0, 212, 255, 0.05);
+            border: 1px solid rgba(0, 212, 255, 0.2);
+            border-radius: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .revenue-total-label {
+            font-size: 0.85rem;
+            color: var(--text-tertiary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .revenue-total-amount {
+            font-size: 1.5rem;
             font-weight: 800;
             background: var(--gradient-2);
             -webkit-background-clip: text;
@@ -1020,10 +1129,99 @@
             background-clip: text;
         }
 
-        .offset-note {
+        .revenue-total-note {
+            width: 100%;
             font-size: 0.8rem;
             color: var(--text-tertiary);
-            margin-top: 0.25rem;
+        }
+
+        .revenue-scenarios {
+            margin-top: 2.5rem;
+        }
+
+        .revenue-scenarios h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            color: var(--text-primary);
+        }
+
+        .scenario-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            background: var(--glass-bg);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            overflow: hidden;
+        }
+
+        .scenario-table th,
+        .scenario-table td {
+            padding: 0.75rem 1rem;
+            text-align: right;
+            font-size: 0.8rem;
+            border-bottom: 1px solid var(--glass-border);
+        }
+
+        .scenario-table th {
+            background: rgba(255, 255, 255, 0.03);
+            font-weight: 700;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-tertiary);
+        }
+
+        .scenario-table th:first-child,
+        .scenario-table td:first-child {
+            text-align: left;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+
+        .scenario-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .scenario-table .row-total td {
+            border-top: 2px solid var(--glass-border);
+            font-weight: 800;
+            font-size: 0.85rem;
+            color: var(--text-primary);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+
+        .scenario-table .row-total td:first-child {
+            color: var(--text-primary);
+        }
+
+        .scenario-table .row-hidden td {
+            opacity: 0.3;
+            text-decoration: line-through;
+        }
+
+        .scenario-col-conservative { color: var(--text-secondary); }
+        .scenario-col-moderate { color: var(--accent-secondary); }
+        .scenario-col-optimistic { color: var(--accent-primary); }
+
+        @media (max-width: 600px) {
+            .revenue-grid { grid-template-columns: 1fr; }
+            .revenue-card { padding: 1.5rem; }
+            .revenue-total {
+                flex-direction: column;
+                text-align: center;
+                padding: 1.25rem;
+            }
+            .scenario-table th,
+            .scenario-table td {
+                padding: 0.5rem 0.5rem;
+                font-size: 0.7rem;
+            }
+            .scenario-table .row-total td { font-size: 0.75rem; }
         }
 
         /* ==================== SPONSORSHIP ==================== */
@@ -1625,6 +1823,37 @@
 
             .budget-range { display: none; }
 
+            .revenue-card.hidden { display: none; }
+            .revenue-card {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                background: rgba(0, 0, 0, 0.02);
+                border: 1px solid rgba(0, 0, 0, 0.1);
+                box-shadow: none;
+                transform: none !important;
+            }
+            .revenue-total {
+                background: rgba(0, 0, 0, 0.03);
+                border: 1px solid rgba(0, 0, 0, 0.1);
+            }
+            .revenue-total-amount, .revenue-range-amount {
+                background: none;
+                -webkit-background-clip: unset;
+                -webkit-text-fill-color: #111111;
+                color: #111111;
+            }
+            .revenue-stat-value { color: #111111; }
+            .scenario-table {
+                backdrop-filter: none;
+                -webkit-backdrop-filter: none;
+                background: rgba(0, 0, 0, 0.02);
+                border: 1px solid rgba(0, 0, 0, 0.1);
+            }
+            .scenario-table th { background: rgba(0, 0, 0, 0.04); color: #555; }
+            .scenario-table td, .scenario-table td:first-child { color: #333; }
+            .scenario-col-moderate, .scenario-col-optimistic { color: #111 !important; }
+            .scenario-table .row-hidden { display: none; }
+
             .sponsor-targets { border-top-color: rgba(0, 0, 0, 0.1); }
             .sponsor-targets-label { color: #555; }
             .feature-tag { background: rgba(0, 0, 0, 0.05); border-color: rgba(0, 0, 0, 0.15); color: #333; }
@@ -1655,6 +1884,7 @@
                 <a href="#features">Features</a>
                 <a href="#budget">Budget</a>
                 <a href="#sponsorship">Sponsors</a>
+                <a href="#revenue">Revenue</a>
                 <a href="#timeline">Timeline</a>
                 <a href="#impact">Impact</a>
                 <a href="#team">Team</a>
@@ -2081,11 +2311,6 @@
                 <!-- Populated by JS -->
             </div>
 
-            <div class="sponsorship-offset">
-                <div class="offset-label">Potential Sponsorship Cost Recovery</div>
-                <div class="offset-range" id="offset-range">RM 306,000 — RM 433,500</div>
-                <div class="offset-note">Estimated 60–85% offset through sponsorship tiers</div>
-            </div>
         </div>
     </section>
 
@@ -2197,6 +2422,30 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== REVENUE ==================== -->
+    <section id="revenue">
+        <div class="section-header">
+            <div class="section-label">
+                <i data-lucide="trending-up"></i>
+                Revenue Projection
+            </div>
+            <h2>Estimated <span class="text-gradient">Revenue</span></h2>
+            <p class="section-description">Projected income from admission tickets and participation fees for an international-tier esports festival.</p>
+        </div>
+
+        <div class="container">
+            <div class="revenue-grid" id="revenue-streams">
+                <!-- Populated by JS -->
+            </div>
+            <div class="revenue-scenarios" id="revenue-scenarios">
+                <!-- Populated by JS -->
+            </div>
+            <div class="revenue-total" id="revenue-total">
+                <!-- Populated by JS -->
             </div>
         </div>
     </section>
@@ -2632,6 +2881,15 @@
             premium: new Set(['invitational', 'opentourneys', 'hackathon', 'techexpo', 'lanparty', 'tourism', 'broadcast', 'ceremony'])
         };
 
+        const REVENUE_STREAMS = [
+            { id: 'ga', label: 'General Admission', desc: 'Standard festival pass with access to all public areas, side stage viewing, expo floor, and community zones.', icon: 'ticket', iconBg: 'rgba(0, 255, 136, 0.15)', iconColor: 'var(--accent-primary)', lowVol: 3000, highVol: 5000, lowPrice: 79, highPrice: 99, unit: 'pax', featureTied: null },
+            { id: 'vip', label: 'VIP Experience Pass', desc: 'Premium access with reserved main stage seating, backstage meet & greet, VIP lounge, exclusive merch bundle, and priority entry.', icon: 'crown', iconBg: 'rgba(255, 215, 0, 0.15)', iconColor: 'var(--gold)', lowVol: 300, highVol: 600, lowPrice: 299, highPrice: 499, unit: 'pax', featureTied: null },
+            { id: 'tourney', label: 'Tournament Entry Fee', desc: 'Per-team registration for community open tournaments across MLBB, HOK, PUBG Mobile, EA FC 26, and eFootball.', icon: 'swords', iconBg: 'rgba(0, 212, 255, 0.15)', iconColor: 'var(--accent-secondary)', lowVol: 60, highVol: 120, lowPrice: 100, highPrice: 150, unit: 'teams', featureTied: 'opentourneys' },
+            { id: 'hack', label: 'Hackathon Registration', desc: 'Team registration for the gaming tech hackathon — 48-hour build sprint with industry mentors and demo showcase.', icon: 'code', iconBg: 'rgba(0, 212, 255, 0.15)', iconColor: 'var(--accent-secondary)', lowVol: 30, highVol: 50, lowPrice: 200, highPrice: 300, unit: 'teams', featureTied: 'hackathon' },
+            { id: 'lan', label: 'BYOC LAN Seat', desc: 'Reserved LAN party seat with high-speed wired connection, power, and desk space for bring-your-own-PC gaming sessions.', icon: 'monitor', iconBg: 'rgba(255, 159, 28, 0.15)', iconColor: 'var(--accent-warm)', lowVol: 60, highVol: 150, lowPrice: 150, highPrice: 250, unit: 'seats', featureTied: 'lanparty' },
+            { id: 'expo', label: 'Exhibitor Booth', desc: 'Exhibition space for tech brands, gaming hardware, indie studios, and sponsors with foot traffic from 5,000+ attendees.', icon: 'store', iconBg: 'rgba(0, 255, 136, 0.15)', iconColor: 'var(--accent-primary)', lowVol: 10, highVol: 20, lowPrice: 5000, highPrice: 12000, unit: 'booths', featureTied: 'techexpo' }
+        ];
+
         const CORE_TOTAL = Object.values(CORE_COSTS).reduce((s, f) => s + f.cost, 0);
         const MIN_BUDGET = 500000;
         const MAX_BUDGET = 1000000;
@@ -2644,7 +2902,9 @@
         const budgetTierEl = document.getElementById('budget-tier');
         const rangeFillEl = document.getElementById('range-fill');
         const costBreakdownEl = document.getElementById('cost-breakdown');
-        const offsetRangeEl = document.getElementById('offset-range');
+        const revenueStreamsEl = document.getElementById('revenue-streams');
+        const revenueScenariosEl = document.getElementById('revenue-scenarios');
+        const revenueTotalEl = document.getElementById('revenue-total');
 
         // ==================== BUDGET ANIMATION ====================
         let currentDisplayedTotal = 570000;
@@ -2697,10 +2957,8 @@
             }
             budgetTierEl.textContent = tier;
 
-            // Sponsorship offset (60-85%)
-            const low = Math.round(total * 0.6);
-            const high = Math.round(total * 0.85);
-            offsetRangeEl.textContent = 'RM ' + low.toLocaleString() + ' — RM ' + high.toLocaleString();
+            // Revenue breakdown
+            renderRevenueBreakdown(total);
 
             // Update preset button states
             document.querySelectorAll('.preset-btn').forEach(btn => {
@@ -2746,6 +3004,119 @@
             }
 
             costBreakdownEl.innerHTML = html;
+        }
+
+        function renderRevenueBreakdown(total) {
+            let totalLow = 0;
+            let totalHigh = 0;
+
+            let html = '';
+            for (const s of REVENUE_STREAMS) {
+                const visible = s.featureTied === null || activeFeatures.has(s.featureTied);
+                const lowRev = s.lowVol * s.lowPrice;
+                const highRev = s.highVol * s.highPrice;
+                if (visible) {
+                    totalLow += lowRev;
+                    totalHigh += highRev;
+                }
+                html += `
+                    <div class="revenue-card ${visible ? '' : 'hidden'}">
+                        <div class="revenue-card-icon" style="background: ${s.iconBg};">
+                            <i data-lucide="${s.icon}" style="color: ${s.iconColor};"></i>
+                        </div>
+                        <h3>${s.label}</h3>
+                        <p class="revenue-card-desc">${s.desc}</p>
+                        <div class="revenue-card-stats">
+                            <div>
+                                <div class="revenue-stat-value">${s.lowVol.toLocaleString()} – ${s.highVol.toLocaleString()}</div>
+                                <div class="revenue-stat-label">${s.unit}</div>
+                            </div>
+                            <div>
+                                <div class="revenue-stat-value">RM ${s.lowPrice.toLocaleString()} – ${s.highPrice.toLocaleString()}</div>
+                                <div class="revenue-stat-label">per ${s.unit === 'pax' ? 'person' : s.unit === 'teams' ? 'team' : s.unit === 'seats' ? 'seat' : 'booth'}</div>
+                            </div>
+                        </div>
+                        <div class="revenue-card-range">
+                            <div class="revenue-range-label">Projected Revenue</div>
+                            <div class="revenue-range-amount">RM ${lowRev.toLocaleString()} – ${highRev.toLocaleString()}</div>
+                        </div>
+                    </div>`;
+            }
+
+            revenueStreamsEl.innerHTML = html;
+            lucide.createIcons();
+
+            // Scenario table: conservative (low vol × low price), moderate (mid), optimistic (high vol × high price)
+            let tableRows = '';
+            let conTotal = 0, modTotal = 0, optTotal = 0;
+            for (const s of REVENUE_STREAMS) {
+                const visible = s.featureTied === null || activeFeatures.has(s.featureTied);
+                const con = s.lowVol * s.lowPrice;
+                const midVol = Math.round((s.lowVol + s.highVol) / 2);
+                const midPrice = Math.round((s.lowPrice + s.highPrice) / 2);
+                const mod = midVol * midPrice;
+                const opt = s.highVol * s.highPrice;
+                if (visible) {
+                    conTotal += con;
+                    modTotal += mod;
+                    optTotal += opt;
+                }
+                tableRows += `
+                    <tr class="${visible ? '' : 'row-hidden'}">
+                        <td>${s.label}</td>
+                        <td class="scenario-col-conservative">RM ${con.toLocaleString()}</td>
+                        <td class="scenario-col-moderate">RM ${mod.toLocaleString()}</td>
+                        <td class="scenario-col-optimistic">RM ${opt.toLocaleString()}</td>
+                    </tr>`;
+            }
+
+            // Add sponsorship row
+            const sponsorCon = Math.round(total * 0.6);
+            const sponsorMod = Math.round(total * 0.72);
+            const sponsorOpt = Math.round(total * 0.85);
+            conTotal += sponsorCon;
+            modTotal += sponsorMod;
+            optTotal += sponsorOpt;
+
+            tableRows += `
+                <tr>
+                    <td>Sponsorship (60–85%)</td>
+                    <td class="scenario-col-conservative">RM ${sponsorCon.toLocaleString()}</td>
+                    <td class="scenario-col-moderate">RM ${sponsorMod.toLocaleString()}</td>
+                    <td class="scenario-col-optimistic">RM ${sponsorOpt.toLocaleString()}</td>
+                </tr>`;
+
+            revenueScenariosEl.innerHTML = `
+                <h3>Revenue Scenarios</h3>
+                <table class="scenario-table">
+                    <thead>
+                        <tr>
+                            <th>Revenue Stream</th>
+                            <th class="scenario-col-conservative">Conservative</th>
+                            <th class="scenario-col-moderate">Moderate</th>
+                            <th class="scenario-col-optimistic">Optimistic</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        ${tableRows}
+                        <tr class="row-total">
+                            <td>Total Revenue</td>
+                            <td class="scenario-col-conservative">RM ${conTotal.toLocaleString()}</td>
+                            <td class="scenario-col-moderate">RM ${modTotal.toLocaleString()}</td>
+                            <td class="scenario-col-optimistic">RM ${optTotal.toLocaleString()}</td>
+                        </tr>
+                    </tbody>
+                </table>`;
+
+            // Budget coverage summary
+            const conCoverage = Math.round((conTotal / total) * 100);
+            const modCoverage = Math.round((modTotal / total) * 100);
+            const optCoverage = Math.round((optTotal / total) * 100);
+
+            revenueTotalEl.innerHTML = `
+                <div class="revenue-total-label">Budget Coverage</div>
+                <div class="revenue-total-amount">${conCoverage}% — ${modCoverage}% — ${optCoverage}%</div>
+                <div class="revenue-total-note">Conservative / Moderate / Optimistic against RM ${total.toLocaleString()} budget</div>`;
         }
 
         // ==================== TOGGLE HANDLERS ====================
