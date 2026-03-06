@@ -4,71 +4,82 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Static portfolio website for Hazman Hassan — no build system, no package manager, no frameworks. Pure HTML5, CSS3, and vanilla JavaScript served as-is.
+Portfolio and proposal website for Hazman Hassan — hybrid architecture with static HTML pages and Next.js React pages, deployed via Netlify.
 
 **Live site:** [www.zemang.my](https://www.zemang.my)
 **Repository:** github.com/zemang86/kitamenmy
 
 ## Architecture
 
-- **index.html** — Main single-page portfolio (~2,200 lines). Sections: hero (WebGL shader background), services, skills/tools, ventures, stats, portfolio, about, contact.
-- **kltower/index.html** — Gaming in the Sky proposal (~2,450 lines). Interactive esports festival budget configurator for KL Tower. Glassmorphism design, tiered pricing, sponsorship packages.
-- **ntu/index.html** — NTU x WirForce 2026 proposal (~2,050 lines). Interactive budget configurator with 3 presets, 8 toggleable features, tier comparison table, revenue breakdown, impact metrics, sponsorship packages, risk mitigation. See `ntu/CLAUDE.md` for full docs.
-- **src/app/revmediawc26/** — Rev Media × KITAMEN World Cup 2026 livestream production proposal (Next.js). Budget configurator with 3 presets (Essential/Standard/Premium), 8 optional features, tier comparison, quotation generator with printable download. Data layer in `src/lib/budget-data/revmedia.ts`. Client: Rev Social Malaysia Sdn Bhd, from: Kitamen Resources Sdn Bhd.
-- **src/app/holidayai/** — Holiday AI investor proposal (Next.js). 16-slide paginated deck with light mode design (emerald #059669 + gold #d97706 on white), keyboard/touch/dot navigation. Two interactive slides: P&L projection (growth multiplier slider) and investment calculator (investment + valuation sliders, custom input, exit scenarios, funds pie chart). Two app demo slides with phone mockup placeholders for TestFlight screenshots. Data in `src/lib/budget-data/holidayai.ts`. Tone: "AI-powered travel for everyone" — halal features positioned as one perk, not core identity.
-- **roblox/index.html** — Standalone Roblox tournament registration page with retro design.
-- **zakuan/** — Alternative landing pages (index.html, index2.html).
-- **a_index.html** — Archived version with different accent color (#00ff41 vs #00ff88).
-- **backup.html** — Backup of a previous version.
+### Next.js Pages (React, `src/app/`)
 
-Each HTML file is fully self-contained (inline `<style>` + `<script>`). No component system or templating.
+- **src/app/kltower/** — Gaming in the Sky @ KL Tower 2026 proposal. Interactive esports festival budget configurator with toggleable features, 3 presets (Essential/Standard/Premium), partnership model (KL Tower RM 60K + venue vs KITAMEN production + sponsorship), revenue projection cards with 3-scenario table, sponsorship tiers, timeline, impact metrics. Data in `src/lib/budget-data/kltower.ts`, hook in `src/hooks/useBudgetCalculator.ts`. Components in `src/components/budget/`. See `kltower/CLAUDE.md` for full docs.
+- **src/app/revmediawc26/** — Rev Media × KITAMEN World Cup 2026 livestream production proposal. Budget configurator with 3 presets, 8 optional features, tier comparison, quotation generator with printable download. Data in `src/lib/budget-data/revmedia.ts`. Client: Rev Social Malaysia Sdn Bhd.
+- **src/app/holidayai/** — Holiday AI investor proposal. 16-slide paginated deck with light mode design (emerald #059669 + gold #d97706 on white), keyboard/touch/dot navigation, floating arrow buttons. Interactive P&L projection and investment calculator. Data in `src/lib/budget-data/holidayai.ts`.
+- **src/app/holidayai/pnl/** — Holiday AI financial analysis workbook.
+- **src/app/bayu-proposal/** — Bayu Sabah smart tourism AI state funding proposal. 13-slide deck (RM 3M ask) with app screenshots, credit mechanics, competitive landscape. Data in `src/lib/budget-data/bayu-sabah.ts`. Screenshots in `public/bayu-proposal/`.
+- **src/app/ntu/** — NTU x WirForce 2026 budget configurator (React port). Data in `src/lib/budget-data/ntu.ts`.
+
+### Static HTML Pages (self-contained, inline CSS + JS)
+
+- **index.html** — Main single-page portfolio (~2,200 lines). Hero (WebGL shader), services, skills/tools, ventures, stats, portfolio, about, contact.
+- **ntu/index.html** — NTU x WirForce 2026 proposal (static version). See `ntu/CLAUDE.md`.
+- **roblox/index.html** — Roblox tournament registration page.
+- **zakuan/** — Alternative landing pages.
 
 ## Development
 
-No build step. Open HTML files directly in a browser or use any static file server:
-
 ```
-python3 -m http.server 8000
-# or
-npx serve .
+npm run dev          # Next.js dev server on localhost:3000 (for React pages)
+npm run build        # Production build (TypeScript checked)
 ```
 
-No tests, linter, or CI pipeline exists.
+Static HTML files can also be opened directly or served via `python3 -m http.server 8000`.
 
-## External Dependencies (CDN)
+## Key Components (`src/components/budget/`)
 
-- **Lucide Icons** — `unpkg.com/lucide@latest` (icon library, initialized via `lucide.createIcons()`)
-- **Google Fonts** — Inter (weights: 400, 500, 600, 700, 800)
-- **Framer CDN** — Hero profile image hosted on framerusercontent.com
-- **Unsplash** — Portfolio section placeholder images
+- **BudgetConfigurator.tsx** — Main orchestrator: features section + budget calculator + partnership model + revenue section. Uses `useBudgetCalculator` hook for state.
+- **PartnershipModel.tsx** — Deal structure: KL Tower (RM 60K + venue → 100% GA + 50% VIP) vs KITAMEN (production → sponsorship + participation fees).
+- **RevenueBreakdown.tsx** — KL Tower revenue: glass cards per stream + 3-scenario table (conservative/moderate/optimistic). Uses `RevenueStreamKL` type.
+- **NtuRevenueBreakdown.tsx** — NTU revenue: percentage-based bar chart. Uses `RevenueStream` type. Separate component to avoid type conflicts.
+- **BudgetSummaryCard.tsx** — Animated total, range bar, cost breakdown bars.
+- **SponsorshipCards.tsx** — Title/Gold/Silver/Bronze tier cards.
+- **TimelineSection.tsx** — Format switcher (2D1N / 3-Day) + day tabs.
+- **KLTowerHeader.tsx** — Floating pill nav with smooth scroll.
+- **FeatureCard.tsx** — Core (always on) and Optional (toggleable) feature cards.
+- **PresetButtons.tsx** — Essential/Standard/Premium preset switcher.
 
-## Design System (CSS Custom Properties in index.html)
+## Design System
 
-Key variables defined on `:root`:
-- `--bg-primary: #050508` / `--bg-secondary: #0a0a0f` — Dark backgrounds
-- `--accent-primary: #00ff88` (mint green) / `--accent-secondary: #00d4ff` (cyan) / `--accent-tertiary: #a855f7` (purple)
-- `--glass-bg: rgba(255,255,255,0.05)` / `--glass-border: rgba(255,255,255,0.1)` — Glassmorphism effect using `backdrop-filter: blur(20px)`
+Dark glassmorphism theme (CSS custom properties + Tailwind):
+- `--bg-primary: #050508` / `--bg-secondary: #0a0a0f`
+- `--accent-primary: #00ff88` (mint) / `--accent-secondary: #00d4ff` (cyan) / `--accent-tertiary: #a855f7` (purple)
+- `--glass-bg: rgba(255,255,255,0.05)` / `--glass-border: rgba(255,255,255,0.1)` + `backdrop-filter: blur(20px)`
+- Additional: `--gold: #ffd700`, `--accent-warm: #ff9f1c`
 
-Responsive breakpoints: 480px, 768px, 968px.
+Light mode proposals (holidayai, bayu-proposal): emerald #059669 + gold #d97706 on white.
 
-## Key JavaScript Patterns
+## Slide Deck Pattern (holidayai, bayu-proposal)
 
-- **WebGL fragment shader** renders the animated plasma background in the hero section canvas (index.html only).
-- **IntersectionObserver** triggers scroll-reveal animations with staggered delays (all pages).
-- **Counter animation** uses `requestAnimationFrame` to animate statistics from 0 to target values (index.html, ntu/).
-- **Passive scroll listeners** update floating orb positions for parallax effect (all pages).
-- **Budget configurator** (kltower/, ntu/) — `recalculate()` master function drives preset/toggle state, cost breakdown, revenue breakdown, and tier highlighting.
-- **Budget configurator** (revmediawc26/) — React-based with `useMemo`/`useCallback` hooks. Data in `src/lib/budget-data/revmedia.ts`, UI in `RevMediaConfigurator.tsx`. Core RM 32,000 (8 match days), optional features toggle on/off.
-- **Investor proposal** (holidayai/) — 16-slide light-mode paginated deck for Holiday AI seed raise (emerald/gold on white, no dark effects). Data + calculator functions in `src/lib/budget-data/holidayai.ts`, slide deck in `HolidayAIProposal.tsx`. Interactive P&L configurator (growth multiplier 0.5x-2.0x) and investment calculator (sliders for amount/valuation, custom % ↔ RM converter, exit return table, use-of-funds pie). Slides render as white rounded cards on off-white background. Source content from the Holiday AI project at `~/holiday/holiday/docs/thepropopsal.md` (equity terms, RM 500K raise) and `~/holiday/holiday/docs/BUSINESS_MODEL.md` (revenue model, P&L, market sizing).
-- All animations respect `prefers-reduced-motion` media query.
+- Paginated horizontal slides with `translateX(-${current * 100}%)`
+- Floating left/right circle buttons at `top-1/2` (hidden at first/last)
+- Dot indicators at top center
+- Slide counter at bottom right
+- Keyboard (arrow keys, space, home/end) + touch swipe navigation
+
+## External Dependencies
+
+- **Lucide React** — Icon library (Next.js pages)
+- **Lucide CDN** — `unpkg.com/lucide@latest` (static HTML pages)
+- **Google Fonts** — Inter (400-800), Bebas Neue, IBM Plex Mono
+- **Tailwind CSS** — Utility classes (Next.js pages only)
 
 ## Subproject Docs
 
-- **kltower/CLAUDE.md** — KL Tower proposal page details
+- **kltower/CLAUDE.md** — KL Tower proposal details, budget math, section order
 - **ntu/CLAUDE.md** — NTU x WirForce page details, budget logic, JS function reference
 - **ntu/budget.md** — Quick-reference budget numbers
-- **ntu/budgeting.md** — Comprehensive deck brief for Manus (16-slide structure, talking points, deep dives)
 
 ## Assets
 
-Favicons (ico, png at 16/32/180/192/512px) and `og-image.jpg` are in the root. `roblox/edvideo.mp4` is an 18.8MB video asset — be mindful of git history size. `ntu/docs/` contains reference PDFs and deck JPGs (gitignored).
+Favicons (ico, png at 16/32/180/192/512px) and `og-image.jpg` in root. `roblox/edvideo.mp4` is 18.8MB. `ntu/docs/` contains reference PDFs (gitignored). `public/bayu-proposal/` contains 9 app screenshots.
