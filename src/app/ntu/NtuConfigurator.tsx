@@ -13,7 +13,7 @@ import {
 import DynamicIcon from "@/components/ui/DynamicIcon";
 import GlassCard from "@/components/ui/GlassCard";
 import FloatingOrbs from "@/components/effects/FloatingOrbs";
-import RevenueBreakdown from "@/components/budget/RevenueBreakdown";
+import NtuRevenueBreakdown from "@/components/budget/NtuRevenueBreakdown";
 import TierComparisonTable from "@/components/budget/TierComparisonTable";
 import {
   CORE_COSTS,
@@ -649,7 +649,7 @@ export default function NtuConfigurator() {
             <div className="h-px bg-glass-border my-6" />
 
             {/* Revenue Breakdown */}
-            <RevenueBreakdown
+            <NtuRevenueBreakdown
               streams={REVENUE_STREAMS}
               total={total}
               currencyPrefix="$"
