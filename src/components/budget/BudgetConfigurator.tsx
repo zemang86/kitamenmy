@@ -4,12 +4,15 @@ import { useBudgetCalculator } from "@/hooks/useBudgetCalculator";
 import {
   CORE_FEATURES_DISPLAY,
   OPTIONAL_FEATURES,
+  REVENUE_STREAMS_KL,
 } from "@/lib/budget-data/kltower";
 import PresetButtons from "./PresetButtons";
 import { CoreFeatureCard, OptionalFeatureCard } from "./FeatureCard";
 import BudgetSummaryCard from "./BudgetSummaryCard";
+import RevenueBreakdown from "./RevenueBreakdown";
+import PartnershipModel from "./PartnershipModel";
 import SectionHeader from "@/components/ui/SectionHeader";
-import { Calculator, Layers } from "lucide-react";
+import { Calculator, Layers, TrendingUp, Handshake } from "lucide-react";
 import ScrollReveal from "@/components/effects/ScrollReveal";
 
 export default function BudgetConfigurator() {
@@ -91,6 +94,42 @@ export default function BudgetConfigurator() {
           <div className="scroll-reveal">
             <BudgetSummaryCard state={state} />
           </div>
+        </ScrollReveal>
+      </section>
+
+      {/* ==================== PARTNERSHIP MODEL ==================== */}
+      <section id="partnership" className="py-24 px-8 max-[600px]:py-12 max-[600px]:px-4 relative">
+        <ScrollReveal>
+          <SectionHeader
+            label="Deal Structure"
+            labelIcon={<Handshake size={16} />}
+            title="Partnership Model"
+            description="A clean revenue split that aligns incentives — KL Tower provides the stage, KITAMEN delivers the show."
+          />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <PartnershipModel total={state.total} />
+        </ScrollReveal>
+      </section>
+
+      {/* ==================== REVENUE SECTION ==================== */}
+      <section id="revenue" className="py-24 px-8 max-[600px]:py-12 max-[600px]:px-4 relative">
+        <ScrollReveal>
+          <SectionHeader
+            label="Revenue Projection"
+            labelIcon={<TrendingUp size={16} />}
+            title="Estimated Revenue"
+            description="Projected income from admission tickets and participation fees for an international-tier esports festival."
+          />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <RevenueBreakdown
+            streams={REVENUE_STREAMS_KL}
+            activeFeatures={state.activeFeatures}
+            total={state.total}
+          />
         </ScrollReveal>
       </section>
     </>

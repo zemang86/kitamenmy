@@ -53,19 +53,6 @@ export default function BudgetSummaryCard({ state }: BudgetSummaryCardProps) {
       {/* Cost breakdown bars */}
       <CostBreakdown activeFeatures={activeFeatures} />
 
-      {/* Sponsorship offset */}
-      <div className="mt-8 pt-6 border-t border-glass-border text-center">
-        <div className="text-text-secondary text-sm mb-1">
-          Potential Sponsorship Cost Recovery
-        </div>
-        <div className="text-lg font-bold bg-gradient-to-br from-accent-secondary to-accent-tertiary bg-clip-text text-transparent">
-          RM {sponsorLow.toLocaleString()} &mdash; RM{" "}
-          {sponsorHigh.toLocaleString()}
-        </div>
-        <div className="text-text-tertiary text-xs mt-1">
-          Estimated 60--85% offset through sponsorship tiers
-        </div>
-      </div>
     </div>
   );
 }

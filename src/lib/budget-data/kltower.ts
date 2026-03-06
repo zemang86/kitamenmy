@@ -372,6 +372,112 @@ export const IMPACT_STATS: ImpactStat[] = [
   },
 ];
 
+// ---- Revenue streams ------------------------------------------------------
+
+export interface RevenueStreamKL {
+  id: string;
+  label: string;
+  desc: string;
+  note?: string;
+  icon: string;
+  iconBgClass: string;
+  iconColorClass: string;
+  lowVol: number;
+  highVol: number;
+  lowPrice: number;
+  highPrice: number;
+  unit: string;
+  featureTied: string | null;
+}
+
+export const REVENUE_STREAMS_KL: RevenueStreamKL[] = [
+  {
+    id: "ga",
+    label: "General Admission",
+    desc: "Standard festival pass with access to all public areas, side stage viewing, expo floor, and community zones.",
+    note: "Subject to KL Tower venue capacity and fire safety limits.",
+    icon: "Ticket",
+    iconBgClass: "bg-accent-primary/15",
+    iconColorClass: "text-accent-primary",
+    lowVol: 500,
+    highVol: 1000,
+    lowPrice: 79,
+    highPrice: 99,
+    unit: "pax",
+    featureTied: null,
+  },
+  {
+    id: "vip",
+    label: "VIP Experience Pass",
+    desc: "Premium access with reserved main stage seating, backstage meet & greet, VIP lounge, exclusive merch bundle, and priority entry.",
+    icon: "Crown",
+    iconBgClass: "bg-[rgba(255,215,0,0.15)]",
+    iconColorClass: "text-[#ffd700]",
+    lowVol: 300,
+    highVol: 600,
+    lowPrice: 299,
+    highPrice: 499,
+    unit: "pax",
+    featureTied: null,
+  },
+  {
+    id: "tourney",
+    label: "Tournament Entry Fee",
+    desc: "128 teams per team-based title (MLBB, HOK, PUBG Mobile) and 128 players per solo title (EA FC 26, eFootball). Open registration with walk-in and pre-reg slots.",
+    icon: "Swords",
+    iconBgClass: "bg-accent-secondary/15",
+    iconColorClass: "text-accent-secondary",
+    lowVol: 128,
+    highVol: 640,
+    lowPrice: 50,
+    highPrice: 100,
+    unit: "entries",
+    featureTied: "opentourneys",
+  },
+  {
+    id: "hack",
+    label: "Hackathon Registration",
+    desc: "Team registration for the gaming tech hackathon — 48-hour build sprint with industry mentors and demo showcase.",
+    icon: "Code2",
+    iconBgClass: "bg-accent-secondary/15",
+    iconColorClass: "text-accent-secondary",
+    lowVol: 30,
+    highVol: 50,
+    lowPrice: 200,
+    highPrice: 300,
+    unit: "teams",
+    featureTied: "hackathon",
+  },
+  {
+    id: "lan",
+    label: "BYOC LAN Seat",
+    desc: "Reserved LAN party seat with high-speed wired connection, power, and desk space for bring-your-own-PC gaming sessions. Includes overnight access for multi-day formats.",
+    icon: "Monitor",
+    iconBgClass: "bg-accent-warm/15",
+    iconColorClass: "text-accent-warm",
+    lowVol: 200,
+    highVol: 300,
+    lowPrice: 150,
+    highPrice: 250,
+    unit: "seats",
+    featureTied: "lanparty",
+  },
+  {
+    id: "expo",
+    label: "Exhibitor Booth",
+    desc: "Exhibition space for tech brands, gaming hardware, indie studios, and sponsors with foot traffic from 5,000+ attendees.",
+    icon: "Store",
+    iconBgClass: "bg-accent-primary/15",
+    iconColorClass: "text-accent-primary",
+    lowVol: 5,
+    highVol: 10,
+    lowPrice: 5000,
+    highPrice: 12000,
+    unit: "booths",
+    featureTied: "techexpo",
+  },
+];
+
 // ---- Marquee items --------------------------------------------------------
 
 export interface MarqueeItem {
