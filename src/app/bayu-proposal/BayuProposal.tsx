@@ -165,7 +165,7 @@ export default function BayuProposal() {
         </div>
         <p className="text-[clamp(1rem,2.5vw,1.5rem)] text-[#64748b] mb-2">{TAGLINE}</p>
         <p className="text-[clamp(0.8rem,1.2vw,1rem)] text-[#94a3b8] mb-12 max-w-xl mx-auto">
-          AI-powered smart tourism platform for Sabah. State-backed digital wallet. Real-time government dashboard. 200+ local operators.
+          AI-powered smart tourism platform for Sabah. State-backed digital wallet stimulus. Real-time government dashboard. 200+ local operators.
         </p>
         <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
           {COVER_STATS.map((s) => (
@@ -178,7 +178,7 @@ export default function BayuProposal() {
           ))}
         </div>
         <p className="text-[#94a3b8] text-xs mt-12 font-[family-name:var(--font-ibm-plex-mono)]">
-          State Government Funding Proposal &mdash; Kementerian Pelancongan, Kebudayaan dan Alam Sekitar Sabah
+          Kementerian Pelancongan, Kebudayaan dan Alam Sekitar Sabah
         </p>
       </div>
     </Slide>,
@@ -304,7 +304,7 @@ export default function BayuProposal() {
 
     // ── 6: The Math (Bayu Credits) ──
     <Slide key="credits">
-      <SlideHeader tag="The Math" title="RM 500K = RM 5-20M Economic Impact" subtitle="Why Bayu Credits beat traditional tourism vouchers." />
+      <SlideHeader tag="The Math" title="Every RM 1 = RM 5-20 Economic Impact" subtitle="Why Bayu Credits beat traditional tourism vouchers." />
       <div className="flex flex-col lg:flex-row gap-8">
         {/* Left: Multiplier visual */}
         <div className="flex-1 space-y-3">
@@ -360,15 +360,15 @@ export default function BayuProposal() {
 
     // ── 5: Budget Breakdown ──
     <Slide key="budget">
-      <SlideHeader tag="Budget" title="RM 3,000,000 Allocation" subtitle="Every ringgit accounted for with milestone-based disbursement." />
+      <SlideHeader tag="Budget" title="Fund Allocation" subtitle="Every ringgit accounted for with milestone-based disbursement." />
       <div className="flex flex-col lg:flex-row gap-8 items-start">
         {/* Pie chart */}
         <div className="flex-shrink-0 mx-auto">
           <div className="relative w-[240px] h-[240px] rounded-full" style={{ background: fundsPieGradient() }}>
             <div className="absolute inset-[30%] bg-white rounded-full flex items-center justify-center">
               <div className="text-center">
-                <div className="text-xl font-bold font-[family-name:var(--font-ibm-plex-mono)] bg-gradient-to-r from-[#0891b2] to-[#059669] bg-clip-text text-transparent">RM 3M</div>
-                <div className="text-[10px] text-[#94a3b8]">TOTAL ASK</div>
+                <div className="text-xl font-bold font-[family-name:var(--font-ibm-plex-mono)] bg-gradient-to-r from-[#0891b2] to-[#059669] bg-clip-text text-transparent">100%</div>
+                <div className="text-[10px] text-[#94a3b8]">ALLOCATION</div>
               </div>
             </div>
           </div>
@@ -385,7 +385,7 @@ export default function BayuProposal() {
                 <div className="flex-1">
                   <div className="flex justify-between items-baseline">
                     <span className="text-sm font-medium text-[#1e293b]">{a.label}</span>
-                    <span className="text-sm font-bold font-[family-name:var(--font-ibm-plex-mono)]" style={{ color: a.color }}>{fmtRM(a.amount)}</span>
+                    <span className="text-sm font-bold font-[family-name:var(--font-ibm-plex-mono)]" style={{ color: a.color }}>{a.pct}%</span>
                   </div>
                   <div className="h-2 bg-[#f1f5f9] rounded-full mt-1 overflow-hidden">
                     <div className="h-full rounded-full" style={{ width: `${a.pct}%`, backgroundColor: a.color }} />
@@ -398,7 +398,7 @@ export default function BayuProposal() {
         </div>
       </div>
       <p className="text-center text-[#94a3b8] text-xs mt-8 font-[family-name:var(--font-ibm-plex-mono)]">
-        Disbursement: 40% on approval &bull; 30% at Phase 2 milestone &bull; 30% at Phase 3 milestone
+        Disbursement: 40% on approval &bull; 30% at Phase 2 &bull; 30% at Phase 3
       </p>
     </Slide>,
 
@@ -540,13 +540,13 @@ export default function BayuProposal() {
     <Slide key="close">
       <div className="text-center">
         <span className="inline-block text-[0.65rem] font-semibold tracking-[0.2em] uppercase text-[#d97706] py-1.5 px-3 border border-[#d97706]/20 bg-[#d97706]/5 font-[family-name:var(--font-ibm-plex-mono)] mb-6">
-          THE ASK
+          LET&apos;S BUILD THIS
         </span>
         <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-bold bg-gradient-to-r from-[#0891b2] to-[#059669] bg-clip-text text-transparent leading-tight mb-4">
-          RM 3,000,000
+          Sabah&apos;s Digital Tourism Future
         </h2>
         <p className="text-[#64748b] text-lg mb-10 max-w-xl mx-auto">
-          One-time state investment to build Sabah&apos;s digital tourism future. Self-sustaining by Year 2. Dashboard and data belong to the state permanently.
+          Self-sustaining by Year 2. Dashboard and data belong to the state permanently.
         </p>
         {/* Terms */}
         <Card className="p-6 sm:p-8 max-w-2xl mx-auto text-left mb-8" accent>

@@ -226,6 +226,21 @@ export const COMPETITORS: Competitor[] = [
     holidayAI: "AI-generated — we tell you what's best",
   },
   {
+    name: "Booking.com",
+    weakness: "Accommodation-heavy, no trip planning or itinerary",
+    holidayAI: "Full itinerary with flights, stays & activities",
+  },
+  {
+    name: "Trip.com",
+    weakness: "OTA with no personalization, generic recommendations",
+    holidayAI: "AI-curated plans tailored to your preferences",
+  },
+  {
+    name: "Skyscanner",
+    weakness: "Flight comparison only — no hotels, no itinerary",
+    holidayAI: "All-in-one: flights + stays + activities in one plan",
+  },
+  {
     name: "Google Travel",
     weakness: "Aggregator only, no booking, no personalization",
     holidayAI: "End-to-end booking with cultural filters",

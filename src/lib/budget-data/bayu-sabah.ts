@@ -1,11 +1,8 @@
 // ── Bayu Sabah — State Government Funding Proposal Data ──
 
 export const TAGLINE = "Sabah Smart Tourism AI Platform";
-export const ASK_TOTAL = 3_000_000;
 
 export const COVER_STATS = [
-  { value: "RM 3M", label: "Funding Ask" },
-  { value: "RM 500K", label: "Bayu Credits" },
   { value: "5-20x", label: "ROI Multiplier" },
   { value: "200+", label: "Local Operators" },
   { value: "7/7", label: "Districts" },
@@ -95,9 +92,7 @@ export const PLATFORM_FEATURES = [
 
 // ── Slide 3: Bayu Credits — The Math ──
 export const CREDIT_MECHANICS = {
-  investment: 500_000,
   creditValue: 500,
-  creditQuantity: 1_000,
   minSpendRequired: 1_500,
   avgActualSpend: 3_000,
   redemptionRate: 0.85,
@@ -106,29 +101,29 @@ export const CREDIT_MECHANICS = {
 
 export const CREDIT_PROJECTIONS = [
   {
-    label: "State Investment",
-    value: "RM 500,000",
-    detail: "1,000 x RM 500 credits",
+    label: "Per Credit Issued",
+    value: "RM 500",
+    detail: "Redeemable with Sabah operators",
     multiplier: "1.0x",
     color: "#64748b",
   },
   {
     label: "Minimum Guaranteed Spend",
-    value: "RM 1,500,000",
-    detail: "1,000 x RM 1,500 min spend",
+    value: "RM 1,500",
+    detail: "Per credit holder (min spend rule)",
     multiplier: "3.0x",
     color: "#059669",
   },
   {
     label: "Realistic Spend",
-    value: "RM 2,550,000",
-    detail: "850 redeemed x RM 3,000 avg",
-    multiplier: "5.1x",
+    value: "RM 3,000",
+    detail: "Average actual spend per holder",
+    multiplier: "5-6x",
     color: "#0891b2",
   },
   {
     label: "With Tourism Multiplier",
-    value: "RM 5.1M - 10.2M",
+    value: "10-20x",
     detail: "2x-3x secondary spend (F&B, retail, transport)",
     multiplier: "10-20x",
     color: "#d97706",
@@ -149,12 +144,12 @@ export const CREDIT_INSIGHT =
 
 // ── Slide 4: Budget Breakdown ──
 export const FUND_ALLOCATIONS = [
-  { label: "Platform Development", amount: 1_200_000, pct: 40, color: "#0891b2", icon: "Code" },
-  { label: "Bayu Credit Stimulus", amount: 500_000, pct: 17, color: "#059669", icon: "Wallet" },
-  { label: "Marketing & Launch", amount: 500_000, pct: 17, color: "#7C3AED", icon: "Megaphone" },
-  { label: "Operator Onboarding", amount: 400_000, pct: 13, color: "#d97706", icon: "Users" },
-  { label: "Cloud & Security", amount: 250_000, pct: 8, color: "#0EA5E9", icon: "Cloud" },
-  { label: "Operations & Contingency", amount: 150_000, pct: 5, color: "#6B7280", icon: "Settings" },
+  { label: "Platform Development", pct: 40, color: "#0891b2", icon: "Code" },
+  { label: "Bayu Credit Stimulus", pct: 17, color: "#059669", icon: "Wallet" },
+  { label: "Marketing & Launch", pct: 17, color: "#7C3AED", icon: "Megaphone" },
+  { label: "Operator Onboarding", pct: 13, color: "#d97706", icon: "Users" },
+  { label: "Cloud & Security", pct: 8, color: "#0EA5E9", icon: "Cloud" },
+  { label: "Operations & Contingency", pct: 5, color: "#6B7280", icon: "Settings" },
 ];
 
 export const PLATFORM_DEV_ITEMS = [
@@ -246,7 +241,7 @@ export const TIMELINE = [
       "200+ operators across all 7 districts",
       "Government dashboard live",
       "National marketing campaign",
-      "1,000 Bayu Credits distributed",
+      "Bayu Credits distributed state-wide",
       "Public App Store + Play Store launch",
     ],
   },
@@ -270,7 +265,7 @@ export const KPIS = [
   { metric: "App Downloads", target: "50,000", icon: "Download" },
   { metric: "Monthly Active Users", target: "10,000", icon: "Users" },
   { metric: "Operators Onboarded", target: "200+", icon: "Store" },
-  { metric: "Credits Redeemed", target: "850 / 1,000", icon: "Wallet" },
+  { metric: "Credit Redemption Rate", target: "85%+", icon: "Wallet" },
   { metric: "Tourism Spend (platform)", target: "RM 2.5M+", icon: "TrendingUp" },
   { metric: "Districts Covered", target: "7 / 7", icon: "MapPin" },
   { metric: "App Rating", target: "4.5+ stars", icon: "Star" },
@@ -302,7 +297,7 @@ export const TEAM = [
 
 // ── Slide 10: Terms ──
 export const TERMS = [
-  "Funding disbursed in 3 tranches: 40% approval, 30% Phase 2, 30% Phase 3",
+  "Funding disbursed in 3 tranches: 40% on approval, 30% at Phase 2, 30% at Phase 3",
   "Quarterly progress reports with full financial transparency",
   "IP co-owned by state and development team",
   "Platform data belongs to the state permanently",
