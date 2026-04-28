@@ -14,7 +14,7 @@ interface PartnershipModelProps {
 }
 
 export default function PartnershipModel({ total }: PartnershipModelProps) {
-  const klCommitment = 60_000;
+  const klCommitment = 100_000;
   const productionGap = total - klCommitment;
 
   return (
@@ -131,7 +131,7 @@ export default function PartnershipModel({ total }: PartnershipModelProps) {
             </div>
             <div className="text-sm font-semibold mb-1">KL Tower Breaks Even</div>
             <p className="text-text-tertiary text-xs leading-relaxed">
-              RM 60K commitment is recoverable from ticket sales alone — conservative estimate already covers it
+              RM 100K commitment is recoverable from ticket sales alone — conservative estimate already covers it
             </p>
           </div>
           <div className="text-center p-4">

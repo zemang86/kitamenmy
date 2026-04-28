@@ -870,10 +870,10 @@ These are the realistic in-kind / sponsor-funded offsets that reduce **net cash 
 | Hardware sponsor (ROG / GIGABYTE / Razer) | LAN PCs + stage rigs in-kind | 60,000 |
 | Cloud sponsor (AWS / Vercel / OpenAI) | Hackathon credits | 30,000 |
 | Beverage sponsor (100PLUS / Red Bull) | Hydration in-kind | 15,000 |
-| KL Tower contribution | RM 60K + venue (per existing model) | 60,000+ |
-| **Total realistic offset** | | **~495,000** |
+| KL Tower contribution | RM 100K + venue (per existing model) | 100,000+ |
+| **Total realistic offset** | | **~535,000** |
 
-**Net cash burn (gross RM 2.4M − offsets RM 495K):** ~**RM 1.9M**.
+**Net cash burn (gross RM 2.4M − offsets RM 535K):** ~**RM 1.87M**.
 **Sponsorship target to break even:** RM 1.9M across Title + Gold + Silver + Bronze tiers.
 
 ---

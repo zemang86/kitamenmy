@@ -13,7 +13,7 @@ Portfolio and proposal website for Hazman Hassan — hybrid architecture with st
 
 ### Next.js Pages (React, `src/app/`)
 
-- **src/app/kltower/** — Gaming in the Sky @ KL Tower 2026 proposal. Interactive esports festival budget configurator with toggleable features, 3 presets (Essential/Standard/Premium), partnership model (KL Tower RM 60K + venue vs KITAMEN production + sponsorship), revenue projection cards with 3-scenario table, sponsorship tiers, timeline, impact metrics. Data in `src/lib/budget-data/kltower.ts`, hook in `src/hooks/useBudgetCalculator.ts`. Components in `src/components/budget/`. See `kltower/CLAUDE.md` for full docs.
+- **src/app/kltower/** — Gaming in the Sky @ KL Tower 2026 proposal. Interactive esports festival budget configurator with toggleable features, 3 presets (Essential/Standard/Premium), partnership model (KL Tower RM 100K + venue vs KITAMEN production + sponsorship), revenue projection cards with 3-scenario table, sponsorship tiers, timeline, impact metrics. Data in `src/lib/budget-data/kltower.ts`, hook in `src/hooks/useBudgetCalculator.ts`. Components in `src/components/budget/`. See `kltower/CLAUDE.md` for full docs.
 - **src/app/revmediawc26/** — Rev Media × KITAMEN World Cup 2026 livestream production proposal. Budget configurator with 3 presets, 8 optional features, tier comparison, quotation generator with printable download. Data in `src/lib/budget-data/revmedia.ts`. Client: Rev Social Malaysia Sdn Bhd.
 - **src/app/holidayai/** — Holiday AI investor proposal. 16-slide paginated deck with light mode design (emerald #059669 + gold #d97706 on white), keyboard/touch/dot navigation, floating arrow buttons. Interactive P&L projection and investment calculator. Data in `src/lib/budget-data/holidayai.ts`.
 - **src/app/holidayai/pnl/** — Holiday AI financial analysis workbook.
@@ -39,7 +39,7 @@ Static HTML files can also be opened directly or served via `python3 -m http.ser
 ## Key Components (`src/components/budget/`)
 
 - **BudgetConfigurator.tsx** — Main orchestrator: features section + budget calculator + partnership model + revenue section. Uses `useBudgetCalculator` hook for state.
-- **PartnershipModel.tsx** — Deal structure: KL Tower (RM 60K + venue → 100% GA + 50% VIP) vs KITAMEN (production → sponsorship + participation fees).
+- **PartnershipModel.tsx** — Deal structure: KL Tower (RM 100K + venue → 100% GA + 50% VIP) vs KITAMEN (production → sponsorship + participation fees).
 - **RevenueBreakdown.tsx** — KL Tower revenue: glass cards per stream + 3-scenario table (conservative/moderate/optimistic). Uses `RevenueStreamKL` type.
 - **NtuRevenueBreakdown.tsx** — NTU revenue: percentage-based bar chart. Uses `RevenueStream` type. Separate component to avoid type conflicts.
 - **BudgetSummaryCard.tsx** — Animated total, range bar, cost breakdown bars.

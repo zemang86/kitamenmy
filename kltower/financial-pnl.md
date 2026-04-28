@@ -13,11 +13,11 @@
 |---|---|---|---|
 | Total cash revenue | RM 1.22M | **RM 2.31M** | RM 3.59M |
 | Total cash cost | RM 2.40M | **RM 2.40M** | RM 2.40M |
-| In-kind sponsor offset | RM 250K | **RM 495K** | RM 700K |
-| Net cash cost | RM 2.15M | **RM 1.91M** | RM 1.70M |
-| **Net P&L** | **−RM 0.93M (loss)** | **+RM 0.40M (profit)** | **+RM 1.89M (profit)** |
-| Net margin | −76% | **+17%** | +53% |
-| Break-even revenue (cash) | RM 1.91M | RM 1.91M | RM 1.91M |
+| In-kind sponsor offset | RM 280K | **RM 535K** | RM 745K |
+| Net cash cost | RM 2.12M | **RM 1.87M** | RM 1.66M |
+| **Net P&L** | **−RM 0.90M (loss)** | **+RM 0.44M (profit)** | **+RM 1.93M (profit)** |
+| Net margin | −74% | **+19%** | +54% |
+| Break-even revenue (cash) | RM 1.87M | RM 1.87M | RM 1.87M |
 | Y1 strategic framing | Loss-leader pilot | **Modest profit + franchise built** | Strong launch |
 
 **Recommendation:** Plan to **Realistic** scenario. Pitch as **"break-even to modest Y1 profit + scalable franchise."**
@@ -93,16 +93,16 @@
 | Hardware sponsor — LAN PCs + stage rigs in-kind | 60,000 |
 | Cloud sponsor — hackathon API credits | 30,000 |
 | Beverage sponsor — hydration in-kind | 15,000 |
-| KL Tower — RM 60K + venue (per existing partnership) | 60,000 |
-| **Total Realistic In-Kind Offset** | **495,000** |
+| KL Tower — RM 100K + venue (per existing partnership) | 100,000 |
+| **Total Realistic In-Kind Offset** | **535,000** |
 
 ### 2.3 Net Cash Cost After Offsets
 
 | Scenario | Gross Cost | In-Kind Offset | Net Cash Cost |
 |---|---|---|---|
-| Conservative (50% of offsets achieved) | 2,400,000 | 250,000 | **2,150,000** |
-| Realistic (full offsets achieved) | 2,400,000 | 495,000 | **1,905,000** |
-| Optimistic (offsets exceeded) | 2,400,000 | 700,000 | **1,700,000** |
+| Conservative (50% of offsets achieved) | 2,400,000 | 280,000 | **2,120,000** |
+| Realistic (full offsets achieved) | 2,400,000 | 535,000 | **1,865,000** |
+| Optimistic (offsets exceeded) | 2,400,000 | 745,000 | **1,655,000** |
 
 ---
 
@@ -113,9 +113,9 @@
 | Line | Conservative | Realistic | Optimistic |
 |---|---|---|---|
 | Total Cash Revenue | 1,217,807 | 2,307,665 | 3,587,680 |
-| Net Cash Cost | (2,150,000) | (1,905,000) | (1,700,000) |
-| **Net Cash P&L** | **(932,193)** | **402,665** | **1,887,680** |
-| **Net Margin %** | **−76.6%** | **+17.4%** | **+52.6%** |
+| Net Cash Cost | (2,120,000) | (1,865,000) | (1,655,000) |
+| **Net Cash P&L** | **(902,193)** | **442,665** | **1,932,680** |
+| **Net Margin %** | **−74.1%** | **+19.2%** | **+53.9%** |
 
 ### 3.2 Sensitivity Drivers (Realistic Scenario)
 
@@ -177,9 +177,9 @@ To break even on net cash cost (RM 1.91M, Realistic scenario):
 ### 5.3 Break-Even Attendee Count (Tickets Only View)
 
 If sponsorship at Realistic (RM 1.2M), other non-ticket revenue at Realistic (RM 495K):
-- Remaining gap to break-even: RM 210K
+- Remaining gap to break-even: RM 170K
 - Average ticket revenue net to event: ~RM 145
-- **Break-even attendee count: ~1,450 paid attendees** (vs. forecast 3,500)
+- **Break-even attendee count: ~1,180 paid attendees** (vs. forecast 3,500)
 
 This is a **defensible position** — even at 40% of forecast attendance, the event breaks even.
 
@@ -292,15 +292,15 @@ This is the number to defend in CFO review.
 ## Appendix A — Reconciliation to Public Calculator
 
 The public website calculator at `/kltower` shows scope of RM 500K–1M. This represents the **net production cost to KITAMEN** after:
-- KL Tower contribution (RM 60K + venue): −RM 100K equivalent
-- Sponsorship in-kind offset: −RM 495K
+- KL Tower contribution (RM 100K + venue): −RM 140K equivalent
+- Sponsorship in-kind offset: −RM 535K
 - Sponsorship cash applied to costs: −RM 700K to RM 1M
 
 Full P&L reconciliation:
 - Gross cost: RM 2.4M
-- Less in-kind: −RM 495K
+- Less in-kind: −RM 535K
 - Less sponsorship cash applied to cost (vs. distributed as profit): up to RM 1.0M
-- = Net production scope: ~RM 905K (roughly aligned with calculator's RM 750K–1M range)
+- = Net production scope: ~RM 865K (roughly aligned with calculator's RM 750K–1M range)
 
 The calculator is **directionally correct** for production scope but understates the gross commercial event size. Both views are valid for different audiences:
 - Calculator: KL Tower-facing operational scope

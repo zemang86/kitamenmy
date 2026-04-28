@@ -106,10 +106,10 @@ export const IN_KIND_OFFSETS: InKindOffset[] = [
   },
   {
     partner: "KL Tower",
-    description: "RM 60K cash + venue & facilities (existing partnership)",
-    conservative: 30_000,
-    realistic: 60_000,
-    optimistic: 85_000,
+    description: "RM 100K cash + venue & facilities (existing partnership)",
+    conservative: 60_000,
+    realistic: 100_000,
+    optimistic: 130_000,
   },
 ];
 

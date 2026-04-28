@@ -326,7 +326,7 @@ F&B vendors pay stall fee (§F) + 15% revenue share on gross sales.
 | **Realistic target (recommended)** | **RM 1.2M** | Comfortable Y1, +RM 400K profit, franchise built |
 | **Stretch ambition** | **RM 1.8M** | Premium Y1, +RM 1.9M profit, scales fast to Y2 |
 
-**Plus in-kind offsets (non-cash, RM 495K target):**
+**Plus in-kind offsets (non-cash, RM 535K target):**
 
 | Partner Type | In-Kind Value (RM) |
 |---|---|
@@ -336,10 +336,10 @@ F&B vendors pay stall fee (§F) + 15% revenue share on gross sales.
 | Hardware sponsor — LAN PCs + stage rigs | 60,000 |
 | Cloud sponsor — hackathon API credits | 30,000 |
 | Beverage sponsor — hydration in-kind | 15,000 |
-| KL Tower — RM 60K + venue (existing partnership) | 60,000 |
-| **Total In-Kind Target** | **495,000** |
+| KL Tower — RM 100K + venue (existing partnership) | 100,000 |
+| **Total In-Kind Target** | **535,000** |
 
-**Combined sponsor value (cash + in-kind): RM 1.7M** — covers ~70% of the gross RM 2.4M event cost. The other ~30% (RM 1.1M) comes from tickets, booths, merch, F&B, and add-ons.
+**Combined sponsor value (cash + in-kind): RM 1.74M** — covers ~72% of the gross RM 2.4M event cost. The other ~28% (RM 1.06M) comes from tickets, booths, merch, F&B, and add-ons.
 
 ---
 
